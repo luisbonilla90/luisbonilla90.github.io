@@ -3,6 +3,7 @@
 **Software Engineer | Technical Lead | Innovation Consultant**  
 San José, Costa Rica · +506 8724 6759  
 📧 alboni90@gmail.com / lbonillav7@gmail.com
+**🌐 Personal Website:** [luisbonilla90.github.io](https://luisbonilla90.github.io/)
 
 ## 🧭 Professional Summary
 

@@ -1,119 +1,125 @@
 
-const STORAGE_KEY = 'site_theme_v1';
-const DARK_THEME = 'dark';
-const LIGHT_THEME = 'light';
-const PROFESSIONAL_THEME = 'professional';
-const THEMES = [LIGHT_THEME, DARK_THEME, PROFESSIONAL_THEME];
+/**
+ * Theme Manager - Clean Architecture Implementation
+ * Single Responsibility: Orchestrates theme changes using injected dependencies
+ * Open/Closed: Extensible through dependency injection
+ * Dependency Inversion: Depends on abstractions, not concrete implementations
+ */
 
-export class ThemeManager{
-  constructor(options){
-    const opts = options || {};
-    const providedLabels = (opts && opts.labels) || {};
+import { Theme, ThemeConfig } from './theme-model.js';
+import { 
+  LocalStorageThemeAdapter, 
+  DOMThemeUIAdapter, 
+  WindowEventDispatcher 
+} from './adapters.js';
 
-    this.labels = {
-      toggle: providedLabels.toggle || 'Toggle between light and dark theme'
-    };
+export class ThemeManager {
+  constructor(dependencies = {}) {
+    // Dependency Injection - follows Dependency Inversion Principle
+    this._storageAdapter = dependencies.storageAdapter || new LocalStorageThemeAdapter();
+    this._uiAdapter = dependencies.uiAdapter || new DOMThemeUIAdapter();
+    this._eventDispatcher = dependencies.eventDispatcher || new WindowEventDispatcher();
 
-    this.boundToggle = this.toggleTheme.bind(this);
-    this.listenerAttached = false;
+    // Current state
+    this._currentTheme = null;
+    this._boundToggleHandler = this._handleToggleClick.bind(this);
+    this._isListenerAttached = false;
 
-    this.resolveToggleElements();
-    this.currentTheme = this.safeGetStoredTheme();
-    this.init();
-  }
-
-  init(){
-    this.applyTheme(this.currentTheme);
-    this.setupListeners();
-  }
-
-  resolveToggleElements(){
-    this.toggleBtn = document.getElementById('theme-toggle') || null;
-    this.iconElement = this.toggleBtn
-      ? this.toggleBtn.querySelector('[data-theme-icon]')
-      : null;
-  }
-
-  applyTheme(theme){
-    document.documentElement.setAttribute('data-theme', theme);
-    this.safeStoreTheme(theme);
-    this.currentTheme = theme;
-
-    // Update toggle button UI to reflect the active theme
-    this.updateToggleButton(theme);
-
-    // Emit a global event in case other modules need to react
-    window.dispatchEvent(new CustomEvent('themeChanged',{detail:theme}));
+    this._initialize();
   }
 
   /**
-   * Update the theme toggle button icon and accessibility attributes.
-   * - Shows ☀️ (sun) when dark theme is active
-   * - Shows 🌙 (moon) when light theme is active
-   * - Shows 💻 (laptop) when professional theme is active
+   * Get current theme
    */
-  updateToggleButton(theme){
-    if (!this.toggleBtn || !document.contains(this.toggleBtn)) {
-      this.resolveToggleElements();
-    }
-
-    const btn = this.toggleBtn;
-    if (!btn) return;
-
-    if (!this.iconElement || !btn.contains(this.iconElement)) {
-      this.iconElement = btn.querySelector('[data-theme-icon]');
-    }
-
-    if (this.iconElement) {
-      const icon = theme === DARK_THEME ? '☀️' : theme === LIGHT_THEME ? '🌙' : '💻';
-      this.iconElement.textContent = icon;
-    }
-
-    btn.setAttribute('aria-pressed', theme !== LIGHT_THEME ? 'true' : 'false');
-    btn.setAttribute('aria-label', `${this.labels.toggle} (current: ${theme})`);
+  getCurrentTheme() {
+    return this._currentTheme;
   }
 
-  setupListeners(){
-    if (!this.toggleBtn || !document.contains(this.toggleBtn)) {
-      this.resolveToggleElements();
-    }
+  /**
+   * Apply a new theme
+   */
+  applyTheme(themeType) {
+    const theme = Theme.fromString(themeType);
+    
+    this._setDocumentTheme(theme);
+    this._persistTheme(theme);
+    this._updateUI(theme);
+    this._notifyThemeChanged(theme);
+    
+    this._currentTheme = theme;
+  }
 
-    if (this.toggleBtn && !this.listenerAttached) {
-      this.toggleBtn.addEventListener('click', this.boundToggle);
-      this.listenerAttached = true;
+  /**
+   * Toggle to next theme in sequence
+   */
+  toggleTheme() {
+    if (!this._currentTheme) return;
+    
+    const nextTheme = Theme.getNextTheme(this._currentTheme);
+    this.applyTheme(nextTheme.type);
+  }
+
+  /**
+   * Setup event listeners
+   */
+  setupEventListeners() {
+    if (!this._isListenerAttached) {
+      const success = this._uiAdapter.attachToggleListener(this._boundToggleHandler);
+      this._isListenerAttached = success;
     }
   }
 
-  destroy(){
-    if (this.toggleBtn && this.listenerAttached) {
-      this.toggleBtn.removeEventListener('click', this.boundToggle);
-      this.listenerAttached = false;
+  /**
+   * Clean up resources
+   */
+  destroy() {
+    if (this._isListenerAttached) {
+      this._uiAdapter.detachToggleListener(this._boundToggleHandler);
+      this._isListenerAttached = false;
     }
   }
 
-  toggleTheme(){
-    const idx = THEMES.indexOf(this.currentTheme);
-    const next = THEMES[(idx+1)%THEMES.length];
-    this.applyTheme(next);
+  // Private methods - Single Responsibility Principle
+
+  _initialize() {
+    const storedTheme = this._loadStoredTheme();
+    this._currentTheme = Theme.fromString(storedTheme);
+    this.applyTheme(this._currentTheme.type);
+    this.setupEventListeners();
   }
 
-  safeGetStoredTheme(){
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (THEMES.includes(stored)) {
-        return stored;
-      }
-    } catch (e) {
-      // Ignore storage errors (e.g. private mode)
-    }
-    return LIGHT_THEME;
+  _loadStoredTheme() {
+    const stored = this._storageAdapter.getStoredTheme();
+    return stored || ThemeConfig.DEFAULT_THEME;
   }
 
-  safeStoreTheme(theme){
-    try {
-      localStorage.setItem(STORAGE_KEY, theme);
-    } catch (e) {
-      // Ignore storage errors (e.g. storage disabled)
-    }
+  _setDocumentTheme(theme) {
+    this._uiAdapter.setDocumentTheme(theme.type);
+  }
+
+  _persistTheme(theme) {
+    this._storageAdapter.storeTheme(theme.type);
+  }
+
+  _updateUI(theme) {
+    const uiConfig = {
+      icon: theme.getIcon(),
+      ariaPressed: theme.getAriaPressed(),
+      ariaLabel: theme.getAccessibilityLabel()
+    };
+    
+    this._uiAdapter.updateToggleButton(theme.type, uiConfig);
+  }
+
+  _notifyThemeChanged(theme) {
+    this._eventDispatcher.dispatch('themeChanged', { 
+      theme: theme.type,
+      timestamp: new Date().toISOString()
+    });
+  }
+
+  _handleToggleClick(event) {
+    event?.preventDefault();
+    this.toggleTheme();
   }
 }

@@ -1,78 +1,107 @@
 /**
- * Resume Downloader Component
- * Fetches the markdown resume, converts it to HTML, and generates a PDF
+ * Resume Downloader Component - Clean Architecture Implementation
+ * Single Responsibility: Orchestrates resume download using injected services
+ * Open/Closed: Extensible through dependency injection
+ * Dependency Inversion: Depends on abstractions, not concrete implementations
  */
 
-class ResumeDownloader {
-  constructor() {
-    // Path to the already-generated PDF in the repo
-    this.pdfPath = 'docs/Luis_Bonilla_Resume_2025.pdf';
-    this.fileName = 'Luis_Bonilla_Resume_2025.pdf';
+import { BrowserDownloadService, DOMUIFeedbackService } from '../core/adapters.js';
+
+export class ResumeConfig {
+  static DEFAULT_PATH = 'docs/Luis_Bonilla_Resume_2025.pdf';
+  static DEFAULT_FILENAME = 'Luis_Bonilla_Resume_2025.pdf';
+  static LOADING_MESSAGE = 'Downloading PDF...';
+  static ERROR_PREFIX = 'Error downloading resume: ';
+}
+
+export class ResumeDownloader {
+  constructor(dependencies = {}, config = {}) {
+    // Dependency Injection - follows Dependency Inversion Principle
+    this._downloadService = dependencies.downloadService || new BrowserDownloadService();
+    this._uiFeedbackService = dependencies.uiFeedbackService || new DOMUIFeedbackService();
+
+    // Configuration with defaults
+    this._filePath = config.filePath || ResumeConfig.DEFAULT_PATH;
+    this._fileName = config.fileName || ResumeConfig.DEFAULT_FILENAME;
+    this._loadingMessage = config.loadingMessage || ResumeConfig.LOADING_MESSAGE;
   }
 
-  // The component no longer converts markdown or generates a PDF client-side.
-  // Instead it downloads the pre-generated PDF stored at `docs/Luis_Bonilla_Resume_2025.pdf`.
+  /**
+   * Get current file configuration
+   */
+  getFileConfig() {
+    return {
+      path: this._filePath,
+      name: this._fileName
+    };
+  }
 
   /**
-   * Show loading indicator
+   * Download resume file
    */
-  showLoading(button) {
-    if (button) {
-      button.dataset.originalText = button.textContent;
-      button.textContent = 'Generating PDF...';
-      button.disabled = true;
-      button.style.opacity = '0.6';
-      button.style.cursor = 'wait';
+  async downloadResume(triggerElement = null) {
+    const downloadResult = await this._executeDownloadWithFeedback(
+      triggerElement,
+      this._filePath,
+      this._fileName
+    );
+
+    if (downloadResult.success) {
+      this._logSuccessfulDownload(downloadResult);
     }
+
+    return downloadResult;
   }
 
   /**
-   * Hide loading indicator
-   */
-  hideLoading(button) {
-    if (button && button.dataset.originalText) {
-      button.textContent = button.dataset.originalText;
-      button.disabled = false;
-      button.style.opacity = '1';
-      button.style.cursor = 'pointer';
-      delete button.dataset.originalText;
-    }
-  }
-
-  /**
-   * Show error message
-   */
-  showError(message) {
-    alert(`Error generating PDF: ${message}\n\nPlease try again or contact the site administrator.`);
-  }
-
-  /**
-   * Main function to download the resume as PDF
+   * Legacy method name for backward compatibility
+   * @deprecated Use downloadResume instead
    */
   async descargarResume(button = null) {
+    console.warn('descargarResume is deprecated. Use downloadResume instead.');
+    return this.downloadResume(button);
+  }
+
+  // Private methods - Single Responsibility Principle
+
+  async _executeDownloadWithFeedback(element, filePath, fileName) {
+    this._showLoadingState(element);
+
     try {
-      this.showLoading(button);
-
-      // Create a temporary anchor to trigger download of the existing PDF
-      const link = document.createElement('a');
-      link.href = this.pdfPath;
-      // Use download attribute to suggest filename; note that cross-origin
-      // responses may ignore this and use server-provided filename.
-      link.download = this.fileName;
-      // Ensure link is added to DOM for Firefox
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-      console.log(`Triggered download for ${this.pdfPath}`);
+      const result = await this._downloadService.download(filePath, fileName);
+      return { success: true, ...result };
     } catch (error) {
-      console.error('Error downloading resume PDF:', error);
-      this.showError(error.message || 'Unknown error while downloading resume');
+      this._handleDownloadError(error);
+      return { success: false, error: error.message };
     } finally {
-      this.hideLoading(button);
+      this._hideLoadingState(element);
     }
+  }
+
+  _showLoadingState(element) {
+    if (element) {
+      this._uiFeedbackService.showLoading(element, this._loadingMessage);
+    }
+  }
+
+  _hideLoadingState(element) {
+    if (element) {
+      this._uiFeedbackService.hideLoading(element);
+    }
+  }
+
+  _handleDownloadError(error) {
+    const errorMessage = error.message || 'Unknown error occurred while downloading resume';
+    const fullMessage = `${ResumeConfig.ERROR_PREFIX}${errorMessage}`;
+    
+    console.error('Resume download failed:', error);
+    this._uiFeedbackService.showError(fullMessage);
+  }
+
+  _logSuccessfulDownload(result) {
+    console.log(`Resume download initiated successfully: ${result.filePath}`);
   }
 }
 
-// Export for use in main.js
+// Export for backward compatibility
 export default ResumeDownloader;
