@@ -14,6 +14,11 @@
   --color-danger: #dc3545;
   --color-info: #17a2b8;
   
+  /* Bullet Colors - Orange Theme */
+  --color-bullet-primary: #ff6b35;
+  --color-bullet-secondary: #ff8c42;
+  --color-bullet-accent: #ffa726;
+  
   /* Text Colors */
   --color-text: #212529;
   --color-text-secondary: #6c757d;
@@ -119,6 +124,11 @@
   --color-accent: #4dabf7;
   --color-accent-hover: #339af0;
   
+  /* Bullet Colors - Dark Theme (more vibrant orange) */
+  --color-bullet-primary: #ff7b47;
+  --color-bullet-secondary: #ff9c54;
+  --color-bullet-accent: #ffb74d;
+  
   --color-text: #e9ecef;
   --color-text-secondary: #adb5bd;
   --color-text-muted: #6c757d;
@@ -148,6 +158,11 @@
   --color-tertiary: #dee2e6;
   --color-accent: #2c3e50;
   --color-accent-hover: #1a252f;
+  
+  /* Bullet Colors - Professional Theme (sophisticated orange) */
+  --color-bullet-primary: #e67e22;
+  --color-bullet-secondary: #f39c12;
+  --color-bullet-accent: #d68910;
   
   --color-text: #2c3e50;
   --color-text-secondary: #5a6c7d;
