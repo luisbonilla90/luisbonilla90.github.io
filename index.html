@@ -12,6 +12,17 @@
   <body>
     <!-- Skip to main content link for keyboard navigation -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Under construction warning banner -->
+    <div class="site-warning" id="site-warning" role="status" aria-live="polite" aria-label="Site under construction">
+      <div class="warning-content">
+        <span class="warning-icon" aria-hidden="true">⚠️</span>
+        <p><strong>Este sitio está en construcción:</strong> Algunas secciones pueden no estar completas o estar en desarrollo.</p>
+      </div>
+      <div class="warning-actions">
+        <button class="btn-close" id="dismiss-warning" aria-label="Cerrar aviso">Cerrar</button>
+      </div>
+    </div>
     
     <header role="banner">
       <div class="container">
@@ -40,21 +51,21 @@
         <div class="container">
           <h1 id="hero-title" class="hero-title">Luis Bonilla Villalobos</h1>
           <p class="hero-subtitle">Software Engineer | Technical Lead | Innovation Consultant</p>
-          <p class="hero-tagline">15+ years delivering innovative solutions for leading US companies</p>
+          <p class="hero-tagline">Dynamic and highly creative software engineer with over 15 years of international experience delivering innovative solutions for leading companies in the US.</p>
           <div class="hero-cta">
             <a href="#contact" class="btn btn-primary" aria-label="Navigate to contact section">Get In Touch</a>
-            <a href="#" id="download-resume-btn" class="btn btn-secondary" aria-label="Download resume as PDF">
-              <span aria-hidden="true">📄</span> Download Resume
+            <a href="docs/resume.md" id="download-resume-btn" class="btn btn-secondary" aria-label="Open resume markdown">
+              <span aria-hidden="true">📄</span> Resume
             </a>
           </div>
           <div class="hero-contact">
-            <p><span aria-hidden="true">📍</span> <span class="visually-hidden">Location:</span> San José, Costa Rica</p>
+            <p><span aria-hidden="true">📍</span> San José, Costa Rica</p>
+            <p><span aria-hidden="true">�</span> +506 8724 6759</p>
             <p>
-              <span aria-hidden="true">📧</span> <span class="visually-hidden">Email addresses:</span>
-              <a href="mailto:alboni90@gmail.com" aria-label="Send email to alboni90@gmail.com">alboni90@gmail.com</a> | 
-              <a href="mailto:lbonillav7@gmail.com" aria-label="Send email to lbonillav7@gmail.com">lbonillav7@gmail.com</a>
+              <span aria-hidden="true">📧</span>
+              <a href="mailto:alboni90@gmail.com">alboni90@gmail.com</a> | 
+              <a href="mailto:lbonillav7@gmail.com">lbonillav7@gmail.com</a>
             </p>
-            <!-- <p><span aria-hidden="true">📱</span> <span class="visually-hidden">Phone:</span> <a href="tel:+50687246759" aria-label="Call +506 8724 6759">+506 8724 6759</a></p> -->
           </div>
         </div>
       </section>
@@ -62,9 +73,9 @@
       <!-- About Section -->
       <section id="about" class="about-section" aria-labelledby="about-heading">
         <div class="container">
-          <h2 id="about-heading">About Me</h2>
+          <h2 id="about-heading">Professional Summary</h2>
           <div class="about-content">
-            <p class="lead">Dynamic and highly creative software engineer with <strong>over 15 years of international experience</strong> delivering innovative solutions for leading companies in the US. Recognized for technical leadership, building and empowering high-performance teams, and driving continuous improvement.</p>
+            <p class="lead">Dynamic and highly creative software engineer with over 15 years of international experience delivering innovative solutions for leading companies in the US. Recognized for technical leadership, building and empowering high-performance teams, and driving continuous improvement.</p>
             <p>Passionate about contributing as an <strong>individual contributor</strong> who bridges creativity, technical depth, and collaboration to deliver meaningful results. After a period dedicated to consulting and product R&D, I am eager to bring my expertise in <strong>innovation, automation, and digital transformation</strong> to forward-thinking organizations.</p>
           </div>
           <div class="about-highlights">
@@ -87,7 +98,7 @@
       <!-- Skills Section -->
       <section id="skills" class="skills-section" aria-labelledby="skills-heading">
         <div class="container">
-          <h2 id="skills-heading">Technical Skills</h2>
+          <h2 id="skills-heading">Key Skills</h2>
           <div class="skills-grid">
             <div class="skill-category">
               <h3>Front-End</h3>
@@ -101,20 +112,19 @@
             <div class="skill-category">
               <h3>Back-End</h3>
               <ul>
-                <li>Node.js</li>
+                <li>NodeJS</li>
                 <li>Python</li>
                 <li>Django</li>
-                <li>.NET (anecdotal)</li>
-                <li>Ruby on Rails (anecdotal)</li>
+                <li>Flask (anecdotal)</li>
+                <li>.NET / Ruby on Rails (anecdotal)</li>
               </ul>
             </div>
             <div class="skill-category">
               <h3>Databases</h3>
               <ul>
                 <li>PostgreSQL</li>
-                <li>MySQL</li>
                 <li>MSSQL</li>
-                <li>Redis</li>
+                <li>MySQL</li>
               </ul>
             </div>
             <div class="skill-category">
@@ -138,13 +148,12 @@
               </ul>
             </div>
             <div class="skill-category">
-              <h3>Soft Skills</h3>
+              <h3>Collaboration & Communication</h3>
               <ul>
-                <li>Team Leadership</li>
+                <li>Mediation & cross-functional leadership</li>
                 <li>Mentoring</li>
-                <li>Cross-functional Collaboration</li>
-                <li>Technical Documentation</li>
-                <li>Bilingual (ES/EN)</li>
+                <li>Technical documentation</li>
+                <li>Bilingual (Spanish / English)</li>
               </ul>
             </div>
           </div>
@@ -163,10 +172,10 @@
                 <span class="experience-period"><time datetime="2023-01">Jan 2023</time> – <time datetime="2025-10">Present</time></span>
               </div>
               <ul class="experience-highlights">
-                <li>Led digital transformation and automation projects for SMEs and startups, implementing <strong>SaaS solutions</strong> with clean architecture (Node.js, Python, PostgreSQL, Redis), capable of processing <strong>&gt;5,000 URLs/hour</strong></li>
-                <li>Developed CI/CD pipelines with automated testing (<strong>&gt;85% coverage</strong>) and comprehensive monitoring (Prometheus, Grafana)</li>
-                <li>Successfully mediated collaboration between historically conflicted departments, facilitating effective teamwork</li>
-                <li>Drove product R&D in media intelligence: SaaS prototyping with NLP, sentiment analysis, and reputation KPIs</li>
+                <li>Led digital transformation and automation projects for SMEs and startups, implementing SaaS solutions with clean architecture and modern technologies (Node.js, Python, PostgreSQL, Redis) capable of large-scale data processing (&gt;5,000 URLs/hour).</li>
+                <li>Developed CI/CD pipelines, automated testing (&gt;85% coverage), and comprehensive monitoring (Prometheus, Grafana) for reliable operations.</li>
+                <li>Managed cloud migrations to improve delivery speed and resilience; mentored teams and promoted documentation and best practices.</li>
+                <li>Drove product R&D in media intelligence (NLP, sentiment analysis, reputation KPIs) from validation to go-to-market strategy.</li>
               </ul>
             </article>
 
@@ -203,8 +212,8 @@
                 <span class="experience-period"><time datetime="2022-02">Feb 2022</time> – <time datetime="2022-09">Sep 2022</time></span>
               </div>
               <ul class="experience-highlights">
-                <li>Contributed to e-commerce influencer marketing platform with end-to-end features and integration tests</li>
-                <li>Worked with PostgreSQL, Ruby on Rails, Ember, and Capybara</li>
+                <li>Contributed to an e-commerce influencer marketing platform delivering end-to-end features and integration tests.</li>
+                <li>Worked with PostgreSQL, Ruby on Rails, Ember and Capybara; provided technical recommendations and database updates.</li>
               </ul>
             </article>
 
@@ -269,16 +278,13 @@
             <p class="contact-intro">Equally comfortable <strong>leading teams</strong> or contributing as an <strong>individual collaborator</strong>, I bring a passion for creating meaningful, scalable, and maintainable solutions that elevate both products and people.</p>
             <div class="contact-info">
               <div class="contact-item">
-                <strong>Email:</strong>
+                <strong>Contact</strong>
                 <p><a href="mailto:alboni90@gmail.com">alboni90@gmail.com</a></p>
                 <p><a href="mailto:lbonillav7@gmail.com">lbonillav7@gmail.com</a></p>
+                <p><span aria-hidden="true">📱</span> +506 8724 6759</p>
               </div>
-              <!-- <div class="contact-item">
-                <strong>Phone:</strong>
-                <p><a href="tel:+50687246759">+506 8724 6759</a></p>
-              </div> -->
               <div class="contact-item">
-                <strong>Location:</strong>
+                <strong>Location</strong>
                 <p>San José, Costa Rica</p>
               </div>
             </div>
@@ -326,5 +332,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script type="module" src="assets/js/main.js"  crossorigin="anonymous"></script>
+    <script>
+      // Dismissible site warning - persists dismissal in localStorage
+      (function(){
+        const key = 'siteWarningDismissed_v1';
+        const banner = document.getElementById('site-warning');
+        const btn = document.getElementById('dismiss-warning');
+
+        try {
+          if (localStorage && localStorage.getItem(key) === 'true') {
+            banner && (banner.style.display = 'none');
+          }
+        } catch (e) {
+          // ignore localStorage errors (e.g., private mode)
+        }
+
+        if (btn && banner) {
+          btn.addEventListener('click', function(){
+            banner.style.display = 'none';
+            try { localStorage && localStorage.setItem(key, 'true'); } catch(e){}
+          });
+        }
+      })();
+    </script>
   </body>
 </html>
