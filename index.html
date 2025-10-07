@@ -27,7 +27,23 @@
     <header role="banner">
       <div class="container">
         <h1 class="site-title">Luis Bonilla</h1>
-        <nav role="navigation" aria-label="Main navigation">
+        
+        <!-- Mobile Menu Toggle -->
+        <button 
+          id="mobile-menu-toggle" 
+          class="mobile-menu-toggle" 
+          type="button" 
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="main-navigation">
+          <span class="hamburger-icon" aria-hidden="true">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </span>
+        </button>
+        
+        <nav id="main-navigation" role="navigation" aria-label="Main navigation" class="main-navigation">
           <ul class="nav-menu">
             <li><a href="#about" aria-label="Navigate to About section">About</a></li>
             <li><a href="#skills" aria-label="Navigate to Skills section">Skills</a></li>
@@ -37,9 +53,10 @@
             <li><a href="#contact" aria-label="Navigate to Contact section">Contact</a></li>
           </ul>
         </nav>
+        
         <div class="theme-controls">
           <button id="theme-toggle" type="button" aria-label="Toggle between light and dark theme" aria-pressed="false">
-            <span aria-hidden="true" data-theme-icon>🌙</span> Toggle Theme
+            <span aria-hidden="true" data-theme-icon>🌙</span> <span class="theme-toggle-text">Toggle Theme</span>
           </button>
         </div>
       </div>

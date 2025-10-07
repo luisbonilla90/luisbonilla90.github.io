@@ -15,6 +15,8 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Account for sticky header when jumping to anchors */
+  scroll-padding-top: calc(var(--header-height) + 1rem);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -112,17 +114,22 @@ header {
   background: var(--color-bg-secondary);
   border-bottom: 1px solid var(--color-border-light);
   box-shadow: var(--shadow-sm);
-  transition: background-color var(--transition-base);
+  transition: transform 350ms ease-in-out, background-color var(--transition-base);
+}
+
+/* Partially persistent header: hides on scroll down, shows on scroll up */
+header.header-hidden {
+  transform: translateY(-100%);
 }
 
 header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: var(--spacing-md);
   padding-top: var(--spacing-md);
   padding-bottom: var(--spacing-md);
+  position: relative;
 }
 
 .site-title {
@@ -130,12 +137,64 @@ header .container {
   font-weight: var(--font-weight-bold);
   margin: 0;
   color: var(--color-text);
+  z-index: 2;
 }
 
 /* ==========================================
    Navigation
    ========================================== */
-nav[role="navigation"] {
+
+/* Mobile Menu Toggle (Hamburger) */
+.mobile-menu-toggle {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  z-index: 3;
+  position: relative;
+}
+
+.mobile-menu-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 21px;
+  position: relative;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-text);
+  border-radius: var(--radius-sm);
+  transition: all 300ms ease-in-out;
+  transform-origin: center;
+}
+
+/* Hamburger animation when menu is open */
+.mobile-menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Navigation Container */
+.main-navigation {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -147,7 +206,6 @@ nav[role="navigation"] {
   padding: 0;
   display: flex;
   gap: var(--spacing-lg);
-  flex-wrap: wrap;
 }
 
 .nav-menu a {
@@ -157,6 +215,9 @@ nav[role="navigation"] {
   color: var(--color-text);
   border-radius: var(--radius-md);
   transition: background-color var(--transition-fast), color var(--transition-fast);
+  min-height: 44px; /* WCAG AAA touch target */
+  display: flex;
+  align-items: center;
 }
 
 .nav-menu a:hover {
@@ -175,6 +236,7 @@ nav[role="navigation"] {
 .theme-controls {
   display: flex;
   align-items: center;
+  z-index: 2;
 }
 
 #theme-toggle {
@@ -187,6 +249,10 @@ nav[role="navigation"] {
   font-weight: var(--font-weight-medium);
   cursor: pointer;
   transition: background-color var(--transition-fast), transform var(--transition-fast);
+  min-height: 44px; /* WCAG AAA touch target */
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
 }
 
 #theme-toggle:hover {
@@ -411,22 +477,92 @@ footer {
 /* ==========================================
    Responsive Design
    ========================================== */
+
+/* Mobile Navigation (Hamburger Menu) */
 @media (max-width: 768px) {
-  header .container {
-    flex-direction: column;
-    text-align: center;
+  .mobile-menu-toggle {
+    display: block;
+    order: 2;
   }
   
-  nav[role="navigation"] {
-    width: 100%;
+  .site-title {
+    order: 1;
+    font-size: var(--font-size-lg);
+  }
+  
+  .theme-controls {
+    order: 3;
+  }
+  
+  #theme-toggle .theme-toggle-text {
+    display: none; /* Hide text on mobile, keep icon only */
+  }
+  
+  #theme-toggle {
+    padding: var(--spacing-sm);
+    min-width: 44px;
+    justify-content: center;
+  }
+  
+  header .container {
+    flex-wrap: wrap;
+  }
+  
+  /* Mobile Navigation Panel */
+  .main-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-bg-secondary);
+    z-index: 1;
+    
+    /* Slide-in animation (350ms per Smashing Magazine guidelines) */
+    transform: translateX(-100%);
+    transition: transform 350ms ease-in-out;
+    
+    /* Allow scrolling for long menus on small screens */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    
+    /* Push content below header */
+    padding-top: calc(60px + var(--spacing-xl));
+  }
+  
+  /* Menu open state */
+  .main-navigation.nav-open {
+    transform: translateX(0);
   }
   
   .nav-menu {
     flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-sm);
+    align-items: stretch;
+    gap: 0;
+    padding: 0 var(--spacing-lg);
   }
   
+  .nav-menu li {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+  
+  .nav-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  .nav-menu a {
+    padding: var(--spacing-lg) var(--spacing-md);
+    font-size: var(--font-size-lg);
+    justify-content: flex-start;
+    width: 100%;
+  }
+  
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+  
+  /* Other responsive adjustments */
   .hero-cta {
     flex-direction: column;
     align-items: center;
@@ -439,6 +575,25 @@ footer {
   
   section {
     padding: var(--spacing-2xl) 0;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-menu {
+    gap: var(--spacing-md);
+  }
+  
+  .nav-menu a {
+    padding: var(--spacing-sm) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Desktop - ensure hamburger is hidden */
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none;
   }
 }
 

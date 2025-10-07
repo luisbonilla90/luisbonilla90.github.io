@@ -6,6 +6,7 @@
 
 import { ThemeManager } from "./core/theme-manager.js";
 import { ResumeDownloader } from "./components/resume-downloader.js";
+import { MobileMenu } from "./components/mobile-menu.js";
 
 /**
  * Initialize copyright year in footer
@@ -63,6 +64,20 @@ function initializeResumeDownloader() {
 }
 
 /**
+ * Initialize mobile menu functionality
+ */
+function initializeMobileMenu() {
+  try {
+    const mobileMenu = new MobileMenu();
+    console.log('Mobile menu initialized successfully');
+    return mobileMenu;
+  } catch (error) {
+    console.error('Failed to initialize mobile menu:', error);
+    return null;
+  }
+}
+
+/**
  * Main application initialization
  */
 function initializeApplication() {
@@ -72,12 +87,14 @@ function initializeApplication() {
   initializeCopyrightYear();
   const themeManager = initializeThemeManager();
   const resumeDownloader = initializeResumeDownloader();
+  const mobileMenu = initializeMobileMenu();
 
   // Store references for potential cleanup or debugging
   window.portfolioApp = {
     themeManager,
     resumeDownloader,
-    version: '2.0.0' // Clean Architecture version
+    mobileMenu,
+    version: '2.1.0' // Added mobile menu with sticky header behavior
   };
 
   console.log('Portfolio application initialized successfully');

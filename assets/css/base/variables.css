@@ -3,6 +3,11 @@
    ========================================== */
 
 :root {
+  /* Layout Variables */
+  --container-max-width: 1200px;
+  --container-padding: 1rem;
+  --header-height: 60px;
+  
   /* Color Palette - Light Theme */
   --color-primary: #ffffff;
   --color-secondary: #f8f9fa;
@@ -100,11 +105,6 @@
   --z-modal: 1050;
   --z-popover: 1060;
   --z-tooltip: 1070;
-  
-  /* Layout */
-  --container-max-width: 1200px;
-  --container-padding: var(--spacing-md);
-  --header-height: 70px;
   
   /* Breakpoints (for reference in JS) */
   --breakpoint-sm: 576px;
