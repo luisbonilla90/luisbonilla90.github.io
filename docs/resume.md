@@ -4,15 +4,11 @@
 San José, Costa Rica · +506 8724 6759  
 📧 alboni90@gmail.com / lbonillav7@gmail.com
 
----
-
 ## 🧭 Professional Summary
 
 Dynamic and highly creative software engineer with over 15 years of international experience delivering innovative solutions for leading companies in the US. Recognized for technical leadership, building and empowering high-performance teams, and driving continuous improvement.
 
 Passionate about contributing as an **individual contributor** who bridges creativity, technical depth, and collaboration to deliver meaningful results. After a period dedicated to consulting and product R&D, I am eager to bring my expertise in innovation, automation, and digital transformation to forward-thinking organizations.
-
----
 
 ## ⚙️ Key Skills
 
@@ -24,8 +20,6 @@ Passionate about contributing as an **individual contributor** who bridges creat
 - **Project Management:** Jira, Agile Methodologies, Critical Path
 - **Collaboration:** Mediation, cross-functional team leadership, stakeholder engagement, mentoring
 - **Communication:** Bilingual (Spanish-English), technical documentation, knowledge sharing
-
----
 
 ## 💼 Professional Experience
 
@@ -40,11 +34,11 @@ _Jan 2023 – Present_
 - Mentored junior developers and promoted a culture of documentation, agility, and continuous improvement in uncertain environments.
 - Drove product R&D in media intelligence (SaaS prototyping with NLP, sentiment analysis, and reputation KPIs), from technical validation to go-to-market strategy.
 
----
+### **Critical Mass**
 
-### **Technical Lead – Nissan (via Critical Mass, Costa Rica)**
+_Nov 2022 – Jan 2025_
 
-_Jun 2023 – Jan 2025_
+#### **Technical Lead – Nissan**
 
 - Revitalized a critical project by enforcing coding standards, improving efficiency and robustness.
 - Implemented comprehensive unit testing and TDD practices, resulting in reduced regressions and enhanced code quality.
@@ -52,19 +46,15 @@ _Jun 2023 – Jan 2025_
 - Coordinated with multiple teams to enhance CI/CD processes and restore timely deployments.
 - Drove internal development initiatives and promoted maintainable, best-practice code.
 
----
-
-### **Technical Lead – Apple (via Critical Mass, Costa Rica)**
-
-_Nov 2022 – Jun 2023_
+#### **Technical Lead – Apple**
 
 - Led a team to improve maintainability, performance, and codebase cleanliness for key products.
 - Utilized Python and modern frontend technologies to optimize features and drive technical refresh strategies.
 - Oversaw project delivery, including candidate interviews, task assignments, and cross-team communication.
 
----
+### **Sideqik**
 
-### **Full Stack Developer – Sideqik**
+#### **Full Stack Developer**
 
 _Feb 2022 – Sep 2022_  
 (_Role ended due to company-wide layoff_)
@@ -72,9 +62,9 @@ _Feb 2022 – Sep 2022_
 - Contributed to e-commerce influencer marketing platform, developing end-to-end features and integration tests.
 - Provided technical recommendations and handled database updates (PostgreSQL, Ruby on Rails, Ember, Capybara).
 
----
+### **Stateside**
 
-### **Front-End Lead – Sephora (via Stateside, Costa Rica)**
+#### **Senior Software Engineer – Sephora**
 
 _2016 – 2022_
 
@@ -83,14 +73,10 @@ _2016 – 2022_
 - Implemented localization and performance optimization frameworks, integrated third-party services, and drove code review initiatives.
 - Recognized for innovation and impact (Sephora hackathon winner, Maverik Prize nominee).
 
----
-
 ## 🎓 Education
 
 **B.Sc. Computer Engineering**  
 _Universidad Estatal a Distancia (UNED), Costa Rica_
-
----
 
 ## 💡 Value Proposition
 
