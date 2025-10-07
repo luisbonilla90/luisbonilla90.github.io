@@ -480,18 +480,28 @@ footer {
 
 /* Mobile Navigation (Hamburger Menu) */
 @media (max-width: 768px) {
+  header .container {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  
   .mobile-menu-toggle {
     display: block;
-    order: 2;
+    order: 1;
+    margin-right: var(--spacing-md);
+    flex-shrink: 0;
   }
   
   .site-title {
-    order: 1;
+    order: 2;
     font-size: var(--font-size-lg);
+    flex: 1;
+    text-align: left;
   }
   
   .theme-controls {
     order: 3;
+    flex-shrink: 0;
   }
   
   #theme-toggle .theme-toggle-text {
