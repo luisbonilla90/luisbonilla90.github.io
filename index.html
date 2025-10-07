@@ -11,7 +11,7 @@
   </head>
   <body>
     <!-- Skip to main content link for keyboard navigation -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- <a href="#main-content" class="skip-link">Skip to main content</a> -->
 
     <!-- Under construction warning banner -->
     <div class="site-warning" id="site-warning" role="status" aria-live="polite" aria-label="Site under construction">
@@ -181,8 +181,8 @@
             <article class="experience-item" role="listitem">
               <div class="experience-header">
                 <h3>Technical Lead – Nissan</h3>
-                <span class="experience-period"><time datetime="2023-06">Jun 2023</time> – <time datetime="2025-01">Jan 2025</time></span>
                 <span class="experience-company">via Critical Mass, Costa Rica</span>
+                <span class="experience-period"><time datetime="2023-06">Jun 2023</time> – <time datetime="2025-01">Jan 2025</time></span>
               </div>
               <ul class="experience-highlights">
                 <li>Revitalized critical project by enforcing coding standards, improving efficiency and robustness</li>
@@ -195,8 +195,8 @@
             <article class="experience-item" role="listitem">
               <div class="experience-header">
                 <h3>Technical Lead – Apple</h3>
-                <span class="experience-period"><time datetime="2022-11">Nov 2022</time> – <time datetime="2023-06">Jun 2023</time></span>
                 <span class="experience-company">via Critical Mass, Costa Rica</span>
+                <span class="experience-period"><time datetime="2022-11">Nov 2022</time> – <time datetime="2023-06">Jun 2023</time></span>
               </div>
               <ul class="experience-highlights">
                 <li>Led team to improve maintainability, performance, and codebase cleanliness for key products</li>
@@ -219,8 +219,8 @@
             <article class="experience-item" role="listitem">
               <div class="experience-header">
                 <h3>Front-End Lead – Sephora</h3>
-                <span class="experience-period"><time datetime="2016">2016</time> – <time datetime="2022">2022</time></span>
                 <span class="experience-company">via Stateside, Costa Rica</span>
+                <span class="experience-period"><time datetime="2016">2016</time> – <time datetime="2022">2022</time></span>
               </div>
               <ul class="experience-highlights">
                 <li>Led front-end team for in-store event management and Beauty Advisor scheduling across <strong>US and Canada</strong></li>
@@ -337,7 +337,7 @@
         const btn = document.getElementById('dismiss-warning');
 
         try {
-          if (localStorage && localStorage.getItem(key) === 'true') {
+          if (sessionStorage && sessionStorage.getItem(key) === 'true') {
             banner && (banner.style.display = 'none');
           }
         } catch (e) {
@@ -347,7 +347,7 @@
         if (btn && banner) {
           btn.addEventListener('click', function(){
             banner.style.display = 'none';
-            try { localStorage && localStorage.setItem(key, 'true'); } catch(e){}
+            try { sessionStorage && sessionStorage.setItem(key, 'true'); } catch(e){}
           });
         }
       })();
