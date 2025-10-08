@@ -39,8 +39,8 @@
       <div class="warning-content">
         <span class="warning-icon" aria-hidden="true">⚠️</span>
         <p>
-          <strong>This site is under construction:</strong> Some sections may
-          be incomplete or currently under development.
+          <strong data-i18n="site_warning.text">This site is under construction:</strong> <span data-i18n="site_warning.description">Some sections may
+          be incomplete or currently under development.</span>
         </p>
       </div>
       <div class="warning-actions">
@@ -48,6 +48,7 @@
           class="btn-close"
           id="dismiss-warning"
           aria-label="Dismiss warning"
+          data-i18n="site_warning.dismiss"
         >
           Dismiss
         </button>
@@ -56,7 +57,7 @@
 
     <header role="banner">
       <div class="container">
-        <h1 class="site-title">Luis Bonilla</h1>
+        <h1 class="site-title" data-i18n="header.site_title">Luis Bonilla</h1>
 
         <!-- Mobile Menu Toggle -->
         <button
@@ -64,6 +65,7 @@
           class="mobile-menu-toggle"
           type="button"
           aria-label="Toggle navigation menu"
+          data-i18n-aria-label="header.aria_labels.mobile_menu"
           aria-expanded="false"
           aria-controls="main-navigation"
         >
@@ -78,32 +80,33 @@
           id="main-navigation"
           role="navigation"
           aria-label="Main navigation"
+          data-i18n-aria-label="header.aria_labels.main_navigation"
           class="main-navigation"
         >
           <ul class="nav-menu">
             <li>
-              <a href="#about" aria-label="Navigate to About section">About</a>
+              <a href="#about" aria-label="Navigate to About section" data-i18n-aria-label="header.aria_labels.nav_about" data-i18n="header.nav.about">About</a>
             </li>
             <li>
-              <a href="#skills" aria-label="Navigate to Skills section"
+              <a href="#skills" aria-label="Navigate to Skills section" data-i18n-aria-label="header.aria_labels.nav_skills" data-i18n="header.nav.skills"
                 >Skills</a
               >
             </li>
             <li>
-              <a href="#experience" aria-label="Navigate to Experience section"
+              <a href="#experience" aria-label="Navigate to Experience section" data-i18n-aria-label="header.aria_labels.nav_experience" data-i18n="header.nav.experience"
                 >Experience</a
               >
             </li>
             <li>
-              <a href="#portfolio" aria-label="Navigate to Portfolio section"
+              <a href="#portfolio" aria-label="Navigate to Portfolio section" data-i18n-aria-label="header.aria_labels.nav_portfolio" data-i18n="header.nav.portfolio"
                 >Portfolio</a
               >
             </li>
             <li>
-              <a href="#blog" aria-label="Navigate to Blog section">Blog</a>
+              <a href="#blog" aria-label="Navigate to Blog section" data-i18n-aria-label="header.aria_labels.nav_blog" data-i18n="header.nav.blog">Blog</a>
             </li>
             <li>
-              <a href="#contact" aria-label="Navigate to Contact section"
+              <a href="#contact" aria-label="Navigate to Contact section" data-i18n-aria-label="header.aria_labels.nav_contact" data-i18n="header.nav.contact"
                 >Contact</a
               >
             </li>
@@ -115,10 +118,11 @@
             id="theme-toggle"
             type="button"
             aria-label="Toggle between light and dark theme"
+            data-i18n-aria-label="header.aria_labels.theme_toggle"
             aria-pressed="false"
           >
             <span aria-hidden="true" data-theme-icon>🌙</span>
-            <span class="theme-toggle-text">Toggle Theme</span>
+            <span class="theme-toggle-text" data-i18n="header.theme_toggle">Toggle Theme</span>
           </button>
         </div>
       </div>
@@ -128,11 +132,11 @@
       <!-- Hero Section -->
       <section id="hero" class="hero-section" aria-labelledby="hero-title">
         <div class="container">
-          <h1 id="hero-title" class="hero-title">Luis Bonilla Villalobos</h1>
-          <p class="hero-subtitle">
+          <h1 id="hero-title" class="hero-title" data-i18n="hero.title">Luis Bonilla Villalobos</h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle">
             Software Engineer | Technical Lead | Innovation Consultant
           </p>
-          <p class="hero-tagline">
+          <p class="hero-tagline" data-i18n="hero.tagline">
             Dynamic and highly creative software engineer with over 15 years of
             international experience delivering innovative solutions for leading
             companies in the US.
@@ -142,6 +146,8 @@
               href="#contact"
               class="btn btn-primary"
               aria-label="Navigate to contact section"
+              data-i18n-aria-label="hero.aria_labels.cta_contact"
+              data-i18n="hero.cta_contact"
               >Get In Touch</a
             >
             <a
@@ -149,12 +155,13 @@
               id="download-resume-btn"
               class="btn btn-secondary"
               aria-label="Open resume markdown"
+              data-i18n-aria-label="hero.aria_labels.cta_resume"
             >
-              <span aria-hidden="true">📄</span> Resume
+              <span aria-hidden="true">📄</span> <span data-i18n="hero.cta_resume">Resume</span>
             </a>
           </div>
           <div class="hero-contact">
-            <p><span aria-hidden="true">📍</span> San José, Costa Rica</p>
+            <p><span aria-hidden="true">📍</span> <span data-i18n="hero.location">San José, Costa Rica</span></p>
             <p>
               <span aria-hidden="true">📧</span>
               <a href="mailto:alboni90@gmail.com">alboni90@gmail.com</a> |
@@ -167,16 +174,16 @@
       <!-- About Section -->
       <section id="about" class="about-section" aria-labelledby="about-heading">
         <div class="container">
-          <h2 id="about-heading">Professional Summary</h2>
+          <h2 id="about-heading" data-i18n="about.heading">Professional Summary</h2>
           <div class="about-content">
-            <p class="lead">
+            <p class="lead" data-i18n="about.lead">
               Dynamic and highly creative software engineer with over 15 years
               of international experience delivering innovative solutions for
               leading companies in the US. Recognized for technical leadership,
               building and empowering high-performance teams, and driving
               continuous improvement.
             </p>
-            <p>
+            <p data-i18n="about.content">
               Passionate about contributing as an
               <strong>individual contributor</strong> who bridges creativity,
               technical depth, and collaboration to deliver meaningful results.
@@ -190,16 +197,16 @@
           </div>
           <div class="about-highlights">
             <div class="highlight-item">
-              <h3><span aria-label="15 plus">15+</span></h3>
-              <p>Years of Experience</p>
+              <h3><span aria-label="15 plus" data-i18n-aria-label="about.highlights.experience.aria_label" data-i18n="about.highlights.experience.value">15+</span></h3>
+              <p data-i18n="about.highlights.experience.label">Years of Experience</p>
             </div>
             <div class="highlight-item">
-              <h3><span aria-label="5 plus">5+</span></h3>
-              <p>Major Companies</p>
+              <h3><span aria-label="5 plus" data-i18n-aria-label="about.highlights.companies.aria_label" data-i18n="about.highlights.companies.value">5+</span></h3>
+              <p data-i18n="about.highlights.companies.label">Major Companies</p>
             </div>
             <div class="highlight-item">
-              <h3><span aria-label="100 percent">100%</span></h3>
-              <p>Commitment to Quality</p>
+              <h3><span aria-label="100 percent" data-i18n-aria-label="about.highlights.commitment.aria_label" data-i18n="about.highlights.commitment.value">100%</span></h3>
+              <p data-i18n="about.highlights.commitment.label">Commitment to Quality</p>
             </div>
           </div>
         </div>
@@ -212,62 +219,62 @@
         aria-labelledby="skills-heading"
       >
         <div class="container">
-          <h2 id="skills-heading">Key Skills</h2>
+          <h2 id="skills-heading" data-i18n="skills.heading">Key Skills</h2>
           <div class="skills-grid">
             <div class="skill-category">
-              <h3>Front-End</h3>
+              <h3 data-i18n="skills.frontend.title">Front-End</h3>
               <ul>
-                <li>JavaScript</li>
-                <li>React</li>
-                <li>Bootstrap</li>
-                <li>Tailwind</li>
+                <li data-i18n="skills.frontend.items.0">JavaScript</li>
+                <li data-i18n="skills.frontend.items.1">React</li>
+                <li data-i18n="skills.frontend.items.2">Bootstrap</li>
+                <li data-i18n="skills.frontend.items.3">Tailwind</li>
               </ul>
             </div>
             <div class="skill-category">
-              <h3>Back-End</h3>
+              <h3 data-i18n="skills.backend.title">Back-End</h3>
               <ul>
-                <li>NodeJS</li>
-                <li>Python</li>
-                <li>Django</li>
-                <li>Flask (anecdotal)</li>
-                <li>.NET / Ruby on Rails (anecdotal)</li>
+                <li data-i18n="skills.backend.items.0">NodeJS</li>
+                <li data-i18n="skills.backend.items.1">Python</li>
+                <li data-i18n="skills.backend.items.2">Django</li>
+                <li data-i18n="skills.backend.items.3">Flask (anecdotal)</li>
+                <li data-i18n="skills.backend.items.4">.NET / Ruby on Rails (anecdotal)</li>
               </ul>
             </div>
             <div class="skill-category">
-              <h3>Databases</h3>
+              <h3 data-i18n="skills.databases.title">Databases</h3>
               <ul>
-                <li>PostgreSQL</li>
-                <li>MSSQL</li>
-                <li>MySQL</li>
+                <li data-i18n="skills.databases.items.0">PostgreSQL</li>
+                <li data-i18n="skills.databases.items.1">MSSQL</li>
+                <li data-i18n="skills.databases.items.2">MySQL</li>
               </ul>
             </div>
             <div class="skill-category">
-              <h3>DevOps & Cloud</h3>
+              <h3 data-i18n="skills.devops.title">DevOps & Cloud</h3>
               <ul>
-                <li>Docker</li>
-                <li>CI/CD</li>
-                <li>Terraform</li>
-                <li>AWS</li>
-                <li>Prometheus</li>
-                <li>Grafana</li>
+                <li data-i18n="skills.devops.items.0">Docker</li>
+                <li data-i18n="skills.devops.items.1">CI/CD</li>
+                <li data-i18n="skills.devops.items.2">Terraform</li>
+                <li data-i18n="skills.devops.items.3">AWS</li>
+                <li data-i18n="skills.devops.items.4">Prometheus</li>
+                <li data-i18n="skills.devops.items.5">Grafana</li>
               </ul>
             </div>
             <div class="skill-category">
-              <h3>Project Management</h3>
+              <h3 data-i18n="skills.project_management.title">Project Management</h3>
               <ul>
-                <li>Agile Methodologies</li>
-                <li>Jira</li>
-                <li>Git / Version Control</li>
-                <li>Critical Path</li>
+                <li data-i18n="skills.project_management.items.0">Agile Methodologies</li>
+                <li data-i18n="skills.project_management.items.1">Jira</li>
+                <li data-i18n="skills.project_management.items.2">Git / Version Control</li>
+                <li data-i18n="skills.project_management.items.3">Critical Path</li>
               </ul>
             </div>
             <div class="skill-category">
-              <h3>Collaboration & Communication</h3>
+              <h3 data-i18n="skills.collaboration.title">Collaboration & Communication</h3>
               <ul>
-                <li>Mediation & cross-functional leadership</li>
-                <li>Mentoring</li>
-                <li>Technical documentation</li>
-                <li>Bilingual (Spanish / English)</li>
+                <li data-i18n="skills.collaboration.items.0">Mediation & cross-functional leadership</li>
+                <li data-i18n="skills.collaboration.items.1">Mentoring</li>
+                <li data-i18n="skills.collaboration.items.2">Technical documentation</li>
+                <li data-i18n="skills.collaboration.items.3">Bilingual (Spanish / English)</li>
               </ul>
             </div>
           </div>
@@ -281,35 +288,35 @@
         aria-labelledby="experience-heading"
       >
         <div class="container">
-          <h2 id="experience-heading">Professional Experience</h2>
+          <h2 id="experience-heading" data-i18n="experience.heading">Professional Experience</h2>
           <div class="experience-timeline" role="list">
             <article class="experience-item" role="listitem">
               <div class="experience-header">
-                <h3>Independent Consultant & Technology Innovation Leader</h3>
+                <h3 data-i18n="experience.jobs.0.title">Independent Consultant & Technology Innovation Leader</h3>
                 <span class="experience-period"
                   ><time datetime="2023-01">Jan 2025</time> –
                   <time datetime="2025-10">Present</time></span
                 >
               </div>
               <ul class="experience-highlights">
-                <li>
+                <li data-i18n="experience.jobs.0.highlights.0">
                   Led digital transformation and automation projects for SMEs
                   and startups, implementing SaaS solutions with clean
                   architecture and modern technologies (Node.js, Python,
                   PostgreSQL, Redis) capable of large-scale data processing
                   (&gt;5,000 URLs/hour).
                 </li>
-                <li>
+                <li data-i18n="experience.jobs.0.highlights.1">
                   Developed CI/CD pipelines, automated testing (&gt;85%
                   coverage), and comprehensive monitoring (Prometheus, Grafana)
                   for reliable operations.
                 </li>
-                <li>
+                <li data-i18n="experience.jobs.0.highlights.2">
                   Managed cloud migrations to improve delivery speed and
                   resilience; mentored teams and promoted documentation and best
                   practices.
                 </li>
-                <li>
+                <li data-i18n="experience.jobs.0.highlights.3">
                   Drove product R&D in media intelligence (NLP, sentiment
                   analysis, reputation KPIs) from validation to go-to-market
                   strategy.
@@ -319,8 +326,8 @@
 
             <article class="experience-item" role="listitem">
               <div class="experience-header">
-                <h3>Technical Lead – Nissan</h3>
-                <span class="experience-company"
+                <h3 data-i18n="experience.jobs.1.title">Technical Lead – Nissan</h3>
+                <span class="experience-company" data-i18n="experience.jobs.1.company"
                   >via Critical Mass, Costa Rica</span
                 >
                 <span class="experience-period"
@@ -329,19 +336,19 @@
                 >
               </div>
               <ul class="experience-highlights">
-                <li>
+                <li data-i18n="experience.jobs.1.highlights.0">
                   Revitalized critical project by enforcing coding standards,
                   improving efficiency and robustness
                 </li>
-                <li>
+                <li data-i18n="experience.jobs.1.highlights.1">
                   Implemented comprehensive unit testing and
                   <strong>TDD practices</strong>, reducing regressions
                 </li>
-                <li>
+                <li data-i18n="experience.jobs.1.highlights.2">
                   Streamlined code review processes and cultivated collaborative
                   team environment
                 </li>
-                <li>
+                <li data-i18n="experience.jobs.1.highlights.3">
                   Coordinated with multiple teams to enhance CI/CD processes and
                   restore timely deployments
                 </li>
@@ -350,8 +357,8 @@
 
             <article class="experience-item" role="listitem">
               <div class="experience-header">
-                <h3>Technical Lead – Apple</h3>
-                <span class="experience-company"
+                <h3 data-i18n="experience.jobs.2.title">Technical Lead – Apple</h3>
+                <span class="experience-company" data-i18n="experience.jobs.2.company"
                   >via Critical Mass, Costa Rica</span
                 >
                 <span class="experience-period"
@@ -360,15 +367,15 @@
                 >
               </div>
               <ul class="experience-highlights">
-                <li>
+                <li data-i18n="experience.jobs.2.highlights.0">
                   Led team to improve maintainability, performance, and codebase
                   cleanliness for key products
                 </li>
-                <li>
+                <li data-i18n="experience.jobs.2.highlights.1">
                   Utilized Python and modern frontend technologies to optimize
                   features
                 </li>
-                <li>
+                <li data-i18n="experience.jobs.2.highlights.2">
                   Oversaw project delivery, including candidate interviews and
                   cross-team communication
                 </li>
@@ -377,18 +384,18 @@
 
             <article class="experience-item" role="listitem">
               <div class="experience-header">
-                <h3>Full Stack Developer – Sideqik</h3>
+                <h3 data-i18n="experience.jobs.3.title">Full Stack Developer – Sideqik</h3>
                 <span class="experience-period"
                   ><time datetime="2022-02">Feb 2022</time> –
                   <time datetime="2022-09">Sep 2022</time></span
                 >
               </div>
               <ul class="experience-highlights">
-                <li>
+                <li data-i18n="experience.jobs.3.highlights.0">
                   Contributed to an e-commerce influencer marketing platform
                   delivering end-to-end features and integration tests.
                 </li>
-                <li>
+                <li data-i18n="experience.jobs.3.highlights.1">
                   Worked with PostgreSQL, Ruby on Rails, Ember and Capybara;
                   provided technical recommendations and database updates.
                 </li>
@@ -397,8 +404,8 @@
 
             <article class="experience-item" role="listitem">
               <div class="experience-header">
-                <h3>Front-End Lead – Sephora</h3>
-                <span class="experience-company"
+                <h3 data-i18n="experience.jobs.4.title">Front-End Lead – Sephora</h3>
+                <span class="experience-company" data-i18n="experience.jobs.4.company"
                   >via Stateside, Costa Rica</span
                 >
                 <span class="experience-period"
@@ -407,19 +414,19 @@
                 >
               </div>
               <ul class="experience-highlights">
-                <li>
+                <li data-i18n="experience.jobs.4.highlights.0">
                   Led front-end team for in-store event management and Beauty
                   Advisor scheduling across <strong>US and Canada</strong>
                 </li>
-                <li>
+                <li data-i18n="experience.jobs.4.highlights.1">
                   Developed core web application components (shopping basket,
                   checkout)
                 </li>
-                <li>
+                <li data-i18n="experience.jobs.4.highlights.2">
                   Implemented localization and performance optimization
                   frameworks
                 </li>
-                <li>
+                <li data-i18n="experience.jobs.4.highlights.3">
                   Recognized for innovation:
                   <strong
                     >Sephora hackathon winner, Maverik Prize nominee</strong
@@ -438,13 +445,13 @@
         aria-labelledby="portfolio-heading"
       >
         <div class="container">
-          <h2 id="portfolio-heading">Featured Projects</h2>
+          <h2 id="portfolio-heading" data-i18n="portfolio.heading">Featured Projects</h2>
           <div class="projects">
             <div class="project-placeholder" role="status" aria-live="polite">
               <p>
-                <span aria-hidden="true">🚀</span> Project showcase coming soon.
+                <span aria-hidden="true">🚀</span> <span data-i18n="portfolio.placeholder">Project showcase coming soon.
                 Currently focusing on new innovations in digital transformation
-                and automation.
+                and automation.</span>
               </p>
             </div>
           </div>
@@ -458,10 +465,10 @@
         aria-labelledby="education-heading"
       >
         <div class="container">
-          <h2 id="education-heading">Education</h2>
+          <h2 id="education-heading" data-i18n="education.heading">Education</h2>
           <div class="education-item">
-            <h3>B.Sc. Computer Engineering</h3>
-            <p>Universidad Estatal a Distancia (UNED), Costa Rica</p>
+            <h3 data-i18n="education.degree">B.Sc. Computer Engineering</h3>
+            <p data-i18n="education.institution">Universidad Estatal a Distancia (UNED), Costa Rica</p>
           </div>
         </div>
       </section>
@@ -469,12 +476,12 @@
       <!-- Blog Section -->
       <section id="blog" class="blog-section" aria-labelledby="blog-heading">
         <div class="container">
-          <h2 id="blog-heading">Latest Insights</h2>
+          <h2 id="blog-heading" data-i18n="blog.heading">Latest Insights</h2>
           <div class="posts">
             <div class="blog-placeholder" role="status" aria-live="polite">
               <p>
-                <span aria-hidden="true">📝</span> Blog posts and technical
-                articles coming soon.
+                <span aria-hidden="true">📝</span> <span data-i18n="blog.placeholder">Blog posts and technical
+                articles coming soon.</span>
               </p>
             </div>
           </div>
@@ -488,9 +495,9 @@
         aria-labelledby="contact-heading"
       >
         <div class="container">
-          <h2 id="contact-heading">Let's Connect</h2>
+          <h2 id="contact-heading" data-i18n="contact.heading">Let's Connect</h2>
           <div class="contact-content">
-            <p class="contact-intro">
+            <p class="contact-intro" data-i18n="contact.intro">
               Equally comfortable <strong>leading teams</strong> or contributing
               as an <strong>individual collaborator</strong>, I bring a passion
               for creating meaningful, scalable, and maintainable solutions that
@@ -498,7 +505,7 @@
             </p>
             <div class="contact-info">
               <div class="contact-item">
-                <strong>Contact</strong>
+                <strong data-i18n="contact.labels.contact">Contact</strong>
                 <p>
                   <a href="mailto:alboni90@gmail.com">alboni90@gmail.com</a>
                 </p>
@@ -507,8 +514,8 @@
                 </p>
               </div>
               <div class="contact-item">
-                <strong>Location</strong>
-                <p>San José, Costa Rica</p>
+                <strong data-i18n="contact.labels.location">Location</strong>
+                <p data-i18n="contact.location">San José, Costa Rica</p>
               </div>
             </div>
           </div>
@@ -520,20 +527,21 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-section">
-            <h3>Luis Bonilla Villalobos</h3>
-            <p>Software Engineer | Technical Lead | Innovation Consultant</p>
-            <p>
+            <h3 data-i18n="footer.title">Luis Bonilla Villalobos</h3>
+            <p data-i18n="footer.subtitle">Software Engineer | Technical Lead | Innovation Consultant</p>
+            <p data-i18n="footer.description">
               Passionate about creating meaningful, scalable, and maintainable
               solutions.
             </p>
           </div>
           <div class="footer-section">
-            <h4>Contact</h4>
+            <h4 data-i18n="footer.sections.contact">Contact</h4>
             <p>
               <span aria-hidden="true">📧</span>
               <a
                 href="mailto:alboni90@gmail.com"
                 aria-label="Email alboni90@gmail.com"
+                data-i18n-aria-label="footer.aria_labels.email_alboni"
                 >alboni90@gmail.com</a
               >
             </p>
@@ -542,22 +550,23 @@
               <a
                 href="mailto:lbonillav7@gmail.com"
                 aria-label="Email lbonillav7@gmail.com"
+                data-i18n-aria-label="footer.aria_labels.email_lbonilla"
                 >lbonillav7@gmail.com</a
               >
             </p>
-            <p><span aria-hidden="true">📍</span> San José, Costa Rica</p>
+            <p><span aria-hidden="true">📍</span> <span data-i18n="footer.location">San José, Costa Rica</span></p>
           </div>
           <div class="footer-section">
-            <h4>Quick Links</h4>
-            <nav aria-label="Footer navigation">
+            <h4 data-i18n="footer.sections.quick_links">Quick Links</h4>
+            <nav aria-label="Footer navigation" data-i18n-aria-label="footer.aria_labels.footer_nav">
               <ul>
                 <li>
-                  <a href="#about" aria-label="Navigate to About section"
+                  <a href="#about" aria-label="Navigate to About section" data-i18n-aria-label="footer.aria_labels.nav_about" data-i18n="footer.nav.about"
                     >About</a
                   >
                 </li>
                 <li>
-                  <a href="#skills" aria-label="Navigate to Skills section"
+                  <a href="#skills" aria-label="Navigate to Skills section" data-i18n-aria-label="footer.aria_labels.nav_skills" data-i18n="footer.nav.skills"
                     >Skills</a
                   >
                 </li>
@@ -565,11 +574,13 @@
                   <a
                     href="#experience"
                     aria-label="Navigate to Experience section"
+                    data-i18n-aria-label="footer.aria_labels.nav_experience"
+                    data-i18n="footer.nav.experience"
                     >Experience</a
                   >
                 </li>
                 <li>
-                  <a href="#contact" aria-label="Navigate to Contact section"
+                  <a href="#contact" aria-label="Navigate to Contact section" data-i18n-aria-label="footer.aria_labels.nav_contact" data-i18n="footer.nav.contact"
                     >Contact</a
                   >
                 </li>
@@ -579,10 +590,10 @@
         </div>
         <div class="footer-bottom">
           <p>
-            &copy; <span id="year"></span> Luis Bonilla Villalobos. All rights
-            reserved.
+            &copy; <span id="year"></span> <span data-i18n="footer.copyright">Luis Bonilla Villalobos. All rights
+            reserved.</span>
           </p>
-          <p>Available for consulting and full-time opportunities.</p>
+          <p data-i18n="footer.availability">Available for consulting and full-time opportunities.</p>
         </div>
       </div>
     </footer>
