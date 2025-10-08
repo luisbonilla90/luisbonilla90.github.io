@@ -16,7 +16,7 @@
       "blog": "Blog",
       "contact": "Contacto"
     },
-    "theme_toggle": "Cambiar Tema",
+    "theme_toggle": "Tema",
     "aria_labels": {
       "mobile_menu": "Alternar menú de navegación",
       "main_navigation": "Navegación principal",
