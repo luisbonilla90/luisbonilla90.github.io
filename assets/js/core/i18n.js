@@ -4,11 +4,17 @@
  * Clean Code: Clear separation of concerns, descriptive method names
  */
 
+// Constants
+const STORAGE_KEY = 'language';
+const SUPPORTED_LANGUAGES = ['en', 'es'];
+const DEFAULT_LANGUAGE = 'en';
+const LANGUAGE_SELECT_ID = 'language-select';
+
 export class I18n {
   constructor() {
-    this.currentLanguage = localStorage.getItem('language') || this.detectDefaultLanguage();
+    this.currentLanguage = localStorage.getItem(STORAGE_KEY) || this.detectDefaultLanguage();
     this.translations = {};
-    this.supportedLanguages = ['en', 'es'];
+    this.supportedLanguages = SUPPORTED_LANGUAGES;
     this.init();
   }
 
@@ -21,12 +27,12 @@ export class I18n {
       if (browserLang) {
         // Extract language code (e.g., 'es' from 'es-MX')
         const langCode = browserLang.split('-')[0].toLowerCase();
-        return this.supportedLanguages.includes(langCode) ? langCode : 'en';
+        return this.supportedLanguages.includes(langCode) ? langCode : DEFAULT_LANGUAGE;
       }
     } catch (error) {
       console.error('Error detecting browser language:', error);
     }
-    return 'en';
+    return DEFAULT_LANGUAGE;
   }
 
   /**
@@ -130,7 +136,7 @@ export class I18n {
     }
 
     this.currentLanguage = lang;
-    localStorage.setItem('language', lang);
+    localStorage.setItem(STORAGE_KEY, lang);
     
     await this.loadTranslations(lang);
     this.applyTranslations();
@@ -146,7 +152,7 @@ export class I18n {
    * Update language selector UI to reflect current language
    */
   updateLanguageSelector() {
-    const selector = document.getElementById('language-select');
+    const selector = document.getElementById(LANGUAGE_SELECT_ID);
     if (selector && selector.value !== this.currentLanguage) {
       selector.value = this.currentLanguage;
     }
@@ -156,7 +162,7 @@ export class I18n {
    * Setup event listeners for language selector
    */
   setupEventListeners() {
-    const selector = document.getElementById('language-select');
+    const selector = document.getElementById(LANGUAGE_SELECT_ID);
     if (selector) {
       selector.addEventListener('change', (e) => {
         this.changeLanguage(e.target.value);
