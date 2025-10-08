@@ -9,6 +9,7 @@ const STORAGE_KEY = 'language';
 const SUPPORTED_LANGUAGES = ['en', 'es'];
 const DEFAULT_LANGUAGE = 'en';
 const LANGUAGE_SELECT_ID = 'language-select';
+const LOCALES_PATH = '/locales';
 
 export class I18n {
   constructor() {
@@ -55,7 +56,7 @@ export class I18n {
    */
   async loadTranslations(lang) {
     try {
-      const response = await fetch(`/locales/${lang}.json`);
+      const response = await fetch(`${LOCALES_PATH}/${lang}.json`);
       if (!response.ok) {
         throw new Error(`Failed to load translations for ${lang}`);
       }
@@ -63,11 +64,11 @@ export class I18n {
     } catch (error) {
       console.error('Failed to load translations:', error);
       // Fall back to English if available
-      if (lang !== 'en') {
+      if (lang !== DEFAULT_LANGUAGE) {
         console.log('Falling back to English translations');
-        const response = await fetch('/locales/en.json');
+        const response = await fetch(`${LOCALES_PATH}/${DEFAULT_LANGUAGE}.json`);
         this.translations = await response.json();
-        this.currentLanguage = 'en';
+        this.currentLanguage = DEFAULT_LANGUAGE;
       }
     }
   }
