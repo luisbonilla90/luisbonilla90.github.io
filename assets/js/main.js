@@ -170,7 +170,7 @@ function initializeApplication() {
     i18n,
     resumeDownloader,
     mobileMenu,
-    version: '2.2.0', // Added i18n support with language selector
+    version: '3.0.0', // Added i18n support with language selector
     detectBrowserLanguage // expose helper
   };
 
