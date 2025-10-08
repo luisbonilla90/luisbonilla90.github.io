@@ -1,4 +1,231 @@
 {
-  "page_title": "Sitio Personal",
-  "meta_description": "Portafolio personal con proyectos y blog"
+  "page_title": "Luis Bonilla - Ingeniero de Software | Líder Técnico",
+  "meta_description": "Luis Bonilla - Ingeniero de Software y Líder Técnico con más de 15 años de experiencia. Experto en React, Node.js, Python, AWS y transformación digital. Disponible para proyectos innovadores.",
+  "site_warning": {
+    "text": "Este sitio está en construcción:",
+    "description": "Algunas secciones pueden estar incompletas o actualmente en desarrollo.",
+    "dismiss": "Descartar"
+  },
+  "header": {
+    "site_title": "Luis Bonilla",
+    "nav": {
+      "about": "Acerca de",
+      "skills": "Habilidades",
+      "experience": "Experiencia",
+      "portfolio": "Portafolio",
+      "blog": "Blog",
+      "contact": "Contacto"
+    },
+    "theme_toggle": "Cambiar Tema",
+    "aria_labels": {
+      "mobile_menu": "Alternar menú de navegación",
+      "main_navigation": "Navegación principal",
+      "nav_about": "Navegar a la sección Acerca de",
+      "nav_skills": "Navegar a la sección Habilidades",
+      "nav_experience": "Navegar a la sección Experiencia",
+      "nav_portfolio": "Navegar a la sección Portafolio",
+      "nav_blog": "Navegar a la sección Blog",
+      "nav_contact": "Navegar a la sección Contacto",
+      "theme_toggle": "Alternar entre tema claro y oscuro"
+    }
+  },
+  "hero": {
+    "title": "Luis Bonilla Villalobos",
+    "subtitle": "Ingeniero de Software | Líder Técnico | Consultor de Innovación",
+    "tagline": "Ingeniero de software dinámico y altamente creativo con más de 15 años de experiencia internacional brindando soluciones innovadoras para empresas líderes en EE.UU.",
+    "cta_contact": "Contáctame",
+    "cta_resume": "Currículum",
+    "location": "San José, Costa Rica",
+    "aria_labels": {
+      "cta_contact": "Navegar a la sección de contacto",
+      "cta_resume": "Abrir currículum markdown"
+    }
+  },
+  "about": {
+    "heading": "Resumen Profesional",
+    "lead": "Ingeniero de software dinámico y altamente creativo con más de 15 años de experiencia internacional brindando soluciones innovadoras para empresas líderes en EE.UU. Reconocido por liderazgo técnico, construcción y empoderamiento de equipos de alto rendimiento, e impulso de mejora continua.",
+    "content": "Apasionado por contribuir como colaborador individual que une creatividad, profundidad técnica y colaboración para entregar resultados significativos. Después de un período dedicado a consultoría e I+D de productos, estoy ansioso por aportar mi experiencia en innovación, automatización y transformación digital a organizaciones con visión de futuro.",
+    "highlights": {
+      "experience": {
+        "value": "15+",
+        "label": "Años de Experiencia",
+        "aria_label": "15 más"
+      },
+      "companies": {
+        "value": "5+",
+        "label": "Empresas Importantes",
+        "aria_label": "5 más"
+      },
+      "commitment": {
+        "value": "100%",
+        "label": "Compromiso con la Calidad",
+        "aria_label": "100 por ciento"
+      }
+    }
+  },
+  "skills": {
+    "heading": "Habilidades Clave",
+    "frontend": {
+      "title": "Front-End",
+      "items": [
+        "JavaScript",
+        "React",
+        "Bootstrap",
+        "Tailwind"
+      ]
+    },
+    "backend": {
+      "title": "Back-End",
+      "items": [
+        "NodeJS",
+        "Python",
+        "Django",
+        "Flask (anecdótico)",
+        ".NET / Ruby on Rails (anecdótico)"
+      ]
+    },
+    "databases": {
+      "title": "Bases de Datos",
+      "items": [
+        "PostgreSQL",
+        "MSSQL",
+        "MySQL"
+      ]
+    },
+    "devops": {
+      "title": "DevOps y Nube",
+      "items": [
+        "Docker",
+        "CI/CD",
+        "Terraform",
+        "AWS",
+        "Prometheus",
+        "Grafana"
+      ]
+    },
+    "project_management": {
+      "title": "Gestión de Proyectos",
+      "items": [
+        "Metodologías Ágiles",
+        "Jira",
+        "Git / Control de Versiones",
+        "Ruta Crítica"
+      ]
+    },
+    "collaboration": {
+      "title": "Colaboración y Comunicación",
+      "items": [
+        "Mediación y liderazgo interfuncional",
+        "Mentoría",
+        "Documentación técnica",
+        "Bilingüe (Español / Inglés)"
+      ]
+    }
+  },
+  "experience": {
+    "heading": "Experiencia Profesional",
+    "jobs": [
+      {
+        "title": "Consultor Independiente y Líder de Innovación Tecnológica",
+        "company": "",
+        "period": "Ene 2025 – Presente",
+        "highlights": [
+          "Lideré proyectos de transformación digital y automatización para PYMEs y startups, implementando soluciones SaaS con arquitectura limpia y tecnologías modernas (Node.js, Python, PostgreSQL, Redis) capaces de procesamiento de datos a gran escala (>5,000 URLs/hora).",
+          "Desarrollé pipelines de CI/CD, pruebas automatizadas (>85% de cobertura) y monitoreo integral (Prometheus, Grafana) para operaciones confiables.",
+          "Gestioné migraciones a la nube para mejorar la velocidad de entrega y resiliencia; mentoricé equipos y promoví documentación y mejores prácticas.",
+          "Impulsé I+D de productos en inteligencia de medios (NLP, análisis de sentimiento, KPIs de reputación) desde validación hasta estrategia de salida al mercado."
+        ]
+      },
+      {
+        "title": "Líder Técnico – Nissan",
+        "company": "vía Critical Mass, Costa Rica",
+        "period": "Jun 2023 – Ene 2025",
+        "highlights": [
+          "Revitalicé proyecto crítico aplicando estándares de codificación, mejorando eficiencia y robustez",
+          "Implementé pruebas unitarias integrales y prácticas TDD, reduciendo regresiones",
+          "Optimicé procesos de revisión de código y cultivé un ambiente colaborativo en el equipo",
+          "Coordiné con múltiples equipos para mejorar procesos de CI/CD y restaurar despliegues oportunos"
+        ]
+      },
+      {
+        "title": "Líder Técnico – Apple",
+        "company": "vía Critical Mass, Costa Rica",
+        "period": "Nov 2022 – Jun 2023",
+        "highlights": [
+          "Lideré equipo para mejorar mantenibilidad, rendimiento y limpieza de código en productos clave",
+          "Utilicé Python y tecnologías frontend modernas para optimizar funcionalidades",
+          "Supervisé entrega de proyectos, incluyendo entrevistas de candidatos y comunicación entre equipos"
+        ]
+      },
+      {
+        "title": "Desarrollador Full Stack – Sideqik",
+        "company": "",
+        "period": "Feb 2022 – Sep 2022",
+        "highlights": [
+          "Contribuí a una plataforma de marketing de influencers de comercio electrónico entregando funcionalidades end-to-end y pruebas de integración.",
+          "Trabajé con PostgreSQL, Ruby on Rails, Ember y Capybara; proporcioné recomendaciones técnicas y actualizaciones de base de datos."
+        ]
+      },
+      {
+        "title": "Líder Front-End – Sephora",
+        "company": "vía Stateside, Costa Rica",
+        "period": "2016 – 2022",
+        "highlights": [
+          "Lideré equipo front-end para gestión de eventos en tienda y programación de Beauty Advisors en EE.UU. y Canadá",
+          "Desarrollé componentes principales de aplicaciones web (carrito de compras, checkout)",
+          "Implementé marcos de localización y optimización de rendimiento",
+          "Reconocido por innovación: ganador de hackathon de Sephora, nominado a Premio Maverik"
+        ]
+      }
+    ]
+  },
+  "portfolio": {
+    "heading": "Proyectos Destacados",
+    "placeholder": "Exhibición de proyectos próximamente. Actualmente enfocado en nuevas innovaciones en transformación digital y automatización."
+  },
+  "education": {
+    "heading": "Educación",
+    "degree": "Licenciatura en Ingeniería Informática",
+    "institution": "Universidad Estatal a Distancia (UNED), Costa Rica"
+  },
+  "blog": {
+    "heading": "Últimas Perspectivas",
+    "placeholder": "Publicaciones de blog y artículos técnicos próximamente."
+  },
+  "contact": {
+    "heading": "Conectemos",
+    "intro": "Igualmente cómodo liderando equipos o contribuyendo como colaborador individual, aporto pasión por crear soluciones significativas, escalables y mantenibles que eleven tanto productos como personas.",
+    "labels": {
+      "contact": "Contacto",
+      "location": "Ubicación"
+    },
+    "location": "San José, Costa Rica"
+  },
+  "footer": {
+    "title": "Luis Bonilla Villalobos",
+    "subtitle": "Ingeniero de Software | Líder Técnico | Consultor de Innovación",
+    "description": "Apasionado por crear soluciones significativas, escalables y mantenibles.",
+    "sections": {
+      "contact": "Contacto",
+      "quick_links": "Enlaces Rápidos"
+    },
+    "location": "San José, Costa Rica",
+    "copyright": "Luis Bonilla Villalobos. Todos los derechos reservados.",
+    "availability": "Disponible para consultoría y oportunidades de tiempo completo.",
+    "nav": {
+      "about": "Acerca de",
+      "skills": "Habilidades",
+      "experience": "Experiencia",
+      "contact": "Contacto"
+    },
+    "aria_labels": {
+      "footer_nav": "Navegación del pie de página",
+      "email_alboni": "Correo electrónico alboni90@gmail.com",
+      "email_lbonilla": "Correo electrónico lbonillav7@gmail.com",
+      "nav_about": "Navegar a la sección Acerca de",
+      "nav_skills": "Navegar a la sección Habilidades",
+      "nav_experience": "Navegar a la sección Experiencia",
+      "nav_contact": "Navegar a la sección Contacto"
+    }
+  }
 }
