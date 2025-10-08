@@ -26,7 +26,7 @@ Passionate about contributing as an **individual contributor** who bridges creat
 
 ### **Independent Consultant & Technology Innovation Leader**
 
-_Jan 2023 – Present_
+_Jan 2025 – Present_
 
 - Led digital transformation and automation projects for SMEs and startups, implementing SaaS solutions with clean architecture and modern technologies (Node.js, Python, PostgreSQL, Redis), capable of large-scale data processing (>5,000 URLs/hour).
 - Developed CI/CD pipelines, automated testing (>85% coverage), and comprehensive monitoring (Prometheus, Grafana), achieving reliable and auditable operations.

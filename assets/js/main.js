@@ -48,7 +48,9 @@ function initializeResumeDownloader() {
     if (downloadButton) {
       downloadButton.addEventListener('click', async (event) => {
         event.preventDefault();
-        await resumeDownloader.downloadResume(downloadButton);
+        // Use detected browser language from global app state if available
+        const lang = (window.portfolioApp && window.portfolioApp.browserLanguage) ? window.portfolioApp.browserLanguage : null;
+        await resumeDownloader.downloadResume(downloadButton, lang);
       });
       
       console.log('Resume downloader initialized successfully');
@@ -78,6 +80,58 @@ function initializeMobileMenu() {
 }
 
 /**
+ * Detect the user's browser language(s) and return a normalized BCP47-like code.
+ * Prioritizes `navigator.languages` (array) then `navigator.language`.
+ * Emits a custom event `browserLanguageDetected` on window with detail { language }
+ */
+function detectBrowserLanguage() {
+  try {
+    let lang = null;
+
+    if (Array.isArray(navigator.languages) && navigator.languages.length > 0) {
+      lang = navigator.languages[0];
+    } else if (navigator.language) {
+      lang = navigator.language;
+    } else if (navigator.userLanguage) {
+      // IE fallback
+      lang = navigator.userLanguage;
+    }
+
+    if (!lang) return null;
+
+    // Normalize: lower-case or language-region in canonical form (e.g., en-US)
+    // Some browsers return values like 'en-US' or 'es-419'. We'll normalize casing.
+    const parts = String(lang).split(/[-_]/);
+    const normalized = parts
+      .map((p, i) => (i === 0 ? p.toLowerCase() : p.toUpperCase()))
+      .join('-');
+
+    // Dispatch custom event for other parts of the app to listen
+    // Prefer modern CustomEvent; fallback to old Event + detail assignment
+    if (typeof CustomEvent === 'function') {
+      const event = new CustomEvent('browserLanguageDetected', { detail: { language: normalized } });
+      window.dispatchEvent(event);
+    } else {
+      // Older browsers: create generic Event and attach detail
+      const evt = document.createEvent('Event');
+      evt.initEvent('browserLanguageDetected', true, true);
+      // Attach detail payload
+      try {
+        evt.detail = { language: normalized };
+      } catch (err) {
+        // Some environments may not allow adding properties - ignore safely
+      }
+      window.dispatchEvent(evt);
+    }
+
+    return normalized;
+  } catch (error) {
+    console.error('Error detecting browser language:', error);
+    return null;
+  }
+}
+
+/**
  * Main application initialization
  */
 function initializeApplication() {
@@ -94,8 +148,16 @@ function initializeApplication() {
     themeManager,
     resumeDownloader,
     mobileMenu,
-    version: '2.1.0' // Added mobile menu with sticky header behavior
+    version: '2.1.0', // Added mobile menu with sticky header behavior
+    detectBrowserLanguage // expose helper
   };
+
+  // Detect language immediately and store result for quick access
+  const detectedLang = detectBrowserLanguage();
+  if (detectedLang) {
+    window.portfolioApp.browserLanguage = detectedLang;
+    console.log('Detected browser language:', detectedLang);
+  }
 
   console.log('Portfolio application initialized successfully');
 }

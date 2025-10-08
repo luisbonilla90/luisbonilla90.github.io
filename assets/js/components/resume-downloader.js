@@ -8,8 +8,8 @@
 import { BrowserDownloadService, DOMUIFeedbackService } from '../core/adapters.js';
 
 export class ResumeConfig {
-  static DEFAULT_PATH = 'docs/Luis_Bonilla_Resume_2025.pdf';
-  static DEFAULT_FILENAME = 'Luis_Bonilla_Resume_2025.pdf';
+  static DEFAULT_PATH = 'docs/Luis_Bonilla_Resume_{lang}.pdf';
+  static DEFAULT_FILENAME = 'Luis_Bonilla_Resume_{lang}.pdf';
   static LOADING_MESSAGE = 'Downloading PDF...';
   static ERROR_PREFIX = 'Error downloading resume: ';
 }
@@ -39,11 +39,20 @@ export class ResumeDownloader {
   /**
    * Download resume file
    */
-  async downloadResume(triggerElement = null) {
+  /**
+   * Download resume file. Optionally pass a language code (e.g. 'en', 'es-ES').
+   * The filePath and fileName can contain the placeholder {lang} which will be
+   * replaced with the resolved language code.
+   */
+  async downloadResume(triggerElement = null, lang = null) {
+    const resolvedLang = this._resolveLang(lang);
+    const filePath = this._formatWithLang(this._filePath, resolvedLang);
+    const fileName = this._formatWithLang(this._fileName, resolvedLang);
+
     const downloadResult = await this._executeDownloadWithFeedback(
       triggerElement,
-      this._filePath,
-      this._fileName
+      filePath,
+      fileName
     );
 
     if (downloadResult.success) {
@@ -82,6 +91,30 @@ export class ResumeDownloader {
     if (element) {
       this._uiFeedbackService.showLoading(element, this._loadingMessage);
     }
+  }
+
+  _formatWithLang(template, lang) {
+    if (!template) return template;
+    return String(template).replace(/\{lang\}/g, lang || 'en');
+  }
+
+  _resolveLang(lang) {
+    // Prefer explicit lang param. Otherwise attempt to read global detection.
+    if (lang) {
+      // normalize to en or es-ES-like format
+      return String(lang).split(/[-_]/)[0].toLowerCase();
+    }
+
+    try {
+      if (typeof window !== 'undefined' && window.portfolioApp && window.portfolioApp.browserLanguage) {
+        return String(window.portfolioApp.browserLanguage).split(/[-_]/)[0].toLowerCase();
+      }
+    } catch (e) {
+      // ignore
+    }
+
+    // default fallback
+    return 'en';
   }
 
   _hideLoadingState(element) {
