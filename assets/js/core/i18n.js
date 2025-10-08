@@ -13,9 +13,9 @@ const LOCALES_PATH = '/locales';
 
 export class I18n {
   constructor() {
+    this.supportedLanguages = SUPPORTED_LANGUAGES;
     this.currentLanguage = localStorage.getItem(STORAGE_KEY) || this.detectDefaultLanguage();
     this.translations = {};
-    this.supportedLanguages = SUPPORTED_LANGUAGES;
     this.init();
   }
 

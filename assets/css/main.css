@@ -10,6 +10,32 @@
   padding: 0;
 }
 
+/* Site warning banner layout */
+.site-warning {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-xl);
+}
+
+.site-warning .warning-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.site-warning .warning-actions {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.site-warning .btn-close {
+  margin-left: auto;
+  align-self: center;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 16px;
