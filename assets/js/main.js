@@ -7,6 +7,7 @@
 import { ThemeManager } from "./core/theme-manager.js";
 import { ResumeDownloader } from "./components/resume-downloader.js";
 import { MobileMenu } from "./components/mobile-menu.js";
+import { I18n } from "./core/i18n.js";
 
 /**
  * Initialize copyright year in footer
@@ -80,6 +81,25 @@ function initializeMobileMenu() {
 }
 
 /**
+ * Initialize internationalization (i18n) system
+ */
+function initializeI18n() {
+  try {
+    const i18n = new I18n();
+    
+    // Listen for language changes if needed for analytics or other features
+    window.addEventListener('languageChanged', (event) => {
+      console.log('Language changed to:', event.detail.language);
+    });
+
+    return i18n;
+  } catch (error) {
+    console.error('Failed to initialize i18n:', error);
+    return null;
+  }
+}
+
+/**
  * Detect the user's browser language(s) and return a normalized BCP47-like code.
  * Prioritizes `navigator.languages` (array) then `navigator.language`.
  * Emits a custom event `browserLanguageDetected` on window with detail { language }
@@ -140,15 +160,17 @@ function initializeApplication() {
   // Initialize core components
   initializeCopyrightYear();
   const themeManager = initializeThemeManager();
+  const i18n = initializeI18n();
   const resumeDownloader = initializeResumeDownloader();
   const mobileMenu = initializeMobileMenu();
 
   // Store references for potential cleanup or debugging
   window.portfolioApp = {
     themeManager,
+    i18n,
     resumeDownloader,
     mobileMenu,
-    version: '2.1.0', // Added mobile menu with sticky header behavior
+    version: '3.0.0', // Added i18n support with language selector
     detectBrowserLanguage // expose helper
   };
 
