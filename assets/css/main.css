@@ -322,6 +322,13 @@ header .container {
   border-width: 0;
 }
 
+/* Hide language text on small screens, show only flag */
+@media (max-width: 480px) {
+  #language-select .lang-text {
+    display: none;
+  }
+}
+
 /* ==========================================
    Buttons
    ========================================== */
