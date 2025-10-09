@@ -23,6 +23,83 @@
       id="pianjs"
       data-code="tF5j8R4NSp5lwzo3OlKyfK0yYtzARyLc"
     ></script>
+
+    <!-- Favicon: responsive for browsers (JPG sources provided in assets/img/favico/) -->
+    <!-- Default/low-DPR favicon -->
+    <link id="favicon" rel="icon" type="image/jpeg" sizes="16x16" href="assets/img/favico/favico_16.jpg">
+    <!-- Provide a 32x32 fallback (browsers may pick best match) -->
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="assets/img/favico/favico_32.jpg">
+    <!-- Apple touch icon and theme color -->
+    <link rel="apple-touch-icon" href="assets/img/favico/favico_32.jpg">
+    <meta name="theme-color" content="#ffffff">
+    <script>
+      // Responsive favicon selector with theme support
+      (function () {
+        function updateFavicon() {
+          try {
+            var dpr = window.devicePixelRatio || 1;
+            var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            var fav = document.getElementById('favicon');
+            var appleTouch = document.querySelector('link[rel="apple-touch-icon"]');
+            
+            if (!fav) {
+              fav = document.createElement('link');
+              fav.id = 'favicon';
+              fav.rel = 'icon';
+              document.head.appendChild(fav);
+            }
+            
+            // Choose favicon based on theme and device pixel ratio
+            var favicoPrefix = 'favico';
+            if (currentTheme === 'professional') {
+              favicoPrefix = 'favico_pro';
+            } else if (currentTheme === 'cyberpunk') {
+              favicoPrefix = 'favico_cp';
+            }
+            
+            // Use 32px icon for high-DPR screens (>=2), otherwise 16px
+            if (dpr >= 2) {
+              fav.type = 'image/jpeg';
+              fav.sizes = '32x32';
+              fav.href = 'assets/img/favico/' + favicoPrefix + '_32.jpg';
+              if (appleTouch) {
+                appleTouch.href = 'assets/img/favico/' + favicoPrefix + '_32.jpg';
+              }
+            } else {
+              fav.type = 'image/jpeg';
+              fav.sizes = '16x16';
+              fav.href = 'assets/img/favico/' + favicoPrefix + '_16.jpg';
+              if (appleTouch) {
+                appleTouch.href = 'assets/img/favico/' + favicoPrefix + '_32.jpg';
+              }
+            }
+          } catch (e) {
+            // Fail silently if anything goes wrong
+          }
+        }
+        
+        // Initialize favicon
+        updateFavicon();
+        
+        // Listen for theme changes
+        window.addEventListener('themeChanged', updateFavicon);
+        
+        // Also listen for data-theme attribute changes (fallback)
+        if (window.MutationObserver) {
+          var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+                updateFavicon();
+              }
+            });
+          });
+          observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['data-theme']
+          });
+        }
+      })();
+    </script>
   </head>
   <body>
     <!-- Skip to main content link for keyboard navigation -->

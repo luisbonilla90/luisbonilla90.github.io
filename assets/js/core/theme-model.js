@@ -6,7 +6,8 @@
 export const ThemeType = {
   LIGHT: 'light',
   DARK: 'dark',
-  PROFESSIONAL: 'professional'
+  PROFESSIONAL: 'professional',
+  // CYBERPUNK: 'cyberpunk'
 };
 
 export const ThemeConfig = {
@@ -16,8 +17,9 @@ export const ThemeConfig = {
   
   ICON_MAP: {
     [ThemeType.LIGHT]: '🌙',
-    [ThemeType.DARK]: '☀️', 
-    [ThemeType.PROFESSIONAL]: '💻'
+    [ThemeType.DARK]: '💻', 
+    [ThemeType.PROFESSIONAL]: '☀️',
+    // [ThemeType.CYBERPUNK]: '🤖'
   },
 
   ACCESSIBILITY_LABELS: {
@@ -55,7 +57,7 @@ export class Theme {
   }
 
   getAriaPressed() {
-    return this.isLight() ? 'false' : 'true';
+    return (!this.isLight()).toString();
   }
 
   static fromString(themeString) {
