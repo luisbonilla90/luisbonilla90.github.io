@@ -99,13 +99,22 @@ export class ResumeDownloader {
   }
 
   _resolveLang(lang) {
-    // Prefer explicit lang param. Otherwise attempt to read global detection.
+    // Priority 1: Prefer explicit lang param
     if (lang) {
       // normalize to en or es-ES-like format
       return String(lang).split(/[-_]/)[0].toLowerCase();
     }
 
     try {
+      // Priority 2: User-selected language from i18n component (language-select)
+      if (typeof window !== 'undefined' && window.portfolioApp && window.portfolioApp.i18n) {
+        const currentLang = window.portfolioApp.i18n.getCurrentLanguage();
+        if (currentLang) {
+          return String(currentLang).split(/[-_]/)[0].toLowerCase();
+        }
+      }
+
+      // Priority 3: Browser default language
       if (typeof window !== 'undefined' && window.portfolioApp && window.portfolioApp.browserLanguage) {
         return String(window.portfolioApp.browserLanguage).split(/[-_]/)[0].toLowerCase();
       }
