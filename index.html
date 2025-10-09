@@ -26,76 +26,95 @@
 
     <!-- Favicon: responsive for browsers (JPG sources provided in assets/img/favico/) -->
     <!-- Default/low-DPR favicon -->
-    <link id="favicon" rel="icon" type="image/jpeg" sizes="16x16" href="assets/img/favico/favico_16.jpg">
+    <link
+      id="favicon"
+      rel="icon"
+      type="image/jpeg"
+      sizes="16x16"
+      href="assets/img/favico/favico_16.jpg"
+    />
     <!-- Provide a 32x32 fallback (browsers may pick best match) -->
-    <link rel="icon" type="image/jpeg" sizes="32x32" href="assets/img/favico/favico_32.jpg">
+    <link
+      rel="icon"
+      type="image/jpeg"
+      sizes="32x32"
+      href="assets/img/favico/favico_32.jpg"
+    />
     <!-- Apple touch icon and theme color -->
-    <link rel="apple-touch-icon" href="assets/img/favico/favico_32.jpg">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" href="assets/img/favico/favico_32.jpg" />
+    <meta name="theme-color" content="#ffffff" />
     <script>
       // Responsive favicon selector with theme support
       (function () {
         function updateFavicon() {
           try {
             var dpr = window.devicePixelRatio || 1;
-            var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            var fav = document.getElementById('favicon');
-            var appleTouch = document.querySelector('link[rel="apple-touch-icon"]');
-            
+            var currentTheme =
+              document.documentElement.getAttribute("data-theme") || "light";
+            var fav = document.getElementById("favicon");
+            var appleTouch = document.querySelector(
+              'link[rel="apple-touch-icon"]'
+            );
+
             if (!fav) {
-              fav = document.createElement('link');
-              fav.id = 'favicon';
-              fav.rel = 'icon';
+              fav = document.createElement("link");
+              fav.id = "favicon";
+              fav.rel = "icon";
               document.head.appendChild(fav);
             }
-            
+
             // Choose favicon based on theme and device pixel ratio
-            var favicoPrefix = 'favico';
-            if (currentTheme === 'professional') {
-              favicoPrefix = 'favico_pro';
-            } else if (currentTheme === 'cyberpunk') {
-              favicoPrefix = 'favico_cp';
+            var favicoPrefix = "favico";
+            if (currentTheme === "professional") {
+              favicoPrefix = "favico_pro";
+            } else if (currentTheme === "cyberpunk") {
+              favicoPrefix = "favico_cp";
             }
-            
+
             // Use 32px icon for high-DPR screens (>=2), otherwise 16px
             if (dpr >= 2) {
-              fav.type = 'image/jpeg';
-              fav.sizes = '32x32';
-              fav.href = 'assets/img/favico/' + favicoPrefix + '_32.jpg';
+              fav.type = "image/jpeg";
+              fav.sizes = "32x32";
+              fav.href = "assets/img/favico/" + favicoPrefix + "_32.jpg";
               if (appleTouch) {
-                appleTouch.href = 'assets/img/favico/' + favicoPrefix + '_32.jpg';
+                appleTouch.href =
+                  "assets/img/favico/" + favicoPrefix + "_32.jpg";
               }
             } else {
-              fav.type = 'image/jpeg';
-              fav.sizes = '16x16';
-              fav.href = 'assets/img/favico/' + favicoPrefix + '_16.jpg';
+              fav.type = "image/jpeg";
+              fav.sizes = "16x16";
+              fav.href = "assets/img/favico/" + favicoPrefix + "_16.jpg";
               if (appleTouch) {
-                appleTouch.href = 'assets/img/favico/' + favicoPrefix + '_32.jpg';
+                appleTouch.href =
+                  "assets/img/favico/" + favicoPrefix + "_32.jpg";
               }
             }
           } catch (e) {
             // Fail silently if anything goes wrong
           }
         }
-        
+
         // Initialize favicon
         updateFavicon();
-        
+
         // Listen for theme changes
-        window.addEventListener('themeChanged', updateFavicon);
-        
+        window.addEventListener("themeChanged", updateFavicon);
+
         // Also listen for data-theme attribute changes (fallback)
         if (window.MutationObserver) {
-          var observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-              if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+          var observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+              if (
+                mutation.type === "attributes" &&
+                mutation.attributeName === "data-theme"
+              ) {
                 updateFavicon();
               }
             });
           });
           observer.observe(document.documentElement, {
             attributes: true,
-            attributeFilter: ['data-theme']
+            attributeFilter: ["data-theme"],
           });
         }
       })();
@@ -116,8 +135,13 @@
       <div class="warning-content">
         <span class="warning-icon" aria-hidden="true">⚠️</span>
         <p>
-          <strong data-i18n="site_warning.text">This site is under construction:</strong> <span data-i18n="site_warning.description">Some sections may
-          be incomplete or currently under development.</span>
+          <strong data-i18n="site_warning.text"
+            >This site is under construction:</strong
+          >
+          <span data-i18n="site_warning.description"
+            >Some sections may be incomplete or currently under
+            development.</span
+          >
         </p>
       </div>
       <div class="warning-actions">
@@ -162,28 +186,56 @@
         >
           <ul class="nav-menu">
             <li>
-              <a href="#about" aria-label="Navigate to About section" data-i18n-aria-label="header.aria_labels.nav_about" data-i18n="header.nav.about">About</a>
+              <a
+                href="#about"
+                aria-label="Navigate to About section"
+                data-i18n-aria-label="header.aria_labels.nav_about"
+                data-i18n="header.nav.about"
+                >About</a
+              >
             </li>
             <li>
-              <a href="#skills" aria-label="Navigate to Skills section" data-i18n-aria-label="header.aria_labels.nav_skills" data-i18n="header.nav.skills"
+              <a
+                href="#skills"
+                aria-label="Navigate to Skills section"
+                data-i18n-aria-label="header.aria_labels.nav_skills"
+                data-i18n="header.nav.skills"
                 >Skills</a
               >
             </li>
             <li>
-              <a href="#experience" aria-label="Navigate to Experience section" data-i18n-aria-label="header.aria_labels.nav_experience" data-i18n="header.nav.experience"
+              <a
+                href="#experience"
+                aria-label="Navigate to Experience section"
+                data-i18n-aria-label="header.aria_labels.nav_experience"
+                data-i18n="header.nav.experience"
                 >Experience</a
               >
             </li>
             <li>
-              <a href="#portfolio" aria-label="Navigate to Portfolio section" data-i18n-aria-label="header.aria_labels.nav_portfolio" data-i18n="header.nav.portfolio"
+              <a
+                href="#portfolio"
+                aria-label="Navigate to Portfolio section"
+                data-i18n-aria-label="header.aria_labels.nav_portfolio"
+                data-i18n="header.nav.portfolio"
                 >Portfolio</a
               >
             </li>
             <li>
-              <a href="#blog" aria-label="Navigate to Blog section" data-i18n-aria-label="header.aria_labels.nav_blog" data-i18n="header.nav.blog">Blog</a>
+              <a
+                href="#blog"
+                aria-label="Navigate to Blog section"
+                data-i18n-aria-label="header.aria_labels.nav_blog"
+                data-i18n="header.nav.blog"
+                >Blog</a
+              >
             </li>
             <li>
-              <a href="#contact" aria-label="Navigate to Contact section" data-i18n-aria-label="header.aria_labels.nav_contact" data-i18n="header.nav.contact"
+              <a
+                href="#contact"
+                aria-label="Navigate to Contact section"
+                data-i18n-aria-label="header.aria_labels.nav_contact"
+                data-i18n="header.nav.contact"
                 >Contact</a
               >
             </li>
@@ -199,15 +251,23 @@
             aria-pressed="false"
           >
             <span aria-hidden="true" data-theme-icon>🌙</span>
-            <span class="theme-toggle-text" data-i18n="header.theme_toggle">Toggle Theme</span>
+            <span class="theme-toggle-text" data-i18n="header.theme_toggle"
+              >Toggle Theme</span
+            >
           </button>
         </div>
 
         <div class="language-switcher">
-          <label for="language-select" class="visually-hidden">Select language</label>
+          <label for="language-select" class="visually-hidden"
+            >Select language</label
+          >
           <select id="language-select" aria-label="Select language">
-            <option value="en" data-flag="🇺🇸">🇺🇸 <span class="lang-text">EN</span></option>
-            <option value="es" data-flag="🇨🇷">🇨🇷 <span class="lang-text">ES</span></option>
+            <option value="en" data-flag="🇺🇸">
+              🇺🇸 <span class="lang-text">EN</span>
+            </option>
+            <option value="es" data-flag="🇨🇷">
+              🇨🇷 <span class="lang-text">ES</span>
+            </option>
           </select>
         </div>
       </div>
@@ -217,7 +277,9 @@
       <!-- Hero Section -->
       <section id="hero" class="hero-section" aria-labelledby="hero-title">
         <div class="container">
-          <h1 id="hero-title" class="hero-title" data-i18n="hero.title">Luis Bonilla Villalobos</h1>
+          <h1 id="hero-title" class="hero-title" data-i18n="hero.title">
+            Luis Bonilla Villalobos
+          </h1>
           <p class="hero-subtitle" data-i18n="hero.subtitle">
             Software Engineer | Technical Lead | Innovation Consultant
           </p>
@@ -242,11 +304,15 @@
               aria-label="Open resume markdown"
               data-i18n-aria-label="hero.aria_labels.cta_resume"
             >
-              <span aria-hidden="true">📄</span> <span data-i18n="hero.cta_resume">Resume</span>
+              <span aria-hidden="true">📄</span>
+              <span data-i18n="hero.cta_resume">Resume</span>
             </a>
           </div>
           <div class="hero-contact">
-            <p><span aria-hidden="true">📍</span> <span data-i18n="hero.location">San José, Costa Rica</span></p>
+            <p>
+              <span aria-hidden="true">📍</span>
+              <span data-i18n="hero.location">San José, Costa Rica</span>
+            </p>
             <p>
               <span aria-hidden="true">📧</span>
               <a href="mailto:lbonillav7@gmail.com">lbonillav7@gmail.com</a>
@@ -258,7 +324,9 @@
       <!-- About Section -->
       <section id="about" class="about-section" aria-labelledby="about-heading">
         <div class="container">
-          <h2 id="about-heading" data-i18n="about.heading">Professional Summary</h2>
+          <h2 id="about-heading" data-i18n="about.heading">
+            Professional Summary
+          </h2>
           <div class="about-content">
             <p class="lead" data-i18n="about.lead">
               Dynamic and highly creative software engineer with over 15 years
@@ -281,16 +349,43 @@
           </div>
           <div class="about-highlights">
             <div class="highlight-item">
-              <h3><span aria-label="15 plus" data-i18n-aria-label="about.highlights.experience.aria_label" data-i18n="about.highlights.experience.value">15+</span></h3>
-              <p data-i18n="about.highlights.experience.label">Years of Experience</p>
+              <h3>
+                <span
+                  aria-label="15 plus"
+                  data-i18n-aria-label="about.highlights.experience.aria_label"
+                  data-i18n="about.highlights.experience.value"
+                  >15+</span
+                >
+              </h3>
+              <p data-i18n="about.highlights.experience.label">
+                Years of Experience
+              </p>
             </div>
             <div class="highlight-item">
-              <h3><span aria-label="5 plus" data-i18n-aria-label="about.highlights.companies.aria_label" data-i18n="about.highlights.companies.value">5</span></h3>
-              <p data-i18n="about.highlights.companies.label">Major Companies</p>
+              <h3>
+                <span
+                  aria-label="5 plus"
+                  data-i18n-aria-label="about.highlights.companies.aria_label"
+                  data-i18n="about.highlights.companies.value"
+                  >5</span
+                >
+              </h3>
+              <p data-i18n="about.highlights.companies.label">
+                Major Companies
+              </p>
             </div>
             <div class="highlight-item">
-              <h3><span aria-label="100 percent" data-i18n-aria-label="about.highlights.commitment.aria_label" data-i18n="about.highlights.commitment.value">100%</span></h3>
-              <p data-i18n="about.highlights.commitment.label">Commitment to Quality</p>
+              <h3>
+                <span
+                  aria-label="100 percent"
+                  data-i18n-aria-label="about.highlights.commitment.aria_label"
+                  data-i18n="about.highlights.commitment.value"
+                  >100%</span
+                >
+              </h3>
+              <p data-i18n="about.highlights.commitment.label">
+                Commitment to Quality
+              </p>
             </div>
           </div>
         </div>
@@ -321,7 +416,9 @@
                 <li data-i18n="skills.backend.items.1">Python</li>
                 <li data-i18n="skills.backend.items.2">Django</li>
                 <li data-i18n="skills.backend.items.3">Flask (anecdotal)</li>
-                <li data-i18n="skills.backend.items.4">.NET / Ruby on Rails (anecdotal)</li>
+                <li data-i18n="skills.backend.items.4">
+                  .NET / Ruby on Rails (anecdotal)
+                </li>
               </ul>
             </div>
             <div class="skill-category">
@@ -344,21 +441,37 @@
               </ul>
             </div>
             <div class="skill-category">
-              <h3 data-i18n="skills.project_management.title">Project Management</h3>
+              <h3 data-i18n="skills.project_management.title">
+                Project Management
+              </h3>
               <ul>
-                <li data-i18n="skills.project_management.items.0">Agile Methodologies</li>
+                <li data-i18n="skills.project_management.items.0">
+                  Agile Methodologies
+                </li>
                 <li data-i18n="skills.project_management.items.1">Jira</li>
-                <li data-i18n="skills.project_management.items.2">Git / Version Control</li>
-                <li data-i18n="skills.project_management.items.3">Critical Path</li>
+                <li data-i18n="skills.project_management.items.2">
+                  Git / Version Control
+                </li>
+                <li data-i18n="skills.project_management.items.3">
+                  Critical Path
+                </li>
               </ul>
             </div>
             <div class="skill-category">
-              <h3 data-i18n="skills.collaboration.title">Collaboration & Communication</h3>
+              <h3 data-i18n="skills.collaboration.title">
+                Collaboration & Communication
+              </h3>
               <ul>
-                <li data-i18n="skills.collaboration.items.0">Mediation & cross-functional leadership</li>
+                <li data-i18n="skills.collaboration.items.0">
+                  Mediation & cross-functional leadership
+                </li>
                 <li data-i18n="skills.collaboration.items.1">Mentoring</li>
-                <li data-i18n="skills.collaboration.items.2">Technical documentation</li>
-                <li data-i18n="skills.collaboration.items.3">Bilingual (Spanish / English)</li>
+                <li data-i18n="skills.collaboration.items.2">
+                  Technical documentation
+                </li>
+                <li data-i18n="skills.collaboration.items.3">
+                  Bilingual (Spanish / English)
+                </li>
               </ul>
             </div>
           </div>
@@ -372,11 +485,15 @@
         aria-labelledby="experience-heading"
       >
         <div class="container">
-          <h2 id="experience-heading" data-i18n="experience.heading">Professional Experience</h2>
+          <h2 id="experience-heading" data-i18n="experience.heading">
+            Professional Experience
+          </h2>
           <div class="experience-timeline" role="list">
             <article class="experience-item" role="listitem">
               <div class="experience-header">
-                <h3 data-i18n="experience.jobs.0.title">Independent Consultant & Technology Innovation Leader</h3>
+                <h3 data-i18n="experience.jobs.0.title">
+                  Independent Consultant & Technology Innovation Leader
+                </h3>
                 <span class="experience-period"
                   ><time datetime="2023-01">Jan 2025</time> –
                   <time datetime="2025-10">Present</time></span
@@ -410,8 +527,12 @@
 
             <article class="experience-item" role="listitem">
               <div class="experience-header">
-                <h3 data-i18n="experience.jobs.1.title">Technical Lead – Nissan</h3>
-                <span class="experience-company" data-i18n="experience.jobs.1.company"
+                <h3 data-i18n="experience.jobs.1.title">
+                  Technical Lead – Nissan
+                </h3>
+                <span
+                  class="experience-company"
+                  data-i18n="experience.jobs.1.company"
                   >via Critical Mass, Costa Rica</span
                 >
                 <span class="experience-period"
@@ -441,8 +562,12 @@
 
             <article class="experience-item" role="listitem">
               <div class="experience-header">
-                <h3 data-i18n="experience.jobs.2.title">Technical Lead – Apple</h3>
-                <span class="experience-company" data-i18n="experience.jobs.2.company"
+                <h3 data-i18n="experience.jobs.2.title">
+                  Technical Lead – Apple
+                </h3>
+                <span
+                  class="experience-company"
+                  data-i18n="experience.jobs.2.company"
                   >via Critical Mass, Costa Rica</span
                 >
                 <span class="experience-period"
@@ -468,7 +593,9 @@
 
             <article class="experience-item" role="listitem">
               <div class="experience-header">
-                <h3 data-i18n="experience.jobs.3.title">Full Stack Developer – Sideqik</h3>
+                <h3 data-i18n="experience.jobs.3.title">
+                  Full Stack Developer – Sideqik
+                </h3>
                 <span class="experience-period"
                   ><time datetime="2022-02">Feb 2022</time> –
                   <time datetime="2022-09">Sep 2022</time></span
@@ -488,8 +615,12 @@
 
             <article class="experience-item" role="listitem">
               <div class="experience-header">
-                <h3 data-i18n="experience.jobs.4.title">Front-End Lead – Sephora</h3>
-                <span class="experience-company" data-i18n="experience.jobs.4.company"
+                <h3 data-i18n="experience.jobs.4.title">
+                  Front-End Lead – Sephora
+                </h3>
+                <span
+                  class="experience-company"
+                  data-i18n="experience.jobs.4.company"
                   >via Stateside, Costa Rica</span
                 >
                 <span class="experience-period"
@@ -529,13 +660,17 @@
         aria-labelledby="portfolio-heading"
       >
         <div class="container">
-          <h2 id="portfolio-heading" data-i18n="portfolio.heading">Featured Projects</h2>
+          <h2 id="portfolio-heading" data-i18n="portfolio.heading">
+            Featured Projects
+          </h2>
           <div class="projects">
             <div class="project-placeholder" role="status" aria-live="polite">
               <p>
-                <span aria-hidden="true">🚀</span> <span data-i18n="portfolio.placeholder">Project showcase coming soon.
-                Currently focusing on new innovations in digital transformation
-                and automation.</span>
+                <span aria-hidden="true">🚀</span>
+                <span data-i18n="portfolio.placeholder"
+                  >Project showcase coming soon. Currently focusing on new
+                  innovations in digital transformation and automation.</span
+                >
               </p>
             </div>
           </div>
@@ -549,10 +684,14 @@
         aria-labelledby="education-heading"
       >
         <div class="container">
-          <h2 id="education-heading" data-i18n="education.heading">Education</h2>
+          <h2 id="education-heading" data-i18n="education.heading">
+            Education
+          </h2>
           <div class="education-item">
             <h3 data-i18n="education.degree">B.Sc. Computer Engineering</h3>
-            <p data-i18n="education.institution">Universidad Estatal a Distancia (UNED), Costa Rica</p>
+            <p data-i18n="education.institution">
+              Universidad Estatal a Distancia (UNED), Costa Rica
+            </p>
           </div>
         </div>
       </section>
@@ -564,8 +703,10 @@
           <div class="posts">
             <div class="blog-placeholder" role="status" aria-live="polite">
               <p>
-                <span aria-hidden="true">📝</span> <span data-i18n="blog.placeholder">Blog posts and technical
-                articles coming soon.</span>
+                <span aria-hidden="true">📝</span>
+                <span data-i18n="blog.placeholder"
+                  >Blog posts and technical articles coming soon.</span
+                >
               </p>
             </div>
           </div>
@@ -579,7 +720,9 @@
         aria-labelledby="contact-heading"
       >
         <div class="container">
-          <h2 id="contact-heading" data-i18n="contact.heading">Let's Connect</h2>
+          <h2 id="contact-heading" data-i18n="contact.heading">
+            Let's Connect
+          </h2>
           <div class="contact-content">
             <p class="contact-intro" data-i18n="contact.intro">
               Equally comfortable <strong>leading teams</strong> or contributing
@@ -590,23 +733,49 @@
             <div class="contact-info">
               <div class="contact-item">
                 <strong data-i18n="contact.labels.contact">Contact</strong>
-                <p>
-                  <a href="mailto:lbonillav7@gmail.com">lbonillav7@gmail.com</a>
+                <p
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 1em;
+                  "
+                >
+                  <span aria-hidden="true" style="font-size: 1.25em">📧</span>
+                  <a
+                    href="mailto:lbonillav7@gmail.com"
+                    style="text-decoration: none"
+                  >
+                    lbonillav7@gmail.com
+                  </a>
                 </p>
               </div>
               <div class="contact-item">
                 <strong data-i18n="contact.labels.location">Location</strong>
-                <p data-i18n="contact.location">San José, Costa Rica</p>
+                <p style="display: flex; align-items: center; gap: 1em">
+                  <span aria-hidden="true" style="font-size: 1.25em">📍</span>
+                  <span data-i18n="contact.location">San José, Costa Rica</span>
+                </p>
               </div>
-                <div class="contact-item">
-                  <strong>LinkedIn</strong>
-                  <p>
-                    <a href="https://linkedin.com/in/luis-bonilla-villalobos/" aria-label="LinkedIn profile" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 0.5em;">
-                      <span aria-hidden="true" style="font-size: 1.25em;">🔗</span>
-                      <span style="word-break: break-all;">LinkedIn Profile</span>
-                    </a>
-                  </p>
-                </div>
+              <div class="contact-item">
+                <strong>LinkedIn</strong>
+                <p>
+                  <a
+                    href="https://linkedin.com/in/luis-bonilla-villalobos/"
+                    aria-label="LinkedIn profile"
+                    target="_blank"
+                    rel="noopener"
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 1em;
+                      text-decoration: none;
+                    "
+                  >
+                    <span aria-hidden="true" style="font-size: 1.25em">🔗</span>
+                    <span style="word-break: break-all">LinkedIn Profile</span>
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -618,7 +787,9 @@
         <div class="footer-content">
           <div class="footer-section">
             <h3 data-i18n="footer.title">Luis Bonilla Villalobos</h3>
-            <p data-i18n="footer.subtitle">Software Engineer | Technical Lead | Innovation Consultant</p>
+            <p data-i18n="footer.subtitle">
+              Software Engineer | Technical Lead | Innovation Consultant
+            </p>
             <p data-i18n="footer.description">
               Passionate about creating meaningful, scalable, and maintainable
               solutions.
@@ -635,19 +806,33 @@
                 >lbonillav7@gmail.com</a
               >
             </p>
-            <p><span aria-hidden="true">📍</span> <span data-i18n="footer.location">San José, Costa Rica</span></p>
+            <p>
+              <span aria-hidden="true">📍</span>
+              <span data-i18n="footer.location">San José, Costa Rica</span>
+            </p>
           </div>
           <div class="footer-section">
             <h4 data-i18n="footer.sections.quick_links">Quick Links</h4>
-            <nav aria-label="Footer navigation" data-i18n-aria-label="footer.aria_labels.footer_nav">
+            <nav
+              aria-label="Footer navigation"
+              data-i18n-aria-label="footer.aria_labels.footer_nav"
+            >
               <ul>
                 <li>
-                  <a href="#about" aria-label="Navigate to About section" data-i18n-aria-label="footer.aria_labels.nav_about" data-i18n="footer.nav.about"
+                  <a
+                    href="#about"
+                    aria-label="Navigate to About section"
+                    data-i18n-aria-label="footer.aria_labels.nav_about"
+                    data-i18n="footer.nav.about"
                     >About</a
                   >
                 </li>
                 <li>
-                  <a href="#skills" aria-label="Navigate to Skills section" data-i18n-aria-label="footer.aria_labels.nav_skills" data-i18n="footer.nav.skills"
+                  <a
+                    href="#skills"
+                    aria-label="Navigate to Skills section"
+                    data-i18n-aria-label="footer.aria_labels.nav_skills"
+                    data-i18n="footer.nav.skills"
                     >Skills</a
                   >
                 </li>
@@ -661,7 +846,11 @@
                   >
                 </li>
                 <li>
-                  <a href="#contact" aria-label="Navigate to Contact section" data-i18n-aria-label="footer.aria_labels.nav_contact" data-i18n="footer.nav.contact"
+                  <a
+                    href="#contact"
+                    aria-label="Navigate to Contact section"
+                    data-i18n-aria-label="footer.aria_labels.nav_contact"
+                    data-i18n="footer.nav.contact"
                     >Contact</a
                   >
                 </li>
@@ -671,10 +860,14 @@
         </div>
         <div class="footer-bottom">
           <p>
-            &copy; <span id="year"></span> <span data-i18n="footer.copyright">Luis Bonilla Villalobos. All rights
-            reserved.</span>
+            &copy; <span id="year"></span>
+            <span data-i18n="footer.copyright"
+              >Luis Bonilla Villalobos. All rights reserved.</span
+            >
           </p>
-          <p data-i18n="footer.availability">Available for consulting and full-time opportunities.</p>
+          <p data-i18n="footer.availability">
+            Available for consulting and full-time opportunities.
+          </p>
         </div>
       </div>
     </footer>
