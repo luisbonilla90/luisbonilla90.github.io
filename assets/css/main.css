@@ -320,7 +320,7 @@ header .container {
   background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="currentColor" d="M6 8L0 2 1.4 0.6 6 5.2 10.6 0.6 12 2z"/></svg>');
   background-repeat: no-repeat;
   background-position: right var(--spacing-sm) center;
-  padding-right: calc(var(--spacing-md) + 16px);
+  padding-right: 2.5em; /* enough for caret and pseudo-element, matches text spacing */
   /* Enhanced emoji/flag font support for cross-browser compatibility including Edge on Windows */
   font-family: "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji", system-ui, -apple-system, sans-serif;
 }
@@ -350,10 +350,59 @@ header .container {
   border-width: 0;
 }
 
-/* Hide language text on small screens, show only flag */
+/* Use pseudo-element to render language code next to the flag for non-mobile
+   We rely on data-current-text attribute on the select element and hide on small screens */
+#language-select {
+  position: relative;
+}
+
+#language-select::after {
+  content: attr(data-current-text);
+  position: absolute;
+  right: 2.5em; /* aligns with caret, matches select text */
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+/* Mobile: center and enlarge the flag inside the select control */
 @media (max-width: 480px) {
-  #language-select .lang-text {
+  .language-switcher {
+    /* tighter layout for small headers */
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
+  }
+
+  /* Make the select control square-ish and center the emoji */
+  #language-select {
+    width: 48px; /* compact square for just the flag */
+    min-width: 48px;
+    padding: 8px 0; /* vertical padding only */
+    text-align: center; /* center the flag emoji */
+    font-size: 1.25rem; /* larger flag glyph */
+    padding-right: 12px; /* keep room for native arrow if present */
+  }
+
+  /* Ensure the background-position doesn't misplace the native arrow */
+  #language-select {
+    background-position: right 8px center;
+  }
+
+  /* On small screens, hide the pseudo-element so only the flag remains inside the option */
+  /* #language-select::after {
     display: none;
+    content: '';
+  } */
+
+  /* Increase tap target while keeping the control compact visually */
+  .language-switcher #language-select {
+    height: 48px;
+    padding-right: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 

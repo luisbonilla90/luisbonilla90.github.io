@@ -45,12 +45,16 @@
     <meta name="theme-color" content="#ffffff" />
     <script>
       // Responsive favicon selector with theme support
+      var lastTheme = window.localStorage && window.localStorage.getItem('site_theme_v1');
+      var lastLanguage = window.localStorage && window.localStorage.getItem('language');
+      lastTheme && document.documentElement.setAttribute("data-theme", lastTheme);
+      lastLanguage && document.documentElement.setAttribute("lang", lastLanguage);
+
       (function () {
         function updateFavicon() {
           try {
             var dpr = window.devicePixelRatio || 1;
-            var currentTheme =
-              document.documentElement.getAttribute("data-theme") || "light";
+            var currentTheme = document.documentElement.getAttribute("data-theme") || "light";
             var fav = document.getElementById("favicon");
             var appleTouch = document.querySelector(
               'link[rel="apple-touch-icon"]'
@@ -121,9 +125,6 @@
     </script>
   </head>
   <body>
-    <!-- Skip to main content link for keyboard navigation -->
-    <!-- <a href="#main-content" class="skip-link">Skip to main content</a> -->
-
     <!-- Under construction warning banner -->
     <div
       class="site-warning"
@@ -261,13 +262,9 @@
           <label for="language-select" class="visually-hidden"
             >Select language</label
           >
-          <select id="language-select" aria-label="Select language">
-            <option value="en" data-flag="🇺🇸">
-              🇺🇸 <span class="lang-text">EN</span>
-            </option>
-            <option value="es" data-flag="🇨🇷">
-              🇨🇷 <span class="lang-text">ES</span>
-            </option>
+          <select id="language-select" aria-label="Select language" data-current-text="EN">
+            <option value="en" data-flag="🇺🇸" data-text="EN">🇺🇸</option>
+            <option value="es" data-flag="🇨🇷" data-text="ES">🇨🇷</option>
           </select>
         </div>
       </div>

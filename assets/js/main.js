@@ -8,6 +8,7 @@ import { ThemeManager } from "./core/theme-manager.js";
 import { ResumeDownloader } from "./components/resume-downloader.js";
 import { MobileMenu } from "./components/mobile-menu.js";
 import { I18n } from "./core/i18n.js";
+import { LANGUAGE_SELECT_ID } from './core/constants.js';
 
 /**
  * Initialize copyright year in footer
@@ -163,6 +164,34 @@ function initializeApplication() {
   const i18n = initializeI18n();
   const resumeDownloader = initializeResumeDownloader();
   const mobileMenu = initializeMobileMenu();
+  // Ensure the language-select pseudo-element has the right text
+  const languageSelect = document.getElementById(LANGUAGE_SELECT_ID);
+  if (languageSelect) {
+    const setCurrentText = () => {
+      const opt = languageSelect.options[languageSelect.selectedIndex];
+      if (opt && opt.dataset && opt.dataset.text) {
+        languageSelect.dataset.currentText = opt.dataset.text;
+      }
+    };
+    // Initialize
+    setCurrentText();
+    // Update when user changes selection
+    languageSelect.addEventListener('change', () => {
+      setCurrentText();
+    });
+    
+    // Add data-text after flag for desktop (no mobile) - runs once on load
+    const isDesktop = window.matchMedia('(min-width: 481px)').matches;
+    if (isDesktop) {
+      Array.from(languageSelect.options).forEach(opt => {
+        const flag = opt.textContent.trim();
+        const text = opt.dataset.text;
+        if (flag && text && !opt.textContent.includes(text)) {
+          opt.textContent = `${flag} ${text}`;
+        }
+      });
+    }
+  }
 
   // Store references for potential cleanup or debugging
   window.portfolioApp = {

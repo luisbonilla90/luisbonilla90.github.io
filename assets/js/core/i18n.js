@@ -4,12 +4,13 @@
  * Clean Code: Clear separation of concerns, descriptive method names
  */
 
-// Constants
-const STORAGE_KEY = 'language';
-const SUPPORTED_LANGUAGES = ['en', 'es'];
-const DEFAULT_LANGUAGE = 'en';
-const LANGUAGE_SELECT_ID = 'language-select';
-const LOCALES_PATH = '/locales';
+import {
+  STORAGE_KEY,
+  SUPPORTED_LANGUAGES,
+  DEFAULT_LANGUAGE,
+  LANGUAGE_SELECT_ID,
+  LOCALES_PATH
+} from './constants.js';
 
 export class I18n {
   constructor() {
