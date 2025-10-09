@@ -9,6 +9,9 @@ import { ThemeConfig } from './theme-model.js';
 /**
  * LocalStorage implementation of theme persistence
  */
+/**
+ * @deprecated This adapter is not referenced and can be removed in future cleanups.
+ */
 export class LocalStorageThemeAdapter extends ThemeStorageAdapter {
   getStoredTheme() {
     try {
@@ -32,6 +35,9 @@ export class LocalStorageThemeAdapter extends ThemeStorageAdapter {
 
 /**
  * DOM implementation of theme UI management
+ */
+/**
+ * @deprecated This adapter is not referenced and can be removed in future cleanups.
  */
 export class DOMThemeUIAdapter extends ThemeUIAdapter {
   constructor() {
@@ -96,6 +102,9 @@ export class DOMThemeUIAdapter extends ThemeUIAdapter {
 /**
  * Window-based event dispatcher
  */
+/**
+ * @deprecated This adapter is not referenced and can be removed in future cleanups.
+ */
 export class WindowEventDispatcher extends EventDispatcher {
   dispatch(eventName, payload = {}) {
     if (!window || typeof window.dispatchEvent !== 'function') {
@@ -116,6 +125,9 @@ export class WindowEventDispatcher extends EventDispatcher {
 
 /**
  * Browser-based file download service
+ */
+/**
+ * @deprecated This adapter is not referenced and can be removed in future cleanups.
  */
 export class BrowserDownloadService extends DownloadService {
   async download(filePath, fileName) {
@@ -152,6 +164,9 @@ export class BrowserDownloadService extends DownloadService {
 
 /**
  * DOM-based UI feedback service
+ */
+/**
+ * @deprecated This adapter is not referenced and can be removed in future cleanups.
  */
 export class DOMUIFeedbackService extends UIFeedbackService {
   constructor() {

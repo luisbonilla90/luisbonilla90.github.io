@@ -12,6 +12,9 @@ import { Theme, ThemeType } from '../core/theme-model.js';
 import { ComponentFactory } from '../core/factory.js';
 
 // Mock implementations for testing
+/**
+ * @deprecated This mock class is unused and can be removed in future cleanups.
+ */
 class MockStorageAdapter {
   constructor() {
     this.storage = {};
@@ -27,6 +30,9 @@ class MockStorageAdapter {
   }
 }
 
+/**
+ * @deprecated This mock class is unused and can be removed in future cleanups.
+ */
 class MockUIAdapter {
   constructor() {
     this.documentTheme = null;
@@ -58,6 +64,9 @@ class MockUIAdapter {
   }
 }
 
+/**
+ * @deprecated This mock class is unused and can be removed in future cleanups.
+ */
 class MockEventDispatcher {
   constructor() {
     this.events = [];
@@ -69,6 +78,9 @@ class MockEventDispatcher {
   }
 }
 
+/**
+ * @deprecated This mock class is unused and can be removed in future cleanups.
+ */
 class MockDownloadService {
   constructor() {
     this.downloads = [];
@@ -80,6 +92,9 @@ class MockDownloadService {
   }
 }
 
+/**
+ * @deprecated This mock class is unused and can be removed in future cleanups.
+ */
 class MockUIFeedbackService {
   constructor() {
     this.loadingStates = [];

@@ -6,6 +6,9 @@
 /**
  * Storage abstraction for theme persistence
  */
+/**
+ * @deprecated This interface is not referenced and can be removed in future cleanups.
+ */
 export class ThemeStorageAdapter {
   getStoredTheme() {
     throw new Error('getStoredTheme must be implemented');
@@ -18,6 +21,9 @@ export class ThemeStorageAdapter {
 
 /**
  * DOM manipulation abstraction for theme UI
+ */
+/**
+ * @deprecated This interface is not referenced and can be removed in future cleanups.
  */
 export class ThemeUIAdapter {
   setDocumentTheme(theme) {
@@ -40,6 +46,9 @@ export class ThemeUIAdapter {
 /**
  * Event dispatcher abstraction
  */
+/**
+ * @deprecated This interface is not referenced and can be removed in future cleanups.
+ */
 export class EventDispatcher {
   dispatch(eventName, payload) {
     throw new Error('dispatch must be implemented');
@@ -49,6 +58,9 @@ export class EventDispatcher {
 /**
  * Download service abstraction
  */
+/**
+ * @deprecated This interface is not referenced and can be removed in future cleanups.
+ */
 export class DownloadService {
   async download(filePath, fileName) {
     throw new Error('download must be implemented');
@@ -57,6 +69,9 @@ export class DownloadService {
 
 /**
  * UI feedback service abstraction
+ */
+/**
+ * @deprecated This interface is not referenced and can be removed in future cleanups.
  */
 export class UIFeedbackService {
   showLoading(element, message) {
