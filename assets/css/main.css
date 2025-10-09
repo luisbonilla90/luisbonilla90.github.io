@@ -321,6 +321,8 @@ header .container {
   background-repeat: no-repeat;
   background-position: right var(--spacing-sm) center;
   padding-right: calc(var(--spacing-md) + 16px);
+  /* Enhanced emoji/flag font support for cross-browser compatibility including Edge on Windows */
+  font-family: "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji", system-ui, -apple-system, sans-serif;
 }
 
 #language-select:hover {
