@@ -1,0 +1,19 @@
+{
+  "name": "luisbonilla-portfolio",
+  "version": "3.0.0",
+  "description": "Personal portfolio website with dynamic content and STAR format experiences",
+  "type": "module",
+  "scripts": {
+    "test": "node assets/js/tests/star-format-validator.js",
+    "serve": "python3 -m http.server 8000",
+    "serve:node": "npx http-server -c-1 -p 8000"
+  },
+  "keywords": [
+    "portfolio",
+    "resume",
+    "STAR",
+    "analytics"
+  ],
+  "author": "Luis Bonilla Villalobos",
+  "license": "MIT"
+}
