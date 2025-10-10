@@ -1,0 +1,71 @@
+{
+  "projects": [
+    {
+      "id": "media-intelligence-platform",
+      "title": "Plataforma de Inteligencia de Medios",
+      "category": "SaaS",
+      "status": "active",
+      "year": 2024,
+      "description": "Plataforma integral de monitoreo y análisis de medios usando NLP y análisis de sentimientos para rastrear reputación de marca a través de múltiples canales.",
+      "longDescription": "Construida desde cero como una solución SaaS escalable que procesa miles de menciones de medios por hora. Incluye análisis de sentimientos en tiempo real, KPIs de reputación, seguimiento de competidores y dashboards personalizables. La plataforma usa técnicas modernas de NLP para extraer insights de artículos de noticias, redes sociales y publicaciones en línea.",
+      "technologies": ["Node.js", "Python", "PostgreSQL", "Redis", "NLP", "React", "Docker"],
+      "highlights": [
+        "Procesamiento de >5,000 URLs/hora con arquitectura distribuida",
+        "Análisis de sentimientos en tiempo real usando NLP avanzado",
+        "Seguimiento y reportes de KPIs personalizados",
+        "Arquitectura SaaS multi-tenant"
+      ],
+      "links": {
+        "demo": null,
+        "github": null,
+        "website": null
+      },
+      "images": []
+    },
+    {
+      "id": "ecommerce-scheduling",
+      "title": "Sistema de Gestión de Eventos en Tienda",
+      "category": "Empresarial",
+      "status": "completed",
+      "year": 2021,
+      "description": "Sistema de programación y gestión de eventos a gran escala para operaciones retail en US y Canadá.",
+      "longDescription": "Desarrollé solución front-end comprehensiva para gestionar eventos de belleza en tienda y programación de asesores en cientos de ubicaciones de Sephora. El sistema maneja lógica de programación compleja, localización para múltiples mercados y actualizaciones en tiempo real. Incluye programación drag-and-drop, notificaciones automatizadas e integración con sistemas empresariales existentes.",
+      "technologies": ["JavaScript", "React", "Redux", "REST APIs", "Localización"],
+      "highlights": [
+        "Desplegado en ubicaciones retail de US y Canadá",
+        "Soporte de internacionalización para múltiples mercados",
+        "Programación y notificaciones en tiempo real",
+        "Ganador de hackathon Sephora por innovación"
+      ],
+      "links": {
+        "demo": null,
+        "github": null,
+        "website": null
+      },
+      "images": []
+    },
+    {
+      "id": "cicd-automation",
+      "title": "Automatización de Pipeline CI/CD",
+      "category": "DevOps",
+      "status": "completed",
+      "year": 2023,
+      "description": "Infraestructura CI/CD integral para proyectos de la industria automotriz con testing y deployment automatizados.",
+      "longDescription": "Diseñé e implementé pipelines CI/CD robustos para proyectos automotrices críticos. La solución incluye testing automatizado (>85% cobertura), automatización de despliegues, integración de monitoreo y capacidades de rollback. Mejoró significativamente la frecuencia de despliegue y redujo incidentes en producción.",
+      "technologies": ["Jenkins", "Docker", "Kubernetes", "Terraform", "Prometheus", "Grafana"],
+      "highlights": [
+        "Logré >85% de cobertura de pruebas",
+        "Reduje tiempo de despliegue en 60%",
+        "Despliegues sin tiempo de inactividad",
+        "Monitoreo y alertas integrales"
+      ],
+      "links": {
+        "demo": null,
+        "github": null,
+        "website": null
+      },
+      "images": []
+    }
+  ],
+  "categories": ["SaaS", "Empresarial", "DevOps", "Aplicaciones Web", "Móvil"]
+}

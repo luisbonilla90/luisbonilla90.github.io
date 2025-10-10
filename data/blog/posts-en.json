@@ -1,0 +1,51 @@
+{
+  "posts": [
+    {
+      "id": "building-scalable-saas",
+      "title": "Building Scalable SaaS: Lessons from Media Intelligence",
+      "slug": "building-scalable-saas",
+      "author": "Luis Bonilla",
+      "publishDate": "2024-12-15",
+      "updateDate": "2024-12-15",
+      "category": "Software Architecture",
+      "tags": ["SaaS", "Scalability", "Architecture", "Node.js", "PostgreSQL"],
+      "excerpt": "Key architectural decisions and lessons learned while building a media intelligence platform that processes thousands of URLs per hour.",
+      "readTime": 8,
+      "status": "published",
+      "featured": true,
+      "content": "Building a scalable SaaS platform requires careful consideration of architecture, data flow, and infrastructure. In this article, I share the key lessons learned while building a media intelligence platform capable of processing over 5,000 URLs per hour...\n\n## Architecture Decisions\n\n### Microservices vs Monolith\n\nWe started with a modular monolith and gradually extracted services as bottlenecks emerged...\n\n### Database Design\n\nPostgreSQL proved to be an excellent choice for our needs, providing both relational integrity and JSON support...\n\n## Scaling Strategies\n\n### Horizontal Scaling\n\nImplementing a queue-based architecture with Redis enabled us to scale processing workers independently...\n\n### Caching Layer\n\nStrategic caching reduced database load by 70%...\n\n## Monitoring and Observability\n\nPrometheus and Grafana provided crucial insights into system performance...\n\n## Conclusion\n\nBuilding scalable systems is an iterative process that requires continuous monitoring and refinement."
+    },
+    {
+      "id": "cicd-best-practices",
+      "title": "CI/CD Best Practices for Enterprise Projects",
+      "slug": "cicd-best-practices",
+      "author": "Luis Bonilla",
+      "publishDate": "2024-11-20",
+      "updateDate": "2024-11-20",
+      "category": "DevOps",
+      "tags": ["CI/CD", "DevOps", "Automation", "Testing", "Jenkins"],
+      "excerpt": "A comprehensive guide to implementing robust CI/CD pipelines in enterprise environments, based on real-world experience.",
+      "readTime": 10,
+      "status": "published",
+      "featured": true,
+      "content": "Implementing effective CI/CD in enterprise environments presents unique challenges. Here's what I learned transforming deployment processes for critical automotive projects...\n\n## Foundation: Version Control\n\nGit flow strategies for enterprise teams...\n\n## Testing Strategy\n\n### Unit Tests\n\nAchieving >85% coverage through TDD practices...\n\n### Integration Tests\n\nTesting service interactions and APIs...\n\n## Deployment Pipeline\n\n### Stages\n\n1. Build and compile\n2. Unit tests\n3. Integration tests\n4. Security scanning\n5. Staging deployment\n6. Production deployment\n\n## Monitoring and Rollback\n\nComprehensive monitoring with Prometheus and automated rollback capabilities...\n\n## Results\n\n- 60% reduction in deployment time\n- Zero-downtime deployments\n- Significant reduction in production incidents"
+    },
+    {
+      "id": "team-leadership-tech",
+      "title": "Technical Leadership: Bridging Code and Communication",
+      "slug": "team-leadership-tech",
+      "author": "Luis Bonilla",
+      "publishDate": "2024-10-10",
+      "updateDate": "2024-10-10",
+      "category": "Leadership",
+      "tags": ["Leadership", "Team Management", "Communication", "Agile"],
+      "excerpt": "Insights on leading technical teams, fostering collaboration, and balancing technical depth with people management.",
+      "readTime": 7,
+      "status": "published",
+      "featured": false,
+      "content": "Technical leadership requires more than just coding skills. Here are lessons learned from leading teams at Apple, Nissan, and Sephora...\n\n## Setting Standards\n\nEstablishing coding standards and review processes...\n\n## Mentoring\n\nDeveloping team members through pair programming and knowledge sharing...\n\n## Communication\n\nBridging technical and non-technical stakeholders...\n\n## Fostering Collaboration\n\nCreating an environment where teams thrive...\n\n## Continuous Improvement\n\nEmbracing retrospectives and iterative processes..."
+    }
+  ],
+  "categories": ["Software Architecture", "DevOps", "Leadership", "Web Development", "Best Practices"],
+  "featuredPosts": ["building-scalable-saas", "cicd-best-practices"]
+}

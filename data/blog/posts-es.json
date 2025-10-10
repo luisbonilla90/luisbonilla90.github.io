@@ -1,0 +1,51 @@
+{
+  "posts": [
+    {
+      "id": "building-scalable-saas",
+      "title": "Construyendo SaaS Escalable: Lecciones de Inteligencia de Medios",
+      "slug": "construyendo-saas-escalable",
+      "author": "Luis Bonilla",
+      "publishDate": "2024-12-15",
+      "updateDate": "2024-12-15",
+      "category": "Arquitectura de Software",
+      "tags": ["SaaS", "Escalabilidad", "Arquitectura", "Node.js", "PostgreSQL"],
+      "excerpt": "Decisiones arquitectónicas clave y lecciones aprendidas construyendo una plataforma de inteligencia de medios que procesa miles de URLs por hora.",
+      "readTime": 8,
+      "status": "published",
+      "featured": true,
+      "content": "Construir una plataforma SaaS escalable requiere consideración cuidadosa de arquitectura, flujo de datos e infraestructura. En este artículo, comparto las lecciones clave aprendidas construyendo una plataforma de inteligencia de medios capaz de procesar más de 5,000 URLs por hora...\n\n## Decisiones de Arquitectura\n\n### Microservicios vs Monolito\n\nComenzamos con un monolito modular y gradualmente extrajimos servicios a medida que surgían cuellos de botella...\n\n### Diseño de Base de Datos\n\nPostgreSQL demostró ser una excelente elección para nuestras necesidades, proporcionando tanto integridad relacional como soporte JSON...\n\n## Estrategias de Escalamiento\n\n### Escalamiento Horizontal\n\nImplementar una arquitectura basada en colas con Redis nos permitió escalar workers de procesamiento independientemente...\n\n### Capa de Caché\n\nEl cacheo estratégico redujo la carga de la base de datos en 70%...\n\n## Monitoreo y Observabilidad\n\nPrometheus y Grafana proporcionaron insights cruciales sobre el rendimiento del sistema...\n\n## Conclusión\n\nConstruir sistemas escalables es un proceso iterativo que requiere monitoreo y refinamiento continuos."
+    },
+    {
+      "id": "cicd-best-practices",
+      "title": "Mejores Prácticas CI/CD para Proyectos Empresariales",
+      "slug": "mejores-practicas-cicd",
+      "author": "Luis Bonilla",
+      "publishDate": "2024-11-20",
+      "updateDate": "2024-11-20",
+      "category": "DevOps",
+      "tags": ["CI/CD", "DevOps", "Automatización", "Testing", "Jenkins"],
+      "excerpt": "Una guía completa para implementar pipelines CI/CD robustos en ambientes empresariales, basada en experiencia real.",
+      "readTime": 10,
+      "status": "published",
+      "featured": true,
+      "content": "Implementar CI/CD efectivo en ambientes empresariales presenta desafíos únicos. Esto es lo que aprendí transformando procesos de despliegue para proyectos automotrices críticos...\n\n## Fundamento: Control de Versiones\n\nEstrategias de Git flow para equipos empresariales...\n\n## Estrategia de Testing\n\n### Pruebas Unitarias\n\nLogrando >85% de cobertura mediante prácticas TDD...\n\n### Pruebas de Integración\n\nProbando interacciones de servicios y APIs...\n\n## Pipeline de Despliegue\n\n### Etapas\n\n1. Build y compilación\n2. Pruebas unitarias\n3. Pruebas de integración\n4. Escaneo de seguridad\n5. Despliegue a staging\n6. Despliegue a producción\n\n## Monitoreo y Rollback\n\nMonitoreo integral con Prometheus y capacidades de rollback automatizado...\n\n## Resultados\n\n- 60% de reducción en tiempo de despliegue\n- Despliegues sin tiempo de inactividad\n- Reducción significativa de incidentes en producción"
+    },
+    {
+      "id": "team-leadership-tech",
+      "title": "Liderazgo Técnico: Conectando Código y Comunicación",
+      "slug": "liderazgo-tecnico",
+      "author": "Luis Bonilla",
+      "publishDate": "2024-10-10",
+      "updateDate": "2024-10-10",
+      "category": "Liderazgo",
+      "tags": ["Liderazgo", "Gestión de Equipos", "Comunicación", "Agile"],
+      "excerpt": "Insights sobre liderar equipos técnicos, fomentar colaboración y balancear profundidad técnica con gestión de personas.",
+      "readTime": 7,
+      "status": "published",
+      "featured": false,
+      "content": "El liderazgo técnico requiere más que solo habilidades de codificación. Estas son lecciones aprendidas liderando equipos en Apple, Nissan y Sephora...\n\n## Estableciendo Estándares\n\nEstableciendo estándares de código y procesos de revisión...\n\n## Mentoría\n\nDesarrollando miembros del equipo mediante pair programming y compartir conocimiento...\n\n## Comunicación\n\nConectando stakeholders técnicos y no técnicos...\n\n## Fomentando Colaboración\n\nCreando un ambiente donde los equipos prosperan...\n\n## Mejora Continua\n\nAbrazando retrospectivas y procesos iterativos..."
+    }
+  ],
+  "categories": ["Arquitectura de Software", "DevOps", "Liderazgo", "Desarrollo Web", "Mejores Prácticas"],
+  "featuredPosts": ["building-scalable-saas", "cicd-best-practices"]
+}

@@ -1,0 +1,128 @@
+{
+  "experiences": [
+    {
+      "id": "consultant-2025",
+      "title": "Independent Consultant & Technology Innovation Leader",
+      "company": "",
+      "location": "Remote",
+      "period": {
+        "start": "2025-01",
+        "end": "present"
+      },
+      "summary": "Led digital transformation projects for SMEs and startups, implementing scalable SaaS solutions with modern architecture. Developed comprehensive CI/CD pipelines and drove product R&D in media intelligence.",
+      "star": {
+        "situation": "SMEs and startups needed scalable digital transformation solutions to compete effectively. Many lacked proper CI/CD pipelines, monitoring, and modern architecture practices.",
+        "task": "Design and implement enterprise-grade SaaS solutions with clean architecture, establish CI/CD best practices, mentor development teams, and drive product R&D from concept to market.",
+        "action": "Implemented SaaS solutions using Node.js, Python, PostgreSQL, and Redis capable of processing >5,000 URLs/hour. Built automated testing frameworks achieving >85% coverage. Deployed comprehensive monitoring with Prometheus and Grafana. Conducted cloud migrations and established documentation standards. Led R&D initiatives in NLP, sentiment analysis, and reputation KPIs.",
+        "result": "Successfully delivered multiple digital transformation projects. Improved deployment frequency and system reliability through automated CI/CD. Reduced operational incidents through comprehensive monitoring. Validated product-market fit for media intelligence solution and developed go-to-market strategy."
+      },
+      "highlights": [
+        "Led digital transformation and automation projects for SMEs and startups",
+        "Implemented SaaS solutions capable of large-scale data processing (>5,000 URLs/hour)",
+        "Developed CI/CD pipelines with >85% test coverage",
+        "Deployed comprehensive monitoring (Prometheus, Grafana)",
+        "Drove product R&D in media intelligence (NLP, sentiment analysis)"
+      ],
+      "technologies": ["Node.js", "Python", "PostgreSQL", "Redis", "Docker", "Prometheus", "Grafana", "CI/CD", "NLP"]
+    },
+    {
+      "id": "nissan-2023",
+      "title": "Technical Lead – Nissan",
+      "company": "via Critical Mass, Costa Rica",
+      "location": "Costa Rica",
+      "period": {
+        "start": "2023-06",
+        "end": "2025-01"
+      },
+      "summary": "Revitalized a critical project by enforcing coding standards and implementing comprehensive testing practices. Enhanced CI/CD processes across multiple teams, significantly reducing regressions and improving deployment reliability.",
+      "star": {
+        "situation": "Critical project was experiencing code quality issues, frequent regressions, and deployment delays affecting business objectives.",
+        "task": "Restore project health by improving code quality, reducing regressions through testing, streamlining review processes, and enhancing CI/CD across multiple teams.",
+        "action": "Enforced coding standards and best practices through code reviews. Implemented comprehensive unit testing framework with TDD practices. Streamlined code review processes and fostered collaborative team culture. Coordinated with multiple teams to enhance CI/CD pipelines and processes.",
+        "result": "Significantly reduced regressions and improved code robustness. Restored timely deployments through improved CI/CD. Enhanced team collaboration and code quality. Project efficiency and reliability substantially improved."
+      },
+      "highlights": [
+        "Revitalized critical project by enforcing coding standards",
+        "Implemented comprehensive unit testing and TDD practices",
+        "Reduced regressions significantly",
+        "Streamlined code review processes",
+        "Restored timely deployments through CI/CD enhancements"
+      ],
+      "technologies": ["JavaScript", "Testing Frameworks", "CI/CD", "Git", "Agile"]
+    },
+    {
+      "id": "apple-2022",
+      "title": "Technical Lead – Apple",
+      "company": "via Critical Mass, Costa Rica",
+      "location": "Costa Rica",
+      "period": {
+        "start": "2022-11",
+        "end": "2023-06"
+      },
+      "summary": "Led development team to improve maintainability and performance of key Apple products. Utilized Python and modern frontend technologies to optimize features while managing project delivery and team growth.",
+      "star": {
+        "situation": "Key Apple products required improvements in maintainability, performance, and code quality while maintaining aggressive delivery schedules.",
+        "task": "Lead team to improve product quality, optimize features, manage project delivery, conduct technical interviews, and maintain cross-team communication.",
+        "action": "Implemented code refactoring strategies to improve maintainability. Applied performance optimization techniques using Python and modern frontend technologies. Oversaw agile project delivery processes. Conducted candidate interviews to grow the team. Maintained effective communication channels with cross-functional teams.",
+        "result": "Successfully improved maintainability and performance of key products. Delivered features on schedule with improved code quality. Built stronger development team through strategic hiring. Enhanced cross-team collaboration and communication."
+      },
+      "highlights": [
+        "Led team to improve maintainability and performance of key products",
+        "Utilized Python and modern frontend technologies",
+        "Oversaw project delivery and team management",
+        "Conducted candidate interviews",
+        "Enhanced cross-team communication"
+      ],
+      "technologies": ["Python", "JavaScript", "Frontend Technologies", "Agile", "Team Leadership"]
+    },
+    {
+      "id": "sideqik-2022",
+      "title": "Full Stack Developer – Sideqik",
+      "company": "Sideqik",
+      "location": "Remote",
+      "period": {
+        "start": "2022-02",
+        "end": "2022-09"
+      },
+      "summary": "Contributed to an e-commerce influencer marketing platform, delivering end-to-end features with comprehensive integration tests. Worked across the full stack with PostgreSQL, Ruby on Rails, and Ember.",
+      "star": {
+        "situation": "E-commerce influencer marketing platform required new features and improvements to support growing user base and business requirements.",
+        "task": "Develop end-to-end features with integration tests, provide technical recommendations, and implement database schema updates.",
+        "action": "Built full-stack features using PostgreSQL, Ruby on Rails, and Ember. Created comprehensive integration tests using Capybara. Provided technical recommendations for architecture improvements. Implemented database schema changes and optimizations.",
+        "result": "Successfully delivered multiple end-to-end features with quality test coverage. Improved platform capabilities to support business growth. Enhanced database performance through schema optimizations."
+      },
+      "highlights": [
+        "Delivered end-to-end features with integration tests",
+        "Worked with PostgreSQL, Ruby on Rails, Ember, and Capybara",
+        "Provided technical recommendations",
+        "Implemented database updates and optimizations"
+      ],
+      "technologies": ["PostgreSQL", "Ruby on Rails", "Ember", "Capybara", "JavaScript"]
+    },
+    {
+      "id": "sephora-2016",
+      "title": "Front-End Lead – Sephora",
+      "company": "via Stateside, Costa Rica",
+      "location": "Costa Rica",
+      "period": {
+        "start": "2016",
+        "end": "2022"
+      },
+      "summary": "Led front-end development for in-store event management and Beauty Advisor scheduling systems across US and Canada. Developed core e-commerce components and won recognition for innovation through hackathon participation.",
+      "star": {
+        "situation": "Sephora needed robust front-end solutions for in-store operations across US and Canada, including event management, scheduling, and e-commerce capabilities.",
+        "task": "Lead front-end team to build and maintain event management system, develop core e-commerce components, implement localization, and drive performance optimizations.",
+        "action": "Led front-end team development for event management and Beauty Advisor scheduling application. Built core web components including shopping basket and checkout flows. Implemented comprehensive localization framework for US and Canada markets. Developed performance optimization frameworks. Participated in innovation hackathons driving creative solutions.",
+        "result": "Successfully deployed event management and scheduling systems across US and Canada operations. Delivered high-quality e-commerce components supporting revenue growth. Won Sephora hackathon and received Maverik Prize nomination for innovation. Improved application performance and international accessibility."
+      },
+      "highlights": [
+        "Led front-end team for in-store event management across US and Canada",
+        "Developed core e-commerce components (basket, checkout)",
+        "Implemented localization frameworks",
+        "Won Sephora hackathon, Maverik Prize nominee",
+        "Delivered performance optimization frameworks"
+      ],
+      "technologies": ["JavaScript", "React", "HTML/CSS", "Localization", "Performance Optimization"]
+    }
+  ]
+}

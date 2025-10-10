@@ -1,0 +1,202 @@
+/* ==========================================
+   Experience STAR Format Styles
+   ========================================== */
+
+/* Summary section */
+.experience-summary {
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-secondary);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+}
+
+.summary-text {
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+/* STAR toggle button */
+.star-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.star-toggle-btn:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.star-toggle-btn:active {
+  transform: translateY(0);
+}
+
+.star-toggle-btn:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.star-toggle-btn .toggle-icon {
+  font-size: 0.8em;
+  transition: transform 0.3s ease;
+}
+
+.star-toggle-btn[aria-expanded="true"] .toggle-icon {
+  transform: rotate(90deg);
+}
+
+/* STAR details container */
+.star-details {
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-lg);
+  background-color: var(--color-bg-tertiary, var(--color-bg-secondary));
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* STAR sections */
+.star-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.star-section:last-child {
+  margin-bottom: 0;
+}
+
+.star-section h4 {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* Add icons before STAR section headings */
+.star-situation h4::before {
+  content: '📍';
+  font-size: 1.2em;
+}
+
+.star-task h4::before {
+  content: '🎯';
+  font-size: 1.2em;
+}
+
+.star-action h4::before {
+  content: '⚡';
+  font-size: 1.2em;
+}
+
+.star-result h4::before {
+  content: '✅';
+  font-size: 1.2em;
+}
+
+.star-section p {
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+/* Print-friendly styles */
+@media print {
+  .star-toggle-btn {
+    display: none;
+  }
+
+  .star-details {
+    display: block !important;
+    page-break-inside: avoid;
+    border: 1px solid #000;
+    background-color: #f9f9f9;
+  }
+
+  .experience-item {
+    page-break-inside: avoid;
+    margin-bottom: 2rem;
+  }
+
+  .star-section h4::before {
+    color: #000;
+  }
+
+  .star-section {
+    margin-bottom: 1rem;
+  }
+
+  .experience-summary {
+    background-color: #f5f5f5;
+    border-left-color: #000;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .star-details {
+    border: 2px solid var(--color-text);
+  }
+
+  .star-toggle-btn {
+    border: 2px solid var(--color-text-inverse);
+  }
+
+  .star-section h4 {
+    text-decoration: underline;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .star-details {
+    animation: none;
+  }
+
+  .star-toggle-btn {
+    transition: none;
+  }
+
+  .star-toggle-btn .toggle-icon {
+    transition: none;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .star-details {
+    padding: var(--spacing-md);
+  }
+
+  .star-section h4 {
+    font-size: var(--font-size-base);
+  }
+
+  .experience-summary {
+    padding: var(--spacing-sm);
+  }
+}
