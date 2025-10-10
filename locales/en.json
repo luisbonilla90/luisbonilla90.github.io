@@ -190,7 +190,18 @@
   },
   "blog": {
     "heading": "Latest Insights",
-    "placeholder": "Blog posts and technical articles coming soon."
+    "placeholder": "Blog posts and technical articles coming soon.",
+    "articles": [
+      {
+        "id": "scalable-saas-solutions",
+        "title": "Building Scalable SaaS Solutions: Lessons from the Field",
+        "date": "2025-10-08",
+        "date_formatted": "October 8, 2025",
+        "excerpt": "After leading digital transformation projects for multiple startups and SMEs, I've learned that building scalable SaaS isn't just about choosing the right tech stack—it's about creating systems that can grow with your business. Here are key insights from implementing solutions that process over 5,000 URLs per hour while maintaining >85% test coverage.",
+        "read_time": "3 min read",
+        "tags": ["SaaS", "Architecture", "Node.js", "PostgreSQL"]
+      }
+    ]
   },
   "contact": {
     "heading": "Let's Connect",
