@@ -26,7 +26,8 @@
       "nav_portfolio": "Navigate to Portfolio section",
       "nav_blog": "Navigate to Blog section",
       "nav_contact": "Navigate to Contact section",
-      "theme_toggle": "Toggle between light and dark theme"
+      "theme_toggle": "Toggle between light and dark theme",
+      "back_to_top": "Scroll back to top of page"
     }
   },
   "hero": {
