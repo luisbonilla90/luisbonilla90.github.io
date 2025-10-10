@@ -10,6 +10,10 @@ export class BackToTop {
     this.scrollThreshold = 300; // pixels to scroll before showing button
     this.isVisible = false;
     
+    // Store bound event handlers for proper cleanup
+    this.handleClickBound = this.scrollToTop.bind(this);
+    this.handleKeydownBound = this.handleKeydown.bind(this);
+    
     if (this.button) {
       this.initialize();
     }
@@ -20,17 +24,22 @@ export class BackToTop {
     this.initializeScrollBehavior();
     
     // Handle button click
-    this.button.addEventListener('click', () => this.scrollToTop());
+    this.button.addEventListener('click', this.handleClickBound);
     
     // Handle keyboard accessibility
-    this.button.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        this.scrollToTop();
-      }
-    });
+    this.button.addEventListener('keydown', this.handleKeydownBound);
     
     console.log('Back to top button initialized successfully');
+  }
+  
+  /**
+   * Handle keydown events for keyboard accessibility
+   */
+  handleKeydown(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.scrollToTop();
+    }
   }
 
   /**
@@ -71,6 +80,7 @@ export class BackToTop {
     if (!this.isVisible) {
       this.button.classList.add('visible');
       this.button.setAttribute('aria-hidden', 'false');
+      this.button.setAttribute('tabindex', '0');
       this.isVisible = true;
     }
   }
@@ -82,6 +92,7 @@ export class BackToTop {
     if (this.isVisible) {
       this.button.classList.remove('visible');
       this.button.setAttribute('aria-hidden', 'true');
+      this.button.setAttribute('tabindex', '-1');
       this.isVisible = false;
     }
   }
@@ -94,12 +105,6 @@ export class BackToTop {
       top: 0,
       behavior: 'smooth'
     });
-    
-    // Focus on the main content or skip link for accessibility
-    const mainContent = document.querySelector('main');
-    if (mainContent) {
-      mainContent.focus();
-    }
   }
 
   /**
@@ -107,7 +112,8 @@ export class BackToTop {
    */
   destroy() {
     if (this.button) {
-      this.button.removeEventListener('click', this.scrollToTop);
+      this.button.removeEventListener('click', this.handleClickBound);
+      this.button.removeEventListener('keydown', this.handleKeydownBound);
     }
   }
 }
