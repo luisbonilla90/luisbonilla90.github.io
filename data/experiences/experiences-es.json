@@ -1,0 +1,128 @@
+{
+  "experiences": [
+    {
+      "id": "consultant-2025",
+      "title": "Consultor Independiente y Líder en Innovación Tecnológica",
+      "company": "",
+      "location": "Remoto",
+      "period": {
+        "start": "2025-01",
+        "end": "present"
+      },
+      "summary": "Lideré proyectos de transformación digital para PYMEs y startups, implementando soluciones SaaS escalables con arquitectura moderna. Desarrollé pipelines CI/CD completos y dirigí I+D de productos en inteligencia de medios.",
+      "star": {
+        "situation": "Las PYMEs y startups necesitaban soluciones de transformación digital escalables para competir efectivamente. Muchas carecían de pipelines CI/CD adecuados, monitoreo y prácticas de arquitectura moderna.",
+        "task": "Diseñar e implementar soluciones SaaS de nivel empresarial con arquitectura limpia, establecer mejores prácticas de CI/CD, mentorar equipos de desarrollo e impulsar I+D de productos desde el concepto hasta el mercado.",
+        "action": "Implementé soluciones SaaS usando Node.js, Python, PostgreSQL y Redis capaces de procesar >5,000 URLs/hora. Construí frameworks de pruebas automatizadas logrando >85% de cobertura. Desplegué monitoreo integral con Prometheus y Grafana. Realicé migraciones a la nube y establecí estándares de documentación. Lideré iniciativas de I+D en NLP, análisis de sentimientos y KPIs de reputación.",
+        "result": "Entregué exitosamente múltiples proyectos de transformación digital. Mejoré la frecuencia de despliegue y confiabilidad del sistema mediante CI/CD automatizado. Reduje incidentes operacionales mediante monitoreo integral. Validé el ajuste producto-mercado para la solución de inteligencia de medios y desarrollé estrategia de comercialización."
+      },
+      "highlights": [
+        "Lideré proyectos de transformación digital y automatización para PYMEs y startups",
+        "Implementé soluciones SaaS capaces de procesamiento de datos a gran escala (>5,000 URLs/hora)",
+        "Desarrollé pipelines CI/CD con >85% de cobertura de pruebas",
+        "Desplegué monitoreo integral (Prometheus, Grafana)",
+        "Impulse I+D de productos en inteligencia de medios (NLP, análisis de sentimientos)"
+      ],
+      "technologies": ["Node.js", "Python", "PostgreSQL", "Redis", "Docker", "Prometheus", "Grafana", "CI/CD", "NLP"]
+    },
+    {
+      "id": "nissan-2023",
+      "title": "Líder Técnico – Nissan",
+      "company": "vía Critical Mass, Costa Rica",
+      "location": "Costa Rica",
+      "period": {
+        "start": "2023-06",
+        "end": "2025-01"
+      },
+      "summary": "Revitalicé un proyecto crítico aplicando estándares de código e implementando prácticas de testing comprehensivas. Mejoré procesos CI/CD en múltiples equipos, reduciendo significativamente regresiones y mejorando la confiabilidad de los despliegues.",
+      "star": {
+        "situation": "Un proyecto crítico experimentaba problemas de calidad de código, regresiones frecuentes y retrasos en despliegues que afectaban objetivos del negocio.",
+        "task": "Restaurar la salud del proyecto mejorando la calidad del código, reduciendo regresiones mediante testing, optimizando procesos de revisión y mejorando CI/CD en múltiples equipos.",
+        "action": "Apliqué estándares de código y mejores prácticas mediante revisiones de código. Implementé framework de pruebas unitarias con prácticas TDD. Optimicé procesos de revisión de código y fomenté cultura colaborativa. Coordiné con múltiples equipos para mejorar pipelines y procesos CI/CD.",
+        "result": "Reduje significativamente regresiones y mejoré robustez del código. Restauré despliegues oportunos mediante CI/CD mejorado. Mejoré colaboración del equipo y calidad del código. La eficiencia y confiabilidad del proyecto mejoraron sustancialmente."
+      },
+      "highlights": [
+        "Revitalicé proyecto crítico aplicando estándares de código",
+        "Implementé testing comprehensivo y prácticas TDD",
+        "Reduje regresiones significativamente",
+        "Optimicé procesos de revisión de código",
+        "Restauré despliegues oportunos mediante mejoras CI/CD"
+      ],
+      "technologies": ["JavaScript", "Frameworks de Testing", "CI/CD", "Git", "Agile"]
+    },
+    {
+      "id": "apple-2022",
+      "title": "Líder Técnico – Apple",
+      "company": "vía Critical Mass, Costa Rica",
+      "location": "Costa Rica",
+      "period": {
+        "start": "2022-11",
+        "end": "2023-06"
+      },
+      "summary": "Lideré equipo de desarrollo para mejorar mantenibilidad y rendimiento de productos clave de Apple. Utilicé Python y tecnologías frontend modernas para optimizar funcionalidades mientras gestionaba entrega de proyectos y crecimiento del equipo.",
+      "star": {
+        "situation": "Productos clave de Apple requerían mejoras en mantenibilidad, rendimiento y calidad de código mientras se mantenían cronogramas agresivos de entrega.",
+        "task": "Liderar equipo para mejorar calidad del producto, optimizar funcionalidades, gestionar entrega de proyectos, realizar entrevistas técnicas y mantener comunicación entre equipos.",
+        "action": "Implementé estrategias de refactorización para mejorar mantenibilidad. Apliqué técnicas de optimización de rendimiento usando Python y tecnologías frontend modernas. Supervisé procesos de entrega ágil. Realicé entrevistas de candidatos para hacer crecer el equipo. Mantuve canales efectivos de comunicación con equipos multifuncionales.",
+        "result": "Mejoré exitosamente mantenibilidad y rendimiento de productos clave. Entregué funcionalidades a tiempo con calidad de código mejorada. Construí equipo de desarrollo más fuerte mediante contratación estratégica. Mejoré colaboración y comunicación entre equipos."
+      },
+      "highlights": [
+        "Lideré equipo para mejorar mantenibilidad y rendimiento de productos clave",
+        "Utilicé Python y tecnologías frontend modernas",
+        "Supervisé entrega de proyectos y gestión de equipo",
+        "Realicé entrevistas de candidatos",
+        "Mejoré comunicación entre equipos"
+      ],
+      "technologies": ["Python", "JavaScript", "Tecnologías Frontend", "Agile", "Liderazgo de Equipos"]
+    },
+    {
+      "id": "sideqik-2022",
+      "title": "Desarrollador Full Stack – Sideqik",
+      "company": "Sideqik",
+      "location": "Remoto",
+      "period": {
+        "start": "2022-02",
+        "end": "2022-09"
+      },
+      "summary": "Contribuí a una plataforma de marketing de influencers de e-commerce, entregando funcionalidades end-to-end con pruebas de integración completas. Trabajé en el stack completo con PostgreSQL, Ruby on Rails y Ember.",
+      "star": {
+        "situation": "La plataforma de marketing de influencers de e-commerce requería nuevas funcionalidades y mejoras para soportar base de usuarios creciente y requisitos del negocio.",
+        "task": "Desarrollar funcionalidades end-to-end con pruebas de integración, proporcionar recomendaciones técnicas e implementar actualizaciones de esquema de base de datos.",
+        "action": "Construí funcionalidades full-stack usando PostgreSQL, Ruby on Rails y Ember. Creé pruebas de integración completas usando Capybara. Proporcioné recomendaciones técnicas para mejoras de arquitectura. Implementé cambios y optimizaciones de esquema de base de datos.",
+        "result": "Entregué exitosamente múltiples funcionalidades end-to-end con cobertura de pruebas de calidad. Mejoré capacidades de la plataforma para soportar crecimiento del negocio. Mejoré rendimiento de base de datos mediante optimizaciones de esquema."
+      },
+      "highlights": [
+        "Entregué funcionalidades end-to-end con pruebas de integración",
+        "Trabajé con PostgreSQL, Ruby on Rails, Ember y Capybara",
+        "Proporcioné recomendaciones técnicas",
+        "Implementé actualizaciones y optimizaciones de base de datos"
+      ],
+      "technologies": ["PostgreSQL", "Ruby on Rails", "Ember", "Capybara", "JavaScript"]
+    },
+    {
+      "id": "sephora-2016",
+      "title": "Líder Front-End – Sephora",
+      "company": "vía Stateside, Costa Rica",
+      "location": "Costa Rica",
+      "period": {
+        "start": "2016",
+        "end": "2022"
+      },
+      "summary": "Lideré desarrollo front-end para gestión de eventos en tienda y sistemas de programación de Asesores de Belleza en US y Canadá. Desarrollé componentes core de e-commerce y gané reconocimiento por innovación mediante participación en hackathon.",
+      "star": {
+        "situation": "Sephora necesitaba soluciones front-end robustas para operaciones en tienda en US y Canadá, incluyendo gestión de eventos, programación y capacidades de e-commerce.",
+        "task": "Liderar equipo front-end para construir y mantener sistema de gestión de eventos, desarrollar componentes core de e-commerce, implementar localización e impulsar optimizaciones de rendimiento.",
+        "action": "Lideré desarrollo front-end del equipo para aplicación de gestión de eventos y programación de Asesores de Belleza. Construí componentes web core incluyendo carrito de compras y flujos de checkout. Implementé framework de localización integral para mercados de US y Canadá. Desarrollé frameworks de optimización de rendimiento. Participé en hackathons de innovación impulsando soluciones creativas.",
+        "result": "Desplegué exitosamente sistemas de gestión de eventos y programación en operaciones de US y Canadá. Entregué componentes de e-commerce de alta calidad soportando crecimiento de ingresos. Gané hackathon de Sephora y recibí nominación al Premio Maverik por innovación. Mejoré rendimiento de aplicación y accesibilidad internacional."
+      },
+      "highlights": [
+        "Lideré equipo front-end para gestión de eventos en tienda en US y Canadá",
+        "Desarrollé componentes core de e-commerce (carrito, checkout)",
+        "Implementé frameworks de localización",
+        "Gané hackathon de Sephora, nominado al Premio Maverik",
+        "Entregué frameworks de optimización de rendimiento"
+      ],
+      "technologies": ["JavaScript", "React", "HTML/CSS", "Localización", "Optimización de Rendimiento"]
+    }
+  ]
+}
