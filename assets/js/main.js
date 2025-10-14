@@ -7,6 +7,7 @@
 import { ThemeManager } from "./core/theme-manager.js";
 import { ResumeDownloader } from "./components/resume-downloader.js";
 import { MobileMenu } from "./components/mobile-menu.js";
+import { BackToTop } from "./components/back-to-top.js";
 import { I18n } from "./core/i18n.js";
 import { ExperienceManager } from "./components/experience-manager.js";
 import { LANGUAGE_SELECT_ID } from './core/constants.js';
@@ -93,6 +94,19 @@ function initializeExperienceManager() {
     return experienceManager;
   } catch (error) {
     console.error('Failed to initialize experience manager:', error);
+  }
+}
+
+/**
+ * Initialize back to top button functionality
+ */
+function initializeBackToTop() {
+  try {
+    const backToTop = new BackToTop();
+    console.log('Back to top button initialized successfully');
+    return backToTop;
+  } catch (error) {
+    console.error('Failed to initialize back to top button:', error);
     return null;
   }
 }
@@ -181,6 +195,7 @@ function initializeApplication() {
   const resumeDownloader = initializeResumeDownloader();
   const mobileMenu = initializeMobileMenu();
   const experienceManager = initializeExperienceManager();
+  const backToTop = initializeBackToTop();
   // Ensure the language-select pseudo-element has the right text
   const languageSelect = document.getElementById(LANGUAGE_SELECT_ID);
   if (languageSelect) {
@@ -217,6 +232,7 @@ function initializeApplication() {
     resumeDownloader,
     mobileMenu,
     experienceManager,
+    backToTop,
     version: '3.0.0', // Added i18n support with language selector
     detectBrowserLanguage // expose helper
   };
