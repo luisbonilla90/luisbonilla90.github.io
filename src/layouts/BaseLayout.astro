@@ -1,0 +1,302 @@
+---
+import '../styles/main.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: 'en' | 'es';
+}
+
+const { 
+  title = 'Luis Bonilla - Software Engineer | Technical Lead',
+  description = 'Luis Bonilla - Software Engineer & Technical Lead with 15+ years experience. Expert in React, Node.js, Python, AWS, and digital transformation.',
+  lang = 'en',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang} data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Luis Bonilla Villalobos" />
+    <title>{title}</title>
+    
+    <!-- Favicon -->
+    <link
+      id="favicon"
+      rel="icon"
+      type="image/jpeg"
+      sizes="16x16"
+      href="/assets/img/favico/favico_16.jpg"
+    />
+    <link
+      rel="icon"
+      type="image/jpeg"
+      sizes="32x32"
+      href="/assets/img/favico/favico_32.jpg"
+    />
+    <link rel="apple-touch-icon" href="/assets/img/favico/favico_32.jpg" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Pirsch Analytics -->
+    <script
+      defer
+      src="https://api.pirsch.io/pa.js"
+      id="pianjs"
+      data-code="tF5j8R4NSp5lwzo3OlKyfK0yYtzARyLc"
+    ></script>
+
+    <!-- Initialize theme and language from localStorage -->
+    <script is:inline>
+      const lastTheme = window.localStorage && window.localStorage.getItem('site_theme_v1');
+      const lastLanguage = window.localStorage && window.localStorage.getItem('language');
+      if (lastTheme) document.documentElement.setAttribute("data-theme", lastTheme);
+      if (lastLanguage) document.documentElement.setAttribute("lang", lastLanguage);
+    </script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header role="banner">
+      <div class="container">
+        <h1 class="site-title" data-i18n="header.site_title">Luis Bonilla</h1>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          id="mobile-menu-toggle"
+          class="mobile-menu-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          data-i18n-aria-label="header.aria_labels.mobile_menu"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+        >
+          <span class="hamburger-icon" aria-hidden="true">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </span>
+        </button>
+
+        <!-- Navigation -->
+        <nav
+          id="main-navigation"
+          role="navigation"
+          aria-label="Main navigation"
+          data-i18n-aria-label="header.aria_labels.main_navigation"
+          class="main-navigation"
+        >
+          <ul class="nav-menu">
+            <li>
+              <a
+                href="/#about"
+                aria-label="Navigate to About section"
+                data-i18n-aria-label="header.aria_labels.nav_about"
+                data-i18n="header.nav.about"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="/#skills"
+                aria-label="Navigate to Skills section"
+                data-i18n-aria-label="header.aria_labels.nav_skills"
+                data-i18n="header.nav.skills"
+                >Skills</a
+              >
+            </li>
+            <li>
+              <a
+                href="/#experience"
+                aria-label="Navigate to Experience section"
+                data-i18n-aria-label="header.aria_labels.nav_experience"
+                data-i18n="header.nav.experience"
+                >Experience</a
+              >
+            </li>
+            <li>
+              <a
+                href="/#portfolio"
+                aria-label="Navigate to Portfolio section"
+                data-i18n-aria-label="header.aria_labels.nav_portfolio"
+                data-i18n="header.nav.portfolio"
+                >Portfolio</a
+              >
+            </li>
+            <li>
+              <a
+                href="/#blog"
+                aria-label="Navigate to Blog section"
+                data-i18n-aria-label="header.aria_labels.nav_blog"
+                data-i18n="header.nav.blog"
+                >Blog</a
+              >
+            </li>
+            <li>
+              <a
+                href="/#contact"
+                aria-label="Navigate to Contact section"
+                data-i18n-aria-label="header.aria_labels.nav_contact"
+                data-i18n="header.nav.contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Theme Toggle Island -->
+        <div class="theme-controls">
+          <button
+            id="theme-toggle"
+            type="button"
+            aria-label="Toggle between light and dark theme"
+            data-i18n-aria-label="header.aria_labels.theme_toggle"
+            aria-pressed="false"
+          >
+            <span aria-hidden="true" data-theme-icon>🌙</span>
+            <span class="theme-toggle-text" data-i18n="header.theme_toggle"
+              >Toggle Theme</span
+            >
+          </button>
+        </div>
+
+        <!-- Language Switcher Island -->
+        <div class="language-switcher">
+          <label for="language-select" class="visually-hidden"
+            >Select language</label
+          >
+          <select id="language-select" aria-label="Select language" data-current-text="EN">
+            <option value="en" data-flag="🇺🇸" data-text="EN">🇺🇸</option>
+            <option value="es" data-flag="🇨🇷" data-text="ES">🇨🇷</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main role="main" id="main-content">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 data-i18n="footer.title">Luis Bonilla Villalobos</h3>
+            <p data-i18n="footer.subtitle">
+              Software Engineer | Technical Lead | Innovation Consultant
+            </p>
+            <p data-i18n="footer.description">
+              Passionate about creating meaningful, scalable, and maintainable solutions.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4 data-i18n="footer.sections.contact">Contact</h4>
+            <p>
+              <span aria-hidden="true">📧</span>
+              <a
+                href="mailto:lbonillav7@gmail.com"
+                aria-label="Email lbonillav7@gmail.com"
+                data-i18n-aria-label="footer.aria_labels.email_lbonilla"
+                >lbonillav7@gmail.com</a
+              >
+            </p>
+            <p>
+              <span aria-hidden="true">📍</span>
+              <span data-i18n="footer.location">San José, Costa Rica</span>
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4 data-i18n="footer.sections.quick_links">Quick Links</h4>
+            <nav
+              aria-label="Footer navigation"
+              data-i18n-aria-label="footer.aria_labels.footer_nav"
+            >
+              <ul>
+                <li>
+                  <a
+                    href="/#about"
+                    aria-label="Navigate to About section"
+                    data-i18n-aria-label="footer.aria_labels.nav_about"
+                    data-i18n="footer.nav.about"
+                    >About</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/#skills"
+                    aria-label="Navigate to Skills section"
+                    data-i18n-aria-label="footer.aria_labels.nav_skills"
+                    data-i18n="footer.nav.skills"
+                    >Skills</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/#experience"
+                    aria-label="Navigate to Experience section"
+                    data-i18n-aria-label="footer.aria_labels.nav_experience"
+                    data-i18n="footer.nav.experience"
+                    >Experience</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/#contact"
+                    aria-label="Navigate to Contact section"
+                    data-i18n-aria-label="footer.aria_labels.nav_contact"
+                    data-i18n="footer.nav.contact"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; <span id="year"></span>
+            <span data-i18n="footer.copyright"
+              >Luis Bonilla Villalobos. All rights reserved.</span
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Client-side scripts for interactivity -->
+    <script>
+      // Mobile menu toggle
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mainNavigation = document.getElementById('main-navigation');
+
+      if (mobileMenuToggle && mainNavigation) {
+        mobileMenuToggle.addEventListener('click', () => {
+          const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+          mobileMenuToggle.setAttribute('aria-expanded', String(!isExpanded));
+          mainNavigation.classList.toggle('nav-open');
+        });
+
+        // Close mobile menu when clicking navigation links
+        const navLinks = mainNavigation.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mainNavigation.classList.remove('nav-open');
+          });
+        });
+      }
+
+      // Set current year in footer
+      const yearElement = document.getElementById('year');
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear().toString();
+      }
+    </script>
+    
+    <!-- Load theme manager and i18n as modules -->
+    <script type="module" src="/assets/js/main.js"></script>
+  </body>
+</html>
