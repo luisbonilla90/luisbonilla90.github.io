@@ -2,6 +2,8 @@
 
 This repository contains a minimal themeable personal website scaffold with bilingual support (English/Spanish).
 
+> **🚀 Astro Migration in Progress**: This project is being migrated to Astro framework on the `astro-migration` branch. See [`docs/astro-migration-phase1.md`](docs/astro-migration-phase1.md) for details.
+
 Structure created:
 
 - `index.html` — site entry
@@ -23,6 +25,7 @@ Structure created:
 
 ## How to Run Locally
 
+### Original Static Site
 Serve the folder with a static server, for example:
 
 ```bash
@@ -34,6 +37,20 @@ npx http-server -c-1
 ```
 
 Open http://localhost:8000 in your browser.
+
+### Astro Version (astro-migration branch)
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+See [`docs/astro-quickstart.md`](docs/astro-quickstart.md) for more details.
 
 ## How to Add a New Language
 

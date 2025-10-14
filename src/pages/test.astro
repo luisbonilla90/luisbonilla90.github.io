@@ -1,0 +1,36 @@
+---
+// Test page for Astro setup validation
+const title = "Astro Migration - Test Page";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+  </head>
+  <body>
+    <header>
+      <h1>{title}</h1>
+      <p>This is a test page to validate the Astro setup and asset migration.</p>
+    </header>
+    <main>
+      <section>
+        <h2>CSS Variables Test</h2>
+        <p style="color: var(--color-accent);">This text should use the accent color from CSS variables.</p>
+        <p style="background-color: var(--color-bg-secondary); padding: var(--spacing-md);">
+          This section should have a secondary background with proper spacing.
+        </p>
+      </section>
+      <section>
+        <h2>Locale Files Status</h2>
+        <p>Locale files (en.json, es.json) are copied to public/locales/</p>
+      </section>
+      <section>
+        <h2>Assets Status</h2>
+        <p>All CSS, JS, and image assets are copied to public/assets/</p>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,232 @@
+{
+  "page_title": "Luis Bonilla - Software Engineer | Technical Lead",
+  "meta_description": "Luis Bonilla - Software Engineer & Technical Lead with 15+ years experience. Expert in React, Node.js, Python, AWS, and digital transformation. Available for innovative projects.",
+  "site_warning": {
+    "text": "This site is under construction:",
+    "description": "Some sections may be incomplete or currently under development.",
+    "dismiss": "Dismiss"
+  },
+  "header": {
+    "site_title": "Luis Bonilla",
+    "nav": {
+      "about": "About",
+      "skills": "Skills",
+      "experience": "Experience",
+      "portfolio": "Portfolio",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "theme_toggle": "Toggle Theme",
+    "aria_labels": {
+      "mobile_menu": "Toggle navigation menu",
+      "main_navigation": "Main navigation",
+      "nav_about": "Navigate to About section",
+      "nav_skills": "Navigate to Skills section",
+      "nav_experience": "Navigate to Experience section",
+      "nav_portfolio": "Navigate to Portfolio section",
+      "nav_blog": "Navigate to Blog section",
+      "nav_contact": "Navigate to Contact section",
+      "theme_toggle": "Toggle between light and dark theme",
+      "back_to_top": "Scroll back to top of page"
+    }
+  },
+  "hero": {
+    "title": "Luis Bonilla Villalobos",
+    "subtitle": "Software Engineer | Technical Lead | Innovation Consultant",
+    "tagline": "Dynamic and highly creative software engineer with over 15 years of international experience delivering innovative solutions for leading companies in the US.",
+    "cta_contact": "Get In Touch",
+    "cta_resume": "Resume",
+    "location": "San José, Costa Rica",
+    "aria_labels": {
+      "cta_contact": "Navigate to contact section",
+      "cta_resume": "Open resume markdown"
+    }
+  },
+  "about": {
+    "heading": "Professional Summary",
+    "lead": "Dynamic and highly creative software engineer with over 15 years of international experience delivering innovative solutions for leading companies in the US. Recognized for technical leadership, building and empowering high-performance teams, and driving continuous improvement.",
+    "content": "Passionate about contributing as an individual contributor who bridges creativity, technical depth, and collaboration to deliver meaningful results. After a period dedicated to consulting and product R&D, I am eager to bring my expertise in innovation, automation, and digital transformation to forward-thinking organizations.",
+    "highlights": {
+      "experience": {
+        "value": "15+",
+        "label": "Years of Experience",
+        "aria_label": "15 plus"
+      },
+      "companies": {
+        "value": "5+",
+        "label": "Major Companies",
+        "aria_label": "5 plus"
+      },
+      "commitment": {
+        "value": "100%",
+        "label": "Commitment to Quality",
+        "aria_label": "100 percent"
+      }
+    }
+  },
+  "skills": {
+    "heading": "Key Skills",
+    "frontend": {
+      "title": "Front-End",
+      "items": [
+        "JavaScript",
+        "React",
+        "Bootstrap",
+        "Tailwind"
+      ]
+    },
+    "backend": {
+      "title": "Back-End",
+      "items": [
+        "NodeJS",
+        "Python",
+        "Django",
+        "Flask (anecdotal)",
+        ".NET / Ruby on Rails (anecdotal)"
+      ]
+    },
+    "databases": {
+      "title": "Databases",
+      "items": [
+        "PostgreSQL",
+        "MSSQL",
+        "MySQL"
+      ]
+    },
+    "devops": {
+      "title": "DevOps & Cloud",
+      "items": [
+        "Docker",
+        "CI/CD",
+        "Terraform",
+        "AWS",
+        "Prometheus",
+        "Grafana"
+      ]
+    },
+    "project_management": {
+      "title": "Project Management",
+      "items": [
+        "Agile Methodologies",
+        "Jira",
+        "Git / Version Control",
+        "Critical Path"
+      ]
+    },
+    "collaboration": {
+      "title": "Collaboration & Communication",
+      "items": [
+        "Mediation & cross-functional leadership",
+        "Mentoring",
+        "Technical documentation",
+        "Bilingual (Spanish / English)"
+      ]
+    }
+  },
+  "experience": {
+    "heading": "Professional Experience",
+    "jobs": [
+      {
+        "title": "Independent Consultant & Technology Innovation Leader",
+        "company": "",
+        "period": "Jan 2025 – Present",
+        "highlights": [
+          "Led digital transformation and automation projects for SMEs and startups, implementing SaaS solutions with clean architecture and modern technologies (Node.js, Python, PostgreSQL, Redis) capable of large-scale data processing (>5,000 URLs/hour).",
+          "Developed CI/CD pipelines, automated testing (>85% coverage), and comprehensive monitoring (Prometheus, Grafana) for reliable operations.",
+          "Managed cloud migrations to improve delivery speed and resilience; mentored teams and promoted documentation and best practices.",
+          "Drove product R&D in media intelligence (NLP, sentiment analysis, reputation KPIs) from validation to go-to-market strategy."
+        ]
+      },
+      {
+        "title": "Technical Lead – Nissan",
+        "company": "via Critical Mass, Costa Rica",
+        "period": "Jun 2023 – Jan 2025",
+        "highlights": [
+          "Revitalized critical project by enforcing coding standards, improving efficiency and robustness",
+          "Implemented comprehensive unit testing and TDD practices, reducing regressions",
+          "Streamlined code review processes and cultivated collaborative team environment",
+          "Coordinated with multiple teams to enhance CI/CD processes and restore timely deployments"
+        ]
+      },
+      {
+        "title": "Technical Lead – Apple",
+        "company": "via Critical Mass, Costa Rica",
+        "period": "Nov 2022 – Jun 2023",
+        "highlights": [
+          "Led team to improve maintainability, performance, and codebase cleanliness for key products",
+          "Utilized Python and modern frontend technologies to optimize features",
+          "Oversaw project delivery, including candidate interviews and cross-team communication"
+        ]
+      },
+      {
+        "title": "Full Stack Developer – Sideqik",
+        "company": "",
+        "period": "Feb 2022 – Sep 2022",
+        "highlights": [
+          "Contributed to an e-commerce influencer marketing platform delivering end-to-end features and integration tests.",
+          "Worked with PostgreSQL, Ruby on Rails, Ember and Capybara; provided technical recommendations and database updates."
+        ]
+      },
+      {
+        "title": "Front-End Lead – Sephora",
+        "company": "via Stateside, Costa Rica",
+        "period": "2016 – 2022",
+        "highlights": [
+          "Led front-end team for in-store event management and Beauty Advisor scheduling across US and Canada",
+          "Developed core web application components (shopping basket, checkout)",
+          "Implemented localization and performance optimization frameworks",
+          "Recognized for innovation: Sephora hackathon winner, Maverik Prize nominee"
+        ]
+      }
+    ]
+  },
+  "portfolio": {
+    "heading": "Featured Projects",
+    "placeholder": "Project showcase coming soon. Currently focusing on new innovations in digital transformation and automation."
+  },
+  "education": {
+    "heading": "Education",
+    "degree": "B.Sc. Computer Engineering",
+    "institution": "Universidad Estatal a Distancia (UNED), Costa Rica"
+  },
+  "blog": {
+    "heading": "Latest Insights",
+    "placeholder": "Blog posts and technical articles coming soon."
+  },
+  "contact": {
+    "heading": "Let's Connect",
+    "intro": "Equally comfortable leading teams or contributing as an individual collaborator, I bring a passion for creating meaningful, scalable, and maintainable solutions that elevate both products and people.",
+    "labels": {
+      "contact": "Contact",
+      "location": "Location"
+    },
+    "location": "San José, Costa Rica"
+  },
+  "footer": {
+    "title": "Luis Bonilla Villalobos",
+    "subtitle": "Software Engineer | Technical Lead | Innovation Consultant",
+    "description": "Passionate about creating meaningful, scalable, and maintainable solutions.",
+    "sections": {
+      "contact": "Contact",
+      "quick_links": "Quick Links"
+    },
+    "location": "San José, Costa Rica",
+    "copyright": "Luis Bonilla Villalobos. All rights reserved.",
+    "availability": "Available for consulting and full-time opportunities.",
+    "nav": {
+      "about": "About",
+      "skills": "Skills",
+      "experience": "Experience",
+      "contact": "Contact"
+    },
+    "aria_labels": {
+      "footer_nav": "Footer navigation",
+      "email_alboni": "Email alboni90@gmail.com",
+      "email_lbonilla": "Email lbonillav7@gmail.com",
+      "nav_about": "Navigate to About section",
+      "nav_skills": "Navigate to Skills section",
+      "nav_experience": "Navigate to Experience section",
+      "nav_contact": "Navigate to Contact section"
+    }
+  }
+}

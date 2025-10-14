@@ -1,0 +1,23 @@
+{
+  "name": "luisbonilla90.github.io",
+  "version": "1.0.0",
+  "description": "This repository contains a minimal themeable personal website scaffold with bilingual support (English/Spanish).",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.14.5",
+    "typescript": "^5.9.3"
+  }
+}
