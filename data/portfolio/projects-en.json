@@ -1,0 +1,71 @@
+{
+  "projects": [
+    {
+      "id": "media-intelligence-platform",
+      "title": "Media Intelligence Platform",
+      "category": "SaaS",
+      "status": "active",
+      "year": 2024,
+      "description": "Comprehensive media monitoring and analysis platform using NLP and sentiment analysis to track brand reputation across multiple channels.",
+      "longDescription": "Built from the ground up as a scalable SaaS solution that processes thousands of media mentions per hour. Features include real-time sentiment analysis, reputation KPIs, competitor tracking, and customizable dashboards. The platform uses modern NLP techniques to extract insights from news articles, social media, and online publications.",
+      "technologies": ["Node.js", "Python", "PostgreSQL", "Redis", "NLP", "React", "Docker"],
+      "highlights": [
+        "Processing >5,000 URLs/hour with distributed architecture",
+        "Real-time sentiment analysis using advanced NLP",
+        "Custom KPI tracking and reporting",
+        "Multi-tenant SaaS architecture"
+      ],
+      "links": {
+        "demo": null,
+        "github": null,
+        "website": null
+      },
+      "images": []
+    },
+    {
+      "id": "ecommerce-scheduling",
+      "title": "In-Store Event Management System",
+      "category": "Enterprise",
+      "status": "completed",
+      "year": 2021,
+      "description": "Large-scale scheduling and event management system for retail operations across US and Canada.",
+      "longDescription": "Developed comprehensive front-end solution for managing in-store beauty events and advisor scheduling across hundreds of Sephora locations. The system handles complex scheduling logic, localization for multiple markets, and real-time updates. Features include drag-and-drop scheduling, automated notifications, and integration with existing enterprise systems.",
+      "technologies": ["JavaScript", "React", "Redux", "REST APIs", "Localization"],
+      "highlights": [
+        "Deployed across US and Canada retail locations",
+        "Internationalization support for multiple markets",
+        "Real-time scheduling and notifications",
+        "Won Sephora hackathon for innovation"
+      ],
+      "links": {
+        "demo": null,
+        "github": null,
+        "website": null
+      },
+      "images": []
+    },
+    {
+      "id": "cicd-automation",
+      "title": "CI/CD Pipeline Automation",
+      "category": "DevOps",
+      "status": "completed",
+      "year": 2023,
+      "description": "Comprehensive CI/CD infrastructure for automotive industry projects with automated testing and deployment.",
+      "longDescription": "Designed and implemented robust CI/CD pipelines for critical automotive projects. The solution includes automated testing (>85% coverage), deployment automation, monitoring integration, and rollback capabilities. Significantly improved deployment frequency and reduced production incidents.",
+      "technologies": ["Jenkins", "Docker", "Kubernetes", "Terraform", "Prometheus", "Grafana"],
+      "highlights": [
+        "Achieved >85% test coverage",
+        "Reduced deployment time by 60%",
+        "Zero-downtime deployments",
+        "Comprehensive monitoring and alerting"
+      ],
+      "links": {
+        "demo": null,
+        "github": null,
+        "website": null
+      },
+      "images": []
+    }
+  ],
+  "categories": ["SaaS", "Enterprise", "DevOps", "Web Applications", "Mobile"]
+}

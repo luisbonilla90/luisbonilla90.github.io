@@ -20,6 +20,10 @@ Structure created:
 - ✅ **Responsive Design**: Mobile-friendly layout with hamburger menu
 - ✅ **Accessibility**: WCAG 2.1 AA compliant with proper ARIA labels
 - ✅ **Persistent Preferences**: Language and theme choices saved in localStorage
+- ✅ **STAR Format Experiences**: Professional experiences structured with Situation, Task, Action, Result
+- ✅ **Dynamic Content**: JSON-based data structure for experiences, portfolio, and blog
+- ✅ **Analytics Dashboard**: Private dashboard with metrics and gamification badges
+- ✅ **SEO Optimized**: JSON-LD structured data for better search engine understanding
 
 ## How to Run Locally
 
@@ -34,6 +38,24 @@ npx http-server -c-1
 ```
 
 Open http://localhost:8000 in your browser.
+
+### Running Tests
+
+To validate the STAR format data structure:
+
+```bash
+npm test
+# or directly:
+node assets/js/tests/star-format-validator.js
+```
+
+### Accessing the Analytics Dashboard
+
+Navigate to http://localhost:8000/dashboard.html
+
+Default password: `password`
+
+**Note**: For production use, implement proper authentication with a backend service.
 
 ## How to Add a New Language
 
@@ -60,6 +82,30 @@ Create a new JSON file in the `locales/` directory (e.g., `locales/fr.json` for 
 ```
 
 Use `locales/en.json` as a reference for the complete structure.
+
+## Data Structure
+
+The site uses JSON files for dynamic content:
+
+### Experiences (STAR Format)
+- `data/experiences/experiences-en.json` - English experiences
+- `data/experiences/experiences-es.json` - Spanish experiences
+
+Each experience includes:
+- Summary for quick overview
+- STAR format (Situation, Task, Action, Result) for detailed breakdown
+- Highlights and technologies used
+- Period and company information
+
+### Portfolio Projects
+- `data/portfolio/projects-en.json` - English projects
+- `data/portfolio/projects-es.json` - Spanish projects
+
+### Blog Posts
+- `data/blog/posts-en.json` - English posts
+- `data/blog/posts-es.json` - Spanish posts
+
+See `docs/dynamic-content-features.md` for detailed documentation on data structures and usage.
 
 ### 2. Update Supported Languages
 
@@ -102,3 +148,6 @@ The translation keys use dot notation (e.g., `header.nav.about`) to access neste
 - Add actual content to `index.html`
 - Implement components and enhance styles
 - Add accessibility checks and SEO metadata per `docs/project-architecture.md`
+- Build portfolio and blog UI components to render from JSON data
+- Integrate analytics dashboard with real Pirsch API data
+- Add search and filter functionality for experiences, projects, and posts

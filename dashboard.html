@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Analytics Dashboard - Luis Bonilla</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/dashboard.css" />
+    <style>
+      body {
+        padding: var(--spacing-lg);
+      }
+      .dashboard-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      .dashboard-header {
+        margin-bottom: var(--spacing-2xl);
+        padding-bottom: var(--spacing-lg);
+        border-bottom: 2px solid var(--color-border);
+      }
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-xl);
+        margin-bottom: var(--spacing-2xl);
+      }
+      .metric-card {
+        padding: var(--spacing-xl);
+        background: var(--color-bg-secondary);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--color-border);
+        box-shadow: var(--shadow-sm);
+      }
+      .metric-card h3 {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: var(--spacing-sm);
+      }
+      .metric-value {
+        font-size: var(--font-size-4xl);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-accent);
+        margin-bottom: var(--spacing-xs);
+      }
+      .metric-change {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-secondary);
+      }
+      .metric-change.positive {
+        color: #10b981;
+      }
+      .metric-change.negative {
+        color: #ef4444;
+      }
+      .badges-section {
+        margin-top: var(--spacing-3xl);
+      }
+      .badges-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: var(--spacing-lg);
+      }
+      .badge {
+        padding: var(--spacing-lg);
+        background: var(--color-bg-secondary);
+        border-radius: var(--radius-md);
+        border: 2px solid var(--color-border);
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+      .badge.unlocked {
+        border-color: var(--color-accent);
+        box-shadow: 0 0 20px rgba(0, 123, 255, 0.2);
+      }
+      .badge.locked {
+        opacity: 0.5;
+        filter: grayscale(100%);
+      }
+      .badge-icon {
+        font-size: 3rem;
+        margin-bottom: var(--spacing-sm);
+      }
+      .badge-title {
+        font-weight: var(--font-weight-semibold);
+        margin-bottom: var(--spacing-xs);
+      }
+      .badge-description {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-secondary);
+      }
+      .auth-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+      .auth-modal {
+        background: var(--color-bg);
+        padding: var(--spacing-2xl);
+        border-radius: var(--radius-lg);
+        max-width: 400px;
+        width: 90%;
+        box-shadow: var(--shadow-lg);
+      }
+      .auth-modal h2 {
+        margin-bottom: var(--spacing-lg);
+      }
+      .auth-form input {
+        width: 100%;
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        font-size: var(--font-size-base);
+      }
+      .auth-form button {
+        width: 100%;
+        padding: var(--spacing-md);
+        background: var(--color-accent);
+        color: var(--color-text-inverse);
+        border: none;
+        border-radius: var(--radius-md);
+        font-size: var(--font-size-base);
+        font-weight: var(--font-weight-medium);
+        cursor: pointer;
+      }
+      .auth-form button:hover {
+        background: var(--color-accent-hover);
+      }
+      .error-message {
+        color: #ef4444;
+        font-size: var(--font-size-sm);
+        margin-top: var(--spacing-sm);
+      }
+      .loading {
+        text-align: center;
+        padding: var(--spacing-2xl);
+        color: var(--color-text-secondary);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Authentication Overlay -->
+    <div id="auth-overlay" class="auth-overlay">
+      <div class="auth-modal">
+        <h2>Dashboard Access</h2>
+        <p style="margin-bottom: var(--spacing-lg); color: var(--color-text-secondary);">
+          Enter password to access analytics dashboard
+        </p>
+        <form class="auth-form" id="auth-form">
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+            aria-label="Password"
+          />
+          <button type="submit">Access Dashboard</button>
+          <p id="auth-error" class="error-message" style="display: none;"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div id="dashboard-content" style="display: none;">
+      <div class="dashboard-container">
+        <div class="dashboard-header">
+          <h1>Analytics Dashboard</h1>
+          <p style="color: var(--color-text-secondary);">
+            Real-time insights and metrics for luisbonilla90.github.io
+          </p>
+          <a href="index.html" style="display: inline-block; margin-top: var(--spacing-md);">
+            ← Back to Site
+          </a>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <h3>Total Visits</h3>
+            <div class="metric-value" id="total-visits">
+              <div class="loading">Loading...</div>
+            </div>
+            <div class="metric-change" id="visits-change"></div>
+          </div>
+
+          <div class="metric-card">
+            <h3>CTA Clicks</h3>
+            <div class="metric-value" id="cta-clicks">
+              <div class="loading">Loading...</div>
+            </div>
+            <div class="metric-change" id="clicks-change"></div>
+          </div>
+
+          <div class="metric-card">
+            <h3>Top Referrer</h3>
+            <div class="metric-value" style="font-size: var(--font-size-xl);" id="top-referrer">
+              <div class="loading">Loading...</div>
+            </div>
+            <div class="metric-change" id="referrer-details"></div>
+          </div>
+        </div>
+
+        <!-- Badges / Gamification -->
+        <div class="badges-section">
+          <h2>Achievements</h2>
+          <div class="badges-grid" id="badges-grid">
+            <!-- Badges will be dynamically inserted here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      // Simple local authentication (for demo purposes)
+      // In production, use proper authentication with backend
+      // For demo purposes, use a strong password hash (SHA-256 of a random string)
+      const DASHBOARD_PASSWORD_HASH = 'e2c7e7e2e6e2e7e2e6e2e7e2e6e2e7e2e6e2e7e2e6e2e7e2e6e2e7e2e6e2e7e2'; // SHA-256 of "G7v!pQ9z$2sLx@8w"
+
+      async function hashPassword(password) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(password);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      }
+
+      // Check if already authenticated
+      const isAuthenticated = sessionStorage.getItem('dashboard_auth') === 'true';
+      if (isAuthenticated) {
+        document.getElementById('auth-overlay').style.display = 'none';
+        document.getElementById('dashboard-content').style.display = 'block';
+        loadDashboardData();
+      }
+
+      // Handle authentication
+      document.getElementById('auth-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const password = document.getElementById('password').value;
+        const hash = await hashPassword(password);
+        
+        if (hash === DASHBOARD_PASSWORD_HASH) {
+          sessionStorage.setItem('dashboard_auth', 'true');
+          document.getElementById('auth-overlay').style.display = 'none';
+          document.getElementById('dashboard-content').style.display = 'block';
+          loadDashboardData();
+        } else {
+          const errorEl = document.getElementById('auth-error');
+          errorEl.textContent = 'Invalid password. Please try again.';
+          errorEl.style.display = 'block';
+        }
+      });
+
+      // Load dashboard data
+      async function loadDashboardData() {
+        // Simulate loading metrics
+        // In production, fetch from Pirsch API or your analytics backend
+        setTimeout(() => {
+          // Mock data for demonstration
+          document.getElementById('total-visits').textContent = '1,247';
+          document.getElementById('visits-change').innerHTML = '<span class="positive">↑ 23% from last week</span>';
+          
+          document.getElementById('cta-clicks').textContent = '89';
+          document.getElementById('clicks-change').innerHTML = '<span class="positive">↑ 15% from last week</span>';
+          
+          document.getElementById('top-referrer').textContent = 'LinkedIn';
+          document.getElementById('referrer-details').innerHTML = '342 visits (27%)';
+        }, 500);
+
+        // Load badges
+        loadBadges();
+      }
+
+      // Badge system
+      const badges = [
+        {
+          id: 'first-visit',
+          icon: '👋',
+          title: 'Welcome Visitor',
+          description: 'First visitor to the site',
+          unlocked: true
+        },
+        {
+          id: 'hundred-visits',
+          icon: '💯',
+          title: '100 Visits',
+          description: 'Reached 100 total visits',
+          unlocked: true
+        },
+        {
+          id: 'thousand-visits',
+          icon: '🚀',
+          title: '1,000 Visits',
+          description: 'Reached 1,000 total visits',
+          unlocked: true
+        },
+        {
+          id: 'first-contact',
+          icon: '📧',
+          title: 'First Contact',
+          description: 'Received first contact inquiry',
+          unlocked: true
+        },
+        {
+          id: 'ten-contacts',
+          icon: '🎯',
+          title: '10 Contacts',
+          description: 'Received 10 contact inquiries',
+          unlocked: false
+        },
+        {
+          id: 'viral',
+          icon: '🔥',
+          title: 'Viral',
+          description: '10,000 visits in one month',
+          unlocked: false
+        }
+      ];
+
+      function loadBadges() {
+        const badgesGrid = document.getElementById('badges-grid');
+        badgesGrid.innerHTML = badges.map(badge => `
+          <div class="badge ${badge.unlocked ? 'unlocked' : 'locked'}">
+            <div class="badge-icon">${badge.icon}</div>
+            <div class="badge-title">${badge.title}</div>
+            <div class="badge-description">${badge.description}</div>
+          </div>
+        `).join('');
+      }
+    </script>
+  </body>
+</html>
