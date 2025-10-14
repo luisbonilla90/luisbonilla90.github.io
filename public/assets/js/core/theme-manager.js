@@ -1,4 +1,3 @@
-
 /**
  * Theme Manager - Clean Architecture Implementation
  * Single Responsibility: Orchestrates theme changes using injected dependencies
