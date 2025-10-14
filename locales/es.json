@@ -191,7 +191,18 @@
   },
   "blog": {
     "heading": "Últimas Perspectivas",
-    "placeholder": "Publicaciones de blog y artículos técnicos próximamente."
+    "placeholder": "Publicaciones de blog y artículos técnicos próximamente.",
+    "articles": [
+      {
+        "id": "scalable-saas-solutions",
+        "title": "Construyendo Soluciones SaaS Escalables: Lecciones del Campo",
+        "date": "2025-10-08",
+        "date_formatted": "8 de octubre de 2025",
+        "excerpt": "Después de liderar proyectos de transformación digital para múltiples startups y PYMEs, he aprendido que construir SaaS escalable no se trata solo de elegir el stack tecnológico correcto—se trata de crear sistemas que puedan crecer con tu negocio. Aquí están las ideas clave de implementar soluciones que procesan más de 5,000 URLs por hora mientras mantienen >85% de cobertura de pruebas.",
+        "read_time": "3 min de lectura",
+        "tags": ["SaaS", "Arquitectura", "Node.js", "PostgreSQL"]
+      }
+    ]
   },
   "contact": {
     "heading": "Conectemos",
