@@ -40,7 +40,7 @@ export class ExperienceManager {
    */
   async loadExperiences() {
     try {
-      const response = await fetch(`/data/experiences/experiences-${this.currentLanguage}.json`);
+      const response = await fetch(`data/experiences/experiences-${this.currentLanguage}.json`);
       if (!response.ok) {
         throw new Error(`Failed to load experiences: ${response.status}`);
       }

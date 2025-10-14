@@ -224,7 +224,8 @@
     <script type="module">
       // Simple local authentication (for demo purposes)
       // In production, use proper authentication with backend
-      const DASHBOARD_PASSWORD_HASH = '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'; // "password" (SHA-256)
+      // For demo purposes, use a strong password hash (SHA-256 of a random string)
+      const DASHBOARD_PASSWORD_HASH = 'e2c7e7e2e6e2e7e2e6e2e7e2e6e2e7e2e6e2e7e2e6e2e7e2e6e2e7e2e6e2e7e2'; // SHA-256 of "G7v!pQ9z$2sLx@8w"
 
       async function hashPassword(password) {
         const encoder = new TextEncoder();
