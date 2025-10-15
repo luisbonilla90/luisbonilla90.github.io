@@ -16,11 +16,57 @@ Object.defineProperty(window, 'matchMedia', {
   })),
 });
 
-// Mock localStorage
-const localStorageMock = {
-  getItem: jest.fn(),
-  setItem: jest.fn(),
-  removeItem: jest.fn(),
-  clear: jest.fn(),
-};
-global.localStorage = localStorageMock;
+// Mock localStorage with proper implementation
+class LocalStorageMock {
+  constructor() {
+    this.store = {};
+  }
+
+  clear() {
+    this.store = {};
+  }
+
+  getItem(key) {
+    return this.store[key] || null;
+  }
+
+  setItem(key, value) {
+    this.store[key] = String(value);
+  }
+
+  removeItem(key) {
+    delete this.store[key];
+  }
+}
+
+global.localStorage = new LocalStorageMock();
+
+// Mock fetch API
+global.fetch = () =>
+  Promise.resolve({
+    ok: true,
+    json: () => Promise.resolve({
+      'site.title': 'Test Title',
+      'site.description': 'Test Description',
+      'nav.home': 'Home',
+      'nav.about': 'About',
+    }),
+  });
+
+// Suppress console warnings in tests (optional)
+const originalWarn = console.warn;
+beforeAll(() => {
+  console.warn = (...args) => {
+    if (
+      typeof args[0] === 'string' &&
+      args[0].includes('Language selector not found in DOM')
+    ) {
+      return;
+    }
+    originalWarn(...args);
+  };
+});
+
+afterAll(() => {
+  console.warn = originalWarn;
+});
