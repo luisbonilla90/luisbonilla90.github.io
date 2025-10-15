@@ -1,80 +1,140 @@
-# Portfolio Documentation
+# Documentation Index
 
-This folder contains comprehensive documentation for the portfolio website's design, architecture, and implementation.
+Welcome to the luisbonilla90.github.io documentation!
 
-## Documentation Files
+## 📚 Quick Navigation
 
-### 📘 [UI/UX Guide](./ui-ux-guide.md) - **START HERE**
+### SEO and Optimization (Phase 3)
+- **[SEO Implementation Guide](./SEO-IMPLEMENTATION.md)** - Complete technical documentation for SEO features
+- **[SEO Quick Reference](./SEO-QUICK-REFERENCE.md)** - Quick-start guide for adding SEO to new content
+- **[Core Web Vitals Guide](./CORE-WEB-VITALS.md)** - Performance optimization strategies and best practices
+- **[Phase 3 Completion](./PHASE3-COMPLETION.md)** - Summary of Phase 3 achievements
 
-**The complete, consolidated guide for UI/UX implementation**
+### SEO Strategy and Planning
+- **[SEO Proposal 1](./SEO/seo-prop1.md)** - Comprehensive SEO + GEO strategy (Traditional + LLM)
+- **[SEO Proposal 2](./SEO/seo-prop2.md)** - Detailed SEO implementation checklist
 
-A comprehensive resource covering:
+### Astro Migration
+- **[Phase 1 Completion](./PHASE1-COMPLETION.md)** - Astro migration Phase 1 summary
+- **[Astro Migration Guide](./astro-migration-phase1.md)** - Phase 1 technical details
+- **[Astro Quickstart](./astro-quickstart.md)** - Getting started with Astro
 
-- Design system (colors, typography, spacing)
-- Implementation details for all components
-- Core UI/UX principles
-- Accessibility standards (WCAG 2.1 AA)
-- Responsive design strategy
-- Testing checklists
-- Future enhancement roadmap
+### Architecture and Design
+- **[Project Architecture](./project-architecture.md)** - Overall project structure and decisions
+- **[Content Strategy](./content-strategy.md)** - Content organization and approach
+- **[UI/UX Guide](./ui-ux-guide.md)** - Design principles and patterns
 
-**Use this file as your primary reference for understanding and extending the UI/UX implementation.**
+### Testing and Development
+- **[Testing Guide](./testing-guide.md)** - Testing strategies and procedures
 
-### 📄 [Content Strategy](./content-strategy.md)
-
-Guidelines for writing and organizing portfolio content, including tone, voice, and messaging strategy.
-
-### 🏗️ [Project Architecture](./project-architecture.md)
-
-Technical architecture overview, file structure, and development guidelines.
-
-### 📥 [Resume Downloader Guide](./resume-downloader-guide.md)
-
-Documentation for the resume download functionality and PDF generation.
-
-### 📝 [Resume Content](./resume.md)
-
-Markdown source for resume content that can be converted to PDF.
-
-## Quick Links
-
-### For Developers
-
-- **Design System**: [UI/UX Guide - Design System](./ui-ux-guide.md#design-system)
-- **Component Library**: [UI/UX Guide - Component Library](./ui-ux-guide.md#component-library)
-- **CSS Architecture**: [UI/UX Guide - Implementation Overview](./ui-ux-guide.md#implementation-overview)
-
-### For Designers
-
-- **Color Palette**: [UI/UX Guide - Color Palette](./ui-ux-guide.md#1-color-palette)
-- **Typography**: [UI/UX Guide - Typography System](./ui-ux-guide.md#2-typography-system)
-- **UI Principles**: [UI/UX Guide - Core Principles](./ui-ux-guide.md#core-principles)
-
-### For Accessibility
-
-- **Standards**: [UI/UX Guide - Accessibility Standards](./ui-ux-guide.md#accessibility-standards)
-- **Testing**: [UI/UX Guide - Testing Checklist](./ui-ux-guide.md#testing--quality-assurance)
-- **WCAG Compliance**: [UI/UX Guide - WCAG 2.1 AA Compliance](./ui-ux-guide.md#wcag-21-aa-compliance)
-
-## Contributing
-
-When updating the portfolio:
-
-1. **Check the UI/UX Guide** for design system tokens and patterns
-2. **Follow accessibility guidelines** outlined in the guide
-3. **Update documentation** when adding new features or components
-4. **Test thoroughly** using checklists in the UI/UX Guide
-
-## File Purpose Summary
-
-| File                         | Purpose                    | Audience              |
-| ---------------------------- | -------------------------- | --------------------- |
-| `ui-ux-guide.md`             | Complete UI/UX reference   | Developers, Designers |
-| `content-strategy.md`        | Content writing guidelines | Content creators      |
-| `project-architecture.md`    | Technical structure        | Developers            |
-| `resume-downloader-guide.md` | Resume feature docs        | Developers            |
-| `resume.md`                  | Resume content source      | Content editors       |
+### Resume and Downloads
+- **[Resume Downloader Guide](./resume-downloader-guide.md)** - Resume download feature documentation
+- **[Resume (Markdown)](./resume.md)** - Resume in Markdown format
+- **[Resume PDF (English)](./Luis_Bonilla_Resume_en.pdf)** - Downloadable English resume
+- **[Resume PDF (Spanish)](./Luis_Bonilla_Resume_es.pdf)** - Downloadable Spanish resume
 
 ---
 
-**Need help?** Start with the [UI/UX Guide](./ui-ux-guide.md) - it contains everything you need to understand and work with the portfolio's design and implementation.
+## �� Common Tasks
+
+### I want to...
+
+**Add SEO to a new page**
+→ See [SEO Quick Reference](./SEO-QUICK-REFERENCE.md)
+
+**Create a new blog post**
+→ See [SEO Quick Reference - Blog Post Setup](./SEO-QUICK-REFERENCE.md#blog-post-setup)
+
+**Optimize site performance**
+→ See [Core Web Vitals Guide](./CORE-WEB-VITALS.md)
+
+**Understand the SEO implementation**
+→ See [SEO Implementation Guide](./SEO-IMPLEMENTATION.md)
+
+**Learn about the project structure**
+→ See [Project Architecture](./project-architecture.md)
+
+**Set up the development environment**
+→ See [Astro Quickstart](./astro-quickstart.md)
+
+**Run tests**
+→ See [Testing Guide](./testing-guide.md)
+
+---
+
+## 📊 Phase Status
+
+| Phase | Status | Documentation |
+|-------|--------|---------------|
+| **Phase 1: Astro Migration** | ✅ Complete | [PHASE1-COMPLETION.md](./PHASE1-COMPLETION.md) |
+| **Phase 2: Components & Layouts** | ✅ Complete | Included in Phase 1 docs |
+| **Phase 3: SEO & Content** | ✅ Complete | [PHASE3-COMPLETION.md](./PHASE3-COMPLETION.md) |
+| **Phase 4: Performance** | 📋 Planned | See [CORE-WEB-VITALS.md](./CORE-WEB-VITALS.md) |
+
+---
+
+## 🔧 Development
+
+### Quick Commands
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Run tests
+npm test
+
+# Lint code
+npm run lint
+
+# Type check
+npm run type-check
+```
+
+### File Structure
+```
+├── docs/                  # This documentation
+├── src/
+│   ├── components/        # Reusable components
+│   │   └── seo/          # SEO components
+│   ├── layouts/          # Page layouts
+│   ├── pages/            # Route pages
+│   ├── content/          # Content collections
+│   │   └── blog/        # Blog posts
+│   └── styles/           # CSS styles
+├── public/               # Static assets
+└── astro.config.mjs      # Astro configuration
+```
+
+---
+
+## 🤝 Contributing
+
+When adding new features or content:
+1. Follow the patterns in existing files
+2. Add appropriate SEO metadata
+3. Update relevant documentation
+4. Test locally before committing
+5. Update this README if needed
+
+---
+
+## 📞 Need Help?
+
+- Check the relevant guide in this documentation
+- Review the [SEO Quick Reference](./SEO-QUICK-REFERENCE.md) for common patterns
+- See [Project Architecture](./project-architecture.md) for design decisions
+- Refer to [Astro Documentation](https://docs.astro.build/) for framework-specific questions
+
+---
+
+**Last Updated**: October 15, 2025  
+**Current Phase**: Phase 3 Complete - SEO & Content Optimization
