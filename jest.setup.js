@@ -16,6 +16,8 @@ Object.defineProperty(window, 'matchMedia', {
   })),
 });
 
+/* eslint-env jest */
+
 // Mock localStorage with proper implementation
 class LocalStorageMock {
   constructor() {
