@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Run lint-staged (lints and tests only changed files)
+npx lint-staged
+
+# Run all tests to ensure nothing is broken
+npm test
