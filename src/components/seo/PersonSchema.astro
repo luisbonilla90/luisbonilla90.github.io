@@ -1,0 +1,62 @@
+---
+/**
+ * Person Schema JSON-LD Component
+ * Implements Schema.org Person markup for author/about pages
+ */
+
+export interface Props {
+  name: string;
+  jobTitle: string;
+  description?: string;
+  email?: string;
+  url?: string;
+  image?: string;
+  sameAs?: string[];
+}
+
+const {
+  name,
+  jobTitle,
+  description = 'Software Engineer & Technical Lead with 15+ years of international experience',
+  email = 'lbonillav7@gmail.com',
+  url,
+  image = '/assets/img/profile.jpg',
+  sameAs = [
+    'https://github.com/luisbonilla90',
+    'https://linkedin.com/in/luisbonilla90',
+  ],
+} = Astro.props;
+
+const siteURL = Astro.site || 'https://luisbonilla90.github.io';
+const personURL = url || siteURL;
+const imageURL = new URL(image, siteURL).toString();
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: name,
+  jobTitle: jobTitle,
+  description: description,
+  email: email,
+  url: personURL,
+  image: imageURL,
+  sameAs: sameAs,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'San José',
+    addressCountry: 'CR',
+  },
+  knowsAbout: [
+    'Software Engineering',
+    'Technical Leadership',
+    'React',
+    'Node.js',
+    'Python',
+    'AWS',
+    'Digital Transformation',
+    'Agile Methodologies',
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

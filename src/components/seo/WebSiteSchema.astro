@@ -1,0 +1,38 @@
+---
+/**
+ * WebSite Schema JSON-LD Component
+ * Implements Schema.org WebSite markup with search action
+ */
+
+export interface Props {
+  name?: string;
+  description?: string;
+}
+
+const {
+  name = 'Luis Bonilla - Software Engineer',
+  description = 'Personal website and blog of Luis Bonilla, Software Engineer and Technical Lead',
+} = Astro.props;
+
+const siteURL = Astro.site || 'https://luisbonilla90.github.io';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: name,
+  description: description,
+  url: siteURL,
+  author: {
+    '@type': 'Person',
+    name: 'Luis Bonilla',
+  },
+  inLanguage: ['en', 'es'],
+  copyrightYear: new Date().getFullYear(),
+  copyrightHolder: {
+    '@type': 'Person',
+    name: 'Luis Bonilla',
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

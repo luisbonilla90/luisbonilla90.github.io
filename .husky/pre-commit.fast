@@ -1,0 +1,10 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# FAST VERSION: Only lint and test changed files
+# This is much faster than running the full test suite
+
+echo "🔍 Running linters and tests on staged files..."
+npx lint-staged
+
+echo "✅ Pre-commit checks passed!"

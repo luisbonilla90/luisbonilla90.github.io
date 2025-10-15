@@ -1,0 +1,12 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🧪 Running full test suite before push..."
+npm test
+
+if [ $? -eq 0 ]; then
+  echo "✅ All tests passed! Pushing to remote..."
+else
+  echo "❌ Tests failed! Fix the issues before pushing."
+  exit 1
+fi

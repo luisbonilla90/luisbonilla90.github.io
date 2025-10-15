@@ -1,0 +1,89 @@
+---
+/**
+ * SEO Component - Comprehensive meta tags for search engines and social media
+ * Includes Open Graph, Twitter Cards, and standard meta tags
+ */
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+  article?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  tags?: string[];
+  canonicalURL?: string;
+  lang?: 'en' | 'es';
+}
+
+const {
+  title,
+  description,
+  image = '/assets/img/og-default.jpg',
+  imageAlt = 'Profile photo of Luis Bonilla, Software Engineer',
+  article = false,
+  publishedTime,
+  modifiedTime,
+  author = 'Luis Bonilla',
+  tags = [],
+  canonicalURL,
+  lang = 'en',
+} = Astro.props;
+
+const siteURL = Astro.site || 'https://luisbonilla90.github.io';
+const pageURL = canonicalURL || new URL(Astro.url.pathname, siteURL).toString();
+const imageURL = new URL(image, siteURL).toString();
+
+// Ensure title is not too long for meta tags
+const truncatedTitle = title.length > 60 ? title.substring(0, 57) + '...' : title;
+const truncatedDescription = description.length > 160 ? description.substring(0, 157) + '...' : description;
+---
+
+<!-- Primary Meta Tags -->
+<meta name="title" content={truncatedTitle} />
+<meta name="description" content={truncatedDescription} />
+<meta name="author" content={author} />
+{tags.length > 0 && <meta name="keywords" content={tags.join(', ')} />}
+<link rel="canonical" href={pageURL} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={article ? 'article' : 'website'} />
+<meta property="og:url" content={pageURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageURL} />
+<meta property="og:image:alt" content={imageAlt} />
+<meta property="og:site_name" content="Luis Bonilla - Software Engineer" />
+<meta property="og:locale" content={lang === 'es' ? 'es_CR' : 'en_US'} />
+
+{article && publishedTime && (
+  <meta property="article:published_time" content={publishedTime} />
+)}
+{article && modifiedTime && (
+  <meta property="article:modified_time" content={modifiedTime} />
+)}
+{article && author && (
+  <meta property="article:author" content={author} />
+)}
+{article && tags.length > 0 && tags.map(tag => (
+  <meta property="article:tag" content={tag} />
+))}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={pageURL} />
+<meta name="twitter:title" content={truncatedTitle} />
+<meta name="twitter:description" content={truncatedDescription} />
+<meta name="twitter:image" content={imageURL} />
+<meta name="twitter:image:alt" content={imageAlt} />
+<meta name="twitter:creator" content="@luisbonilla90" />
+
+<!-- Additional SEO Meta Tags -->
+<meta name="robots" content="index, follow" />
+<meta name="language" content={lang === 'es' ? 'Spanish' : 'English'} />
+<meta name="revisit-after" content="7 days" />
+
+<!-- RSS Feed -->
+<link rel="alternate" type="application/rss+xml" title="Luis Bonilla Blog RSS Feed" href="/rss.xml" />
