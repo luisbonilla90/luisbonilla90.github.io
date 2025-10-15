@@ -35,7 +35,7 @@ Welcome to the luisbonilla90.github.io documentation!
 
 ---
 
-## �� Common Tasks
+## 🛠️ Common Tasks
 
 ### I want to...
 
