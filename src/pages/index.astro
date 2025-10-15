@@ -1,42 +1,65 @@
 ---
-// Astro Migration - Phase 1: Basic Setup
-const title = "Luis Bonilla - Astro Migration";
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Luis Bonilla - Software Engineer | Technical Lead";
+const description = "Luis Bonilla - Software Engineer & Technical Lead with 15+ years experience. Expert in React, Node.js, Python, AWS, and digital transformation.";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <link rel="stylesheet" href="/assets/css/base/variables.css" />
-    <link rel="stylesheet" href="/assets/css/main.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Astro Migration - Phase 1</h1>
-      <p>This is the initial Astro setup with assets and locales migrated.</p>
-    </header>
-    <main>
-      <section>
-        <h2>✅ Completed</h2>
+<BaseLayout title={title} description={description}>
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section" aria-labelledby="hero-title">
+    <div class="container">
+      <h1 id="hero-title" class="hero-title" data-i18n="hero.title">
+        Luis Bonilla Villalobos
+      </h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">
+        Software Engineer | Technical Lead | Innovation Consultant
+      </p>
+      <p class="hero-tagline" data-i18n="hero.tagline">
+        Dynamic and highly creative software engineer with over 15 years of
+        international experience delivering innovative solutions for leading
+        companies in the US.
+      </p>
+    </div>
+  </section>
+
+  <!-- Astro Migration Status Section -->
+  <section class="section">
+    <div class="container">
+      <h2>✅ Astro Migration - Phase 2 Completed</h2>
+      <div class="highlight-card">
+        <h3>Implemented Features</h3>
         <ul>
-          <li>Branch created: astro-migration</li>
-          <li>Astro project initialized</li>
-          <li>Static adapter configured (default for Astro)</li>
-          <li>Assets copied to public/ and src/styles/</li>
-          <li>Locales copied to public/locales/</li>
-          <li>CSS variables validated and working</li>
+          <li>✅ BaseLayout.astro with header, footer, and responsive navigation</li>
+          <li>✅ Theme toggle component (client-side island)</li>
+          <li>✅ Language selector component (i18n island)</li>
+          <li>✅ CSS imports (variables.css and sections.css)</li>
+          <li>✅ Content collections configured for blog posts</li>
+          <li>✅ 3 pilot blog posts with complete frontmatter and JSON-LD</li>
+          <li>✅ Accessibility controls migrated</li>
+          <li>✅ Mobile-responsive hamburger menu</li>
         </ul>
-      </section>
-      <section>
-        <h2>Next Steps</h2>
+      </div>
+      
+      <div class="highlight-card">
+        <h3>Blog Posts Available</h3>
         <ul>
-          <li>Migrate HTML content to Astro components</li>
-          <li>Implement i18n integration in Astro</li>
-          <li>Convert JavaScript modules to Astro-compatible format</li>
-          <li>Test theme switching functionality</li>
+          <li>Getting Started with Astro: A Modern Static Site Generator</li>
+          <li>Building Accessible Web Applications: A Practical Guide</li>
+          <li>Modern JavaScript: Clean Code Principles and Best Practices</li>
         </ul>
-      </section>
-    </main>
-  </body>
-</html>
+      </div>
+
+      <div class="highlight-card">
+        <h3>Next Steps</h3>
+        <ul>
+          <li>Test theme toggle functionality across all themes</li>
+          <li>Test language switching between English and Spanish</li>
+          <li>Migrate remaining sections from index.html</li>
+          <li>Create blog list and detail pages</li>
+          <li>Implement dynamic content rendering</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

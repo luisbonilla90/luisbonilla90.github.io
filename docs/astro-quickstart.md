@@ -32,6 +32,7 @@ Key Directories:
 
 1. Create file: `src/pages/about.astro`
 2. Add frontmatter and HTML:
+
 ```astro
 ---
 const title = "About";
@@ -48,16 +49,19 @@ const title = "About";
   </body>
 </html>
 ```
+
 3. Access at: `/about`
 
 ## Using CSS
 
 ### Option 1: Link from public/
+
 ```astro
 <link rel="stylesheet" href="/assets/css/main.css" />
 ```
 
 ### Option 2: Import from src/styles/
+
 ```astro
 ---
 import '../styles/main.css';
@@ -67,10 +71,12 @@ import '../styles/main.css';
 ## Accessing Locales
 
 Locales are in `public/locales/`:
+
 - `/locales/en.json`
 - `/locales/es.json`
 
 Fetch in Astro components:
+
 ```astro
 ---
 const response = await fetch('/locales/en.json');
@@ -81,6 +87,7 @@ const translations = await response.json();
 ## i18n Configuration
 
 Configured in `astro.config.mjs`:
+
 - Default locale: `en`
 - Supported: `en`, `es`
 - No prefix for default locale
@@ -88,6 +95,7 @@ Configured in `astro.config.mjs`:
 ## Theme Support
 
 CSS variables for themes in `src/styles/base/variables.css`:
+
 - Light theme: default `:root`
 - Dark theme: `[data-theme="dark"]`
 - Professional: `[data-theme="professional"]`
@@ -116,6 +124,7 @@ npm run build
 ## Phase 1 Status
 
 ✅ **Completed:**
+
 - Branch created
 - Astro initialized
 - Assets migrated
@@ -124,6 +133,7 @@ npm run build
 - Build working
 
 📋 **Next Phase:**
+
 - Component migration
 - i18n integration
 - JavaScript adaptation

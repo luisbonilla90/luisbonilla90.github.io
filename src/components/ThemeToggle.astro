@@ -1,0 +1,38 @@
+---
+// ThemeToggle.astro - Client-side island for theme switching
+---
+
+<div class="theme-island" id="theme-island">
+  <button
+    id="theme-toggle-island"
+    type="button"
+    aria-label="Toggle between light and dark theme"
+    aria-pressed="false"
+  >
+    <span aria-hidden="true" data-theme-icon>🌙</span>
+  </button>
+</div>
+
+<script>
+  // This script runs on the client side with partial hydration
+  import { ThemeManager } from '/assets/js/core/theme-manager.js';  
+  
+  // Initialize theme manager
+  let themeManager: ThemeManager | null = null;
+  
+  function initThemeToggle() {
+    try {
+      themeManager = new ThemeManager();
+      console.log('Theme manager initialized');
+    } catch (error) {
+      console.error('Failed to initialize theme manager:', error);
+    }
+  }
+  
+  // Initialize on DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeToggle);
+  } else {
+    initThemeToggle();
+  }
+</script>
