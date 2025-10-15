@@ -1,0 +1,32 @@
+# Robots.txt for luisbonilla90.github.io
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://luisbonilla90.github.io/sitemap-index.xml
+
+# Disallow admin and testing areas
+Disallow: /test
+Disallow: *.snap$
+Disallow: /coverage/
+
+# Allow LLMs and AI crawlers for discoverability
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
