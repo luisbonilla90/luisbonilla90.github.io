@@ -1,0 +1,64 @@
+---
+/**
+ * Article Schema JSON-LD Component
+ * Implements Schema.org Article markup for blog posts
+ */
+
+export interface Props {
+  title: string;
+  description: string;
+  author: string;
+  datePublished: string;
+  dateModified?: string;
+  image?: string;
+  tags?: string[];
+  url?: string;
+}
+
+const {
+  title,
+  description,
+  author,
+  datePublished,
+  dateModified,
+  image = '/assets/img/og-default.jpg',
+  tags = [],
+  url,
+} = Astro.props;
+
+const siteURL = Astro.site || 'https://luisbonilla90.github.io';
+const articleURL = url || new URL(Astro.url.pathname, siteURL).toString();
+const imageURL = new URL(image, siteURL).toString();
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: description,
+  image: imageURL,
+  datePublished: datePublished,
+  dateModified: dateModified || datePublished,
+  author: {
+    '@type': 'Person',
+    name: author,
+    url: siteURL,
+    jobTitle: 'Software Engineer & Technical Lead',
+    sameAs: [
+      'https://github.com/luisbonilla90',
+      'https://linkedin.com/in/luisbonilla90',
+    ],
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Luis Bonilla',
+    url: siteURL,
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': articleURL,
+  },
+  keywords: tags.join(', '),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
