@@ -20,3 +20,18 @@ pnpm-debug.log*
 
 # Astro
 .astro/
+
+# Testing
+coverage/
+*.snap
+__snapshots__/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ESLint cache
+.eslintcache

@@ -1,31 +1,37 @@
 # Astro Migration Documentation - Phase 1
 
 ## Overview
+
 This document describes the Phase 1 migration of the personal portfolio website from a static HTML/CSS/JS structure to Astro framework.
 
 ## Completed Tasks
 
 ### ✅ Branch Setup
+
 - **Branch name**: `astro-migration`
 - **Purpose**: Dedicated branch for Astro migration work
 - **Status**: Created and active
 
 ### ✅ Astro Project Initialization
+
 - **Framework**: Astro v4.x (latest)
 - **TypeScript**: Configured with strict mode
 - **Output**: Static site generation (no adapter needed)
 - **Build tool**: Vite (included with Astro)
 
 ### ✅ Static Adapter Configuration
+
 - **Configuration**: Static output mode (default for Astro)
 - **Location**: `astro.config.mjs`
 - **Target**: GitHub Pages hosting
 - **Build output**: `dist/` directory
 
 ### ✅ Assets Migration
+
 Assets have been copied to two locations for optimal Astro integration:
 
 1. **Public directory** (`public/assets/`):
+
    - Accessible at runtime via `/assets/` URL path
    - Contains: CSS, JavaScript, images (favicons)
    - Total size: ~188KB
@@ -36,6 +42,7 @@ Assets have been copied to two locations for optimal Astro integration:
    - Enables better optimization and bundling
 
 ### ✅ Locales Migration
+
 - **Source**: `locales/en.json`, `locales/es.json`
 - **Destination**: `public/locales/`
 - **Size**: 28KB total
@@ -43,9 +50,11 @@ Assets have been copied to two locations for optimal Astro integration:
 - **i18n config**: Configured in `astro.config.mjs` for en/es support
 
 ### ✅ CSS Variables Validation
+
 The existing CSS variable system is **fully compatible** with Astro:
 
 #### Validated Features:
+
 - ✅ CSS custom properties (`:root` variables)
 - ✅ Theme switching via `[data-theme]` attribute
 - ✅ Responsive design with fluid typography
@@ -54,6 +63,7 @@ The existing CSS variable system is **fully compatible** with Astro:
 - ✅ Design tokens for colors, spacing, typography
 
 #### CSS Structure:
+
 ```
 src/styles/
 ├── base/
@@ -64,7 +74,9 @@ src/styles/
 ```
 
 ### ✅ HTML Semantic Structure Validation
+
 The existing semantic HTML patterns are compatible with Astro:
+
 - ✅ ARIA labels and roles
 - ✅ Landmark elements (header, main, footer, nav, section)
 - ✅ `data-i18n` attributes (will need Astro-specific implementation)
@@ -106,18 +118,19 @@ luisbonilla90.github.io/
 ## Configuration Files
 
 ### astro.config.mjs
+
 ```javascript
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  output: 'static',
-  site: 'https://luisbonilla90.github.io',
+  output: "static",
+  site: "https://luisbonilla90.github.io",
   build: {
-    assets: 'assets',
+    assets: "assets",
   },
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'es'],
+    defaultLocale: "en",
+    locales: ["en", "es"],
     routing: {
       prefixDefaultLocale: false,
     },
@@ -126,6 +139,7 @@ export default defineConfig({
 ```
 
 ### package.json Scripts
+
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build locally
@@ -134,18 +148,23 @@ export default defineConfig({
 ## Build and Development
 
 ### Development Server
+
 ```bash
 npm run dev
 ```
+
 Starts at `http://localhost:4321`
 
 ### Production Build
+
 ```bash
 npm run build
 ```
+
 Outputs to `dist/` directory
 
 ### Build Validation
+
 ✅ Build completes successfully
 ✅ Static pages generated: `/index.html`, `/test/index.html`
 ✅ Assets copied to dist: CSS, JS, images, locales
@@ -154,12 +173,14 @@ Outputs to `dist/` directory
 ## Compatibility Assessment
 
 ### ✅ Compatible (No Changes Needed)
+
 1. **CSS Variables**: All design tokens work as-is
 2. **Semantic HTML**: Structure is compatible
 3. **Assets**: Images, fonts, static files
 4. **Locale files**: JSON structure is ready for i18n integration
 
 ### ⚠️ Requires Adaptation (Phase 2+)
+
 1. **JavaScript modules**: Need Astro-compatible import patterns
 2. **i18n system**: Replace custom i18n.js with Astro i18n
 3. **Theme switching**: Integrate with Astro's script lifecycle
@@ -169,16 +190,19 @@ Outputs to `dist/` directory
 ## Next Steps (Phase 2)
 
 1. **Component Migration**
+
    - Create Astro layout components
    - Convert HTML sections to reusable components
    - Implement theme switcher component
 
 2. **i18n Implementation**
+
    - Integrate Astro i18n utilities
    - Create translation helper functions
    - Migrate data-i18n attributes to Astro patterns
 
 3. **JavaScript Module Conversion**
+
    - Adapt core modules (theme-manager, i18n)
    - Convert components (mobile-menu, back-to-top, resume-downloader)
    - Implement client-side interactivity
