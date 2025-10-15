@@ -5,7 +5,11 @@ const title = "Luis Bonilla - Software Engineer | Technical Lead";
 const description = "Luis Bonilla - Software Engineer & Technical Lead with 15+ years experience. Expert in React, Node.js, Python, AWS, and digital transformation.";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout 
+  title={title} 
+  description={description}
+  includePersonSchema={true}
+>
   <!-- Hero Section -->
   <section id="hero" class="hero-section" aria-labelledby="hero-title">
     <div class="container">
@@ -26,9 +30,22 @@ const description = "Luis Bonilla - Software Engineer & Technical Lead with 15+ 
   <!-- Astro Migration Status Section -->
   <section class="section">
     <div class="container">
-      <h2>✅ Astro Migration - Phase 2 Completed</h2>
+      <h2>✅ Astro Migration - Phase 3: SEO & Content</h2>
       <div class="highlight-card">
-        <h3>Implemented Features</h3>
+        <h3>Phase 3 Features (Completed)</h3>
+        <ul>
+          <li>✅ Sitemap.xml generation with @astrojs/sitemap</li>
+          <li>✅ RSS feed for blog posts at /rss.xml</li>
+          <li>✅ Comprehensive robots.txt with LLM crawler support</li>
+          <li>✅ SEO component with Open Graph and Twitter Cards</li>
+          <li>✅ JSON-LD structured data (Article, FAQ, Person, WebSite)</li>
+          <li>🔄 Core Web Vitals optimization</li>
+          <li>🔄 SEO documentation</li>
+        </ul>
+      </div>
+      
+      <div class="highlight-card">
+        <h3>Phase 2 Features (Completed)</h3>
         <ul>
           <li>✅ BaseLayout.astro with header, footer, and responsive navigation</li>
           <li>✅ Theme toggle component (client-side island)</li>
@@ -40,7 +57,7 @@ const description = "Luis Bonilla - Software Engineer & Technical Lead with 15+ 
           <li>✅ Mobile-responsive hamburger menu</li>
         </ul>
       </div>
-      
+
       <div class="highlight-card">
         <h3>Blog Posts Available</h3>
         <ul>
@@ -53,11 +70,11 @@ const description = "Luis Bonilla - Software Engineer & Technical Lead with 15+ 
       <div class="highlight-card">
         <h3>Next Steps</h3>
         <ul>
-          <li>Test theme toggle functionality across all themes</li>
-          <li>Test language switching between English and Spanish</li>
+          <li>Test sitemap and RSS feed generation</li>
+          <li>Run Lighthouse audits for Core Web Vitals</li>
+          <li>Create blog list and detail pages with SEO</li>
+          <li>Document SEO implementation</li>
           <li>Migrate remaining sections from index.html</li>
-          <li>Create blog list and detail pages</li>
-          <li>Implement dynamic content rendering</li>
         </ul>
       </div>
     </div>

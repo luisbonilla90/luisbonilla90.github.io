@@ -1,16 +1,35 @@
 ---
 import '../styles/main.css';
+import SEO from '../components/seo/SEO.astro';
+import WebSiteSchema from '../components/seo/WebSiteSchema.astro';
+import PersonSchema from '../components/seo/PersonSchema.astro';
 
 interface Props {
   title?: string;
   description?: string;
   lang?: 'en' | 'es';
+  image?: string;
+  imageAlt?: string;
+  article?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  tags?: string[];
+  includePersonSchema?: boolean;
 }
 
 const { 
   title = 'Luis Bonilla - Software Engineer | Technical Lead',
   description = 'Luis Bonilla - Software Engineer & Technical Lead with 15+ years experience. Expert in React, Node.js, Python, AWS, and digital transformation.',
   lang = 'en',
+  image,
+  imageAlt,
+  article = false,
+  publishedTime,
+  modifiedTime,
+  author,
+  tags,
+  includePersonSchema = false,
 } = Astro.props;
 ---
 
@@ -19,9 +38,30 @@ const {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-    <meta name="author" content="Luis Bonilla Villalobos" />
     <title>{title}</title>
+    
+    <!-- SEO Meta Tags -->
+    <SEO
+      title={title}
+      description={description}
+      lang={lang}
+      image={image}
+      imageAlt={imageAlt}
+      article={article}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      author={author}
+      tags={tags}
+    />
+    
+    <!-- Structured Data -->
+    <WebSiteSchema />
+    {includePersonSchema && (
+      <PersonSchema
+        name="Luis Bonilla Villalobos"
+        jobTitle="Software Engineer & Technical Lead"
+      />
+    )}
     
     <!-- Favicon -->
     <link
@@ -150,6 +190,7 @@ const {
         <div class="theme-controls">
           <button
             id="theme-toggle"
+            class="theme-toggle"
             type="button"
             aria-label="Toggle between light and dark theme"
             data-i18n-aria-label="header.aria_labels.theme_toggle"

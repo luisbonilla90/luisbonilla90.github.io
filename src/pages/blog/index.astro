@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const publishedPosts = allPosts
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const title = 'Blog - Luis Bonilla';
+const description = 'Technical articles and insights on software engineering, leadership, and digital transformation by Luis Bonilla.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="blog-list-section">
+    <div class="container">
+      <header class="blog-list-header">
+        <h1>Blog</h1>
+        <p class="blog-description">
+          Technical articles and insights on software engineering, leadership, and digital transformation.
+        </p>
+        <a href="/rss.xml" class="rss-link" aria-label="Subscribe to RSS feed">
+          📡 Subscribe to RSS
+        </a>
+      </header>
+
+      <div class="blog-posts">
+        {publishedPosts.length === 0 ? (
+          <p class="no-posts">No blog posts available yet. Check back soon!</p>
+        ) : (
+          publishedPosts.map((post) => (
+            <article class="blog-card">
+              <h2>
+                <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+              </h2>
+              <div class="blog-card-meta">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+                <span class="author">By {post.data.author}</span>
+              </div>
+              <p class="blog-card-description">{post.data.description}</p>
+              {post.data.tags.length > 0 && (
+                <div class="blog-card-tags">
+                  {post.data.tags.map((tag) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+              )}
+              <a href={`/blog/${post.slug}/`} class="read-more">
+                Read more →
+              </a>
+            </article>
+          ))
+        )}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-list-section {
+    padding: 3rem 1rem;
+    min-height: 60vh;
+  }
+
+  .blog-list-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--color-border, #e5e7eb);
+  }
+
+  .blog-list-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary, #1f2937);
+  }
+
+  .blog-description {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary, #6b7280);
+    max-width: 600px;
+    margin: 0 auto 1rem;
+  }
+
+  .rss-link {
+    display: inline-block;
+    color: var(--color-accent, #2563eb);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--color-accent, #2563eb);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .rss-link:hover {
+    background-color: var(--color-accent, #2563eb);
+    color: white;
+  }
+
+  .blog-posts {
+    display: grid;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .blog-card {
+    padding: 2rem;
+    background-color: var(--color-card-bg, white);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .blog-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .blog-card h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-card h2 a {
+    color: var(--color-text-primary, #1f2937);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .blog-card h2 a:hover {
+    color: var(--color-accent, #2563eb);
+  }
+
+  .blog-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--color-text-secondary, #6b7280);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .blog-card-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary, #4b5563);
+    margin-bottom: 1rem;
+  }
+
+  .blog-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--color-accent-light, #dbeafe);
+    color: var(--color-accent-dark, #1e40af);
+    border-radius: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .read-more {
+    color: var(--color-accent, #2563eb);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .read-more:hover {
+    color: var(--color-accent-dark, #1e40af);
+  }
+
+  .no-posts {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--color-text-secondary, #6b7280);
+    padding: 3rem 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .blog-list-header h1 {
+      font-size: 2rem;
+    }
+
+    .blog-description {
+      font-size: 1rem;
+    }
+
+    .blog-card {
+      padding: 1.5rem;
+    }
+
+    .blog-card h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
