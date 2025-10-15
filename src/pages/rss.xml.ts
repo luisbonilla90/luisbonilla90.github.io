@@ -23,6 +23,5 @@ export const GET: APIRoute = async (context) => {
       categories: post.data.tags,
     })),
     customData: `<language>${'en'}</language>`,
-    stylesheet: '/rss-styles.xsl',
   });
 };
