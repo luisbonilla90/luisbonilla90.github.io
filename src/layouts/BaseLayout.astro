@@ -42,6 +42,7 @@ const {
 
     <!-- Pirsch Analytics -->
     <script
+      is:inline
       defer
       src="https://api.pirsch.io/pa.js"
       id="pianjs"
@@ -267,7 +268,7 @@ const {
     </footer>
 
     <!-- Client-side scripts for interactivity -->
-    <script>
+    <script is:inline>
       // Mobile menu toggle
       const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
       const mainNavigation = document.getElementById('main-navigation');
@@ -297,6 +298,6 @@ const {
     </script>
     
     <!-- Load theme manager and i18n as modules -->
-    <script type="module" src="/assets/js/main.js"></script>
+    <script is:inline type="module" src="/assets/js/main.js"></script>
   </body>
 </html>
