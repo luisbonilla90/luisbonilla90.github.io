@@ -1,0 +1,68 @@
+---
+// Site Warning Banner Component
+// Dismissible warning banner that persists state in sessionStorage
+---
+
+<!-- Under construction warning banner -->
+<div
+  class="site-warning"
+  id="site-warning"
+  role="status"
+  aria-live="polite"
+  aria-label="Site under construction"
+>
+  <div class="warning-content">
+    <span class="warning-icon" aria-hidden="true">⚠️</span>
+    <p>
+      <strong data-i18n="site_warning.text"
+        >This site is under construction:</strong
+      >
+      <span data-i18n="site_warning.description"
+        >Some sections may be incomplete or currently under
+        development.</span
+      >
+    </p>
+  </div>
+  <div class="warning-actions">
+    <button
+      class="btn-close"
+      id="dismiss-warning"
+      aria-label="Dismiss warning"
+      data-i18n="site_warning.dismiss"
+    >
+      Dismiss
+    </button>
+  </div>
+</div>
+
+<script is:inline>
+  // Dismissible site warning - persists dismissal in sessionStorage
+  (function () {
+    const key = "siteWarningDismissed_v1";
+    const banner = document.getElementById("site-warning");
+    const btn = document.getElementById("dismiss-warning");
+
+    try {
+      if (sessionStorage && sessionStorage.getItem(key) === "true") {
+        if (banner) {
+          banner.style.display = "none";
+        }
+      }
+    } catch (_e) {
+      // ignore localStorage errors (e.g., private mode)
+    }
+
+    if (btn && banner) {
+      btn.addEventListener("click", function () {
+        banner.style.display = "none";
+        try {
+          if (sessionStorage) {
+            sessionStorage.setItem(key, "true");
+          }
+        } catch (_err) {
+          // ignore
+        }
+      });
+    }
+  })();
+</script>
