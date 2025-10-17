@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactSection from '../../components/Contact.astro';
+
+const title = "Contactar a Luis Bonilla - Ponte en Contacto";
+const description = "Ponte en contacto con Luis Bonilla para oportunidades de ingeniería de software, consultoría técnica o colaboración en proyectos innovadores.";
+---
+
+<BaseLayout 
+  title={title} 
+  description={description}
+  lang="es"
+  alternateURLs={{
+    en: 'https://luisbonilla90.github.io/contact/',
+    es: 'https://luisbonilla90.github.io/es/contact/'
+  }}
+>
+  <ContactSection />
+</BaseLayout>
