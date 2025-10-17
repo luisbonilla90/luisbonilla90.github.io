@@ -15,10 +15,11 @@
 
 <script>
   // This script runs on the client side with partial hydration
+  // @ts-ignore - module loaded at runtime from public directory
   import { ThemeManager } from '/assets/js/core/theme-manager.js';  
   
   // Initialize theme manager
-  let themeManager: ThemeManager | null = null;
+  let themeManager: any = null;
   
   function initThemeToggle() {
     try {

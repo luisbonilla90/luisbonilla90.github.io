@@ -16,6 +16,10 @@ export interface Props {
   tags?: string[];
   canonicalURL?: string;
   lang?: 'en' | 'es';
+  alternateURLs?: {
+    en?: string;
+    es?: string;
+  };
 }
 
 const {
@@ -30,11 +34,16 @@ const {
   tags = [],
   canonicalURL,
   lang = 'en',
+  alternateURLs = {},
 } = Astro.props;
 
 const siteURL = Astro.site || 'https://luisbonilla90.github.io';
 const pageURL = canonicalURL || new URL(Astro.url.pathname, siteURL).toString();
 const imageURL = new URL(image, siteURL).toString();
+
+// Default alternate URLs if not provided
+const enURL = alternateURLs.en || new URL(Astro.url.pathname.replace(/^\/es/, ''), siteURL).toString();
+const esURL = alternateURLs.es || new URL('/es' + Astro.url.pathname.replace(/^\/es/, ''), siteURL).toString();
 
 // Ensure title is not too long for meta tags
 const truncatedTitle = title.length > 60 ? title.substring(0, 57) + '...' : title;
@@ -87,3 +96,8 @@ const truncatedDescription = description.length > 160 ? description.substring(0,
 
 <!-- RSS Feed -->
 <link rel="alternate" type="application/rss+xml" title="Luis Bonilla Blog RSS Feed" href="/rss.xml" />
+
+<!-- Hreflang tags for multi-language support -->
+<link rel="alternate" hreflang="en" href={enURL} />
+<link rel="alternate" hreflang="es" href={esURL} />
+<link rel="alternate" hreflang="x-default" href={enURL} />

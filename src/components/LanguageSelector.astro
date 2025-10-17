@@ -12,10 +12,11 @@
 
 <script>
   // This script runs on the client side with partial hydration
+  // @ts-ignore - module loaded at runtime from public directory
   import { I18n } from '/assets/js/core/i18n.js';
   
   // Initialize i18n system
-  let i18n: I18n | null = null;
+  let i18n: any = null;
   
   async function initLanguageSelector() {
     try {

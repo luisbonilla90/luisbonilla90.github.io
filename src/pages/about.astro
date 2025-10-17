@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AboutSection from '../components/About.astro';
+import SkillsSection from '../components/Skills.astro';
+import EducationSection from '../components/Education.astro';
+
+const title = "About Luis Bonilla - Software Engineer";
+const description = "Learn about Luis Bonilla, a Software Engineer & Technical Lead with 15+ years of international experience in software development and digital transformation.";
+---
+
+<BaseLayout 
+  title={title} 
+  description={description}
+  includePersonSchema={true}
+  alternateURLs={{
+    en: 'https://luisbonilla90.github.io/about/',
+    es: 'https://luisbonilla90.github.io/es/about/'
+  }}
+>
+  <AboutSection />
+  <SkillsSection />
+  <EducationSection />
+</BaseLayout>
