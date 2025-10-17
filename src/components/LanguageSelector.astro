@@ -10,27 +10,8 @@
   </select>
 </div>
 
-<script>
+<script is:inline>
   // This script runs on the client side with partial hydration
-  import { I18n } from '/assets/js/core/i18n.js';
-  
-  // Initialize i18n system
-  let i18n: I18n | null = null;
-  
-  async function initLanguageSelector() {
-    try {
-      i18n = new I18n();
-      await i18n.init();
-      console.log('i18n initialized');
-    } catch (error) {
-      console.error('Failed to initialize i18n:', error);
-    }
-  }
-  
-  // Initialize on DOMContentLoaded
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLanguageSelector);
-  } else {
-    initLanguageSelector();
-  }
+  // The i18n is initialized by main.js, this component just provides the UI
+  // Language selection is handled by the global i18n system
 </script>

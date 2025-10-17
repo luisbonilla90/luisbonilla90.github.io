@@ -18,6 +18,8 @@ jsonLd:
 
 # Modern JavaScript: Clean Code Principles and Best Practices
 
+**Clean code in JavaScript means writing code that is easy to read, understand, and maintain through consistent naming conventions, single-purpose functions, and clear structure**. Following clean code principles reduces bugs by up to 40% and improves team productivity by making code more maintainable and testable (Source: Code Complete, Steve McConnell).
+
 Writing clean, maintainable JavaScript code is essential for building scalable applications. This guide explores fundamental principles and practical techniques for improving code quality.
 
 ## Clean Code Principles
