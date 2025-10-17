@@ -19,8 +19,8 @@ interface Props {
 }
 
 const { 
-  title = 'Luis Bonilla - Software Engineer | Technical Lead',
-  description = 'Luis Bonilla - Software Engineer & Technical Lead with 15+ years experience. Expert in React, Node.js, Python, AWS, and digital transformation.',
+  title = 'Luis Bonilla - Software Engineer & Technical Lead | 15+ Years Experience',
+  description = 'Luis Bonilla is a Software Engineer & Technical Lead specializing in React, Node.js, Python, AWS, and digital transformation. 15+ years building scalable web applications and leading technical teams.',
   lang = 'en',
   image,
   imageAlt,
@@ -93,8 +93,8 @@ const {
     <script is:inline>
       const lastTheme = window.localStorage && window.localStorage.getItem('site_theme_v1');
       const lastLanguage = window.localStorage && window.localStorage.getItem('language');
-      if (lastTheme) document.documentElement.setAttribute("data-theme", lastTheme);
-      if (lastLanguage) document.documentElement.setAttribute("lang", lastLanguage);
+      if (lastTheme) {document.documentElement.setAttribute("data-theme", lastTheme);}
+      if (lastLanguage) {document.documentElement.setAttribute("lang", lastLanguage);}
     </script>
   </head>
   <body>

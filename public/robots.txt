@@ -13,20 +13,45 @@ Disallow: /*.snap$
 Disallow: /coverage/
 
 # Allow LLMs and AI crawlers for discoverability
+# OpenAI
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
+# Google
 User-agent: Google-Extended
 Allow: /
 
+User-agent: GoogleOther
+Allow: /
+
+# Anthropic (Claude)
 User-agent: anthropic-ai
 Allow: /
 
 User-agent: ClaudeBot
 Allow: /
 
+# Perplexity
 User-agent: PerplexityBot
+Allow: /
+
+# Meta
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Other AI crawlers
+User-agent: Applebot
+Allow: /
+
+User-agent: cohere-ai
 Allow: /
