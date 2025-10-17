@@ -1,5 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteWarning from '../components/SiteWarning.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Experience from '../components/Experience.astro';
+import Portfolio from '../components/Portfolio.astro';
+import Education from '../components/Education.astro';
+import Blog from '../components/Blog.astro';
+import Contact from '../components/Contact.astro';
+import BackToTop from '../components/BackToTop.astro';
 
 const title = "Luis Bonilla - Software Engineer | Technical Lead";
 const description = "Luis Bonilla - Software Engineer & Technical Lead with 15+ years experience. Expert in React, Node.js, Python, AWS, and digital transformation.";
@@ -10,73 +20,14 @@ const description = "Luis Bonilla - Software Engineer & Technical Lead with 15+ 
   description={description}
   includePersonSchema={true}
 >
-  <!-- Hero Section -->
-  <section id="hero" class="hero-section" aria-labelledby="hero-title">
-    <div class="container">
-      <h1 id="hero-title" class="hero-title" data-i18n="hero.title">
-        Luis Bonilla Villalobos
-      </h1>
-      <p class="hero-subtitle" data-i18n="hero.subtitle">
-        Software Engineer | Technical Lead | Innovation Consultant
-      </p>
-      <p class="hero-tagline" data-i18n="hero.tagline">
-        Dynamic and highly creative software engineer with over 15 years of
-        international experience delivering innovative solutions for leading
-        companies in the US.
-      </p>
-    </div>
-  </section>
-
-  <!-- Astro Migration Status Section -->
-  <section class="section">
-    <div class="container">
-      <h2>✅ Astro Migration - Phase 3: SEO & Content</h2>
-      <div class="highlight-card">
-        <h3>Phase 3 Features (Completed)</h3>
-        <ul>
-          <li>✅ Sitemap.xml generation with @astrojs/sitemap</li>
-          <li>✅ RSS feed for blog posts at /rss.xml</li>
-          <li>✅ Comprehensive robots.txt with LLM crawler support</li>
-          <li>✅ SEO component with Open Graph and Twitter Cards</li>
-          <li>✅ JSON-LD structured data (Article, FAQ, Person, WebSite)</li>
-          <li>🔄 Core Web Vitals optimization</li>
-          <li>🔄 SEO documentation</li>
-        </ul>
-      </div>
-      
-      <div class="highlight-card">
-        <h3>Phase 2 Features (Completed)</h3>
-        <ul>
-          <li>✅ BaseLayout.astro with header, footer, and responsive navigation</li>
-          <li>✅ Theme toggle component (client-side island)</li>
-          <li>✅ Language selector component (i18n island)</li>
-          <li>✅ CSS imports (variables.css and sections.css)</li>
-          <li>✅ Content collections configured for blog posts</li>
-          <li>✅ 3 pilot blog posts with complete frontmatter and JSON-LD</li>
-          <li>✅ Accessibility controls migrated</li>
-          <li>✅ Mobile-responsive hamburger menu</li>
-        </ul>
-      </div>
-
-      <div class="highlight-card">
-        <h3>Blog Posts Available</h3>
-        <ul>
-          <li>Getting Started with Astro: A Modern Static Site Generator</li>
-          <li>Building Accessible Web Applications: A Practical Guide</li>
-          <li>Modern JavaScript: Clean Code Principles and Best Practices</li>
-        </ul>
-      </div>
-
-      <div class="highlight-card">
-        <h3>Next Steps</h3>
-        <ul>
-          <li>Test sitemap and RSS feed generation</li>
-          <li>Run Lighthouse audits for Core Web Vitals</li>
-          <li>Create blog list and detail pages with SEO</li>
-          <li>Document SEO implementation</li>
-          <li>Migrate remaining sections from index.html</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  <SiteWarning />
+  <Hero />
+  <About />
+  <Skills />
+  <Experience />
+  <Portfolio />
+  <Education />
+  <Blog />
+  <Contact />
+  <BackToTop />
 </BaseLayout>
