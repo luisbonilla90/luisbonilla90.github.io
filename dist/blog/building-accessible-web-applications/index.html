@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="en" data-theme="light"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Building Accessible Web Applications: A Practical Guide</title><!-- SEO Meta Tags --><!-- Primary Meta Tags --><meta name="title" content="Building Accessible Web Applications: A Practical Guide"><meta name="description" content="Learn practical techniques for building web applications that are accessible to all users, including those with disabilities."><meta name="author" content="Luis Bonilla"><meta name="keywords" content="accessibility, a11y, web-development, wcag, inclusive-design"><link rel="canonical" href="https://luisbonilla90.github.io/blog/building-accessible-web-applications/"><!-- Open Graph / Facebook --><meta property="og:type" content="article"><meta property="og:url" content="https://luisbonilla90.github.io/blog/building-accessible-web-applications/"><meta property="og:title" content="Building Accessible Web Applications: A Practical Guide"><meta property="og:description" content="Learn practical techniques for building web applications that are accessible to all users, including those with disabilities."><meta property="og:image" content="https://luisbonilla90.github.io/assets/img/og-default.jpg"><meta property="og:image:alt" content="Profile photo of Luis Bonilla, Software Engineer"><meta property="og:site_name" content="Luis Bonilla - Software Engineer"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2024-10-10T00:00:00.000Z"><meta property="article:author" content="Luis Bonilla"><meta property="article:tag" content="accessibility"><meta property="article:tag" content="a11y"><meta property="article:tag" content="web-development"><meta property="article:tag" content="wcag"><meta property="article:tag" content="inclusive-design"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://luisbonilla90.github.io/blog/building-accessible-web-applications/"><meta name="twitter:title" content="Building Accessible Web Applications: A Practical Guide"><meta name="twitter:description" content="Learn practical techniques for building web applications that are accessible to all users, including those with disabilities."><meta name="twitter:image" content="https://luisbonilla90.github.io/assets/img/og-default.jpg"><meta name="twitter:image:alt" content="Profile photo of Luis Bonilla, Software Engineer"><meta name="twitter:creator" content="@luisbonilla90"><!-- Additional SEO Meta Tags --><meta name="robots" content="index, follow"><meta name="language" content="English"><meta name="revisit-after" content="7 days"><!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="Luis Bonilla Blog RSS Feed" href="/rss.xml"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Luis Bonilla - Software Engineer","description":"Personal website and blog of Luis Bonilla, Software Engineer and Technical Lead","url":"https://luisbonilla90.github.io/","author":{"@type":"Person","name":"Luis Bonilla"},"inLanguage":["en","es"],"copyrightYear":2025,"copyrightHolder":{"@type":"Person","name":"Luis Bonilla"}}</script><!-- Favicon --><link id="favicon" rel="icon" type="image/jpeg" sizes="16x16" href="assets/img/favico/favico_16.jpg"><link rel="icon" type="image/jpeg" sizes="32x32" href="assets/img/favico/favico_32.jpg"><link rel="apple-touch-icon" href="assets/img/favico/favico_32.jpg"><meta name="theme-color" content="#ffffff"><!-- Pirsch Analytics --><script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="tF5j8R4NSp5lwzo3OlKyfK0yYtzARyLc"></script><!-- Initialize theme and language from localStorage --><script>
+      const lastTheme = window.localStorage && window.localStorage.getItem('site_theme_v1');
+      const lastLanguage = window.localStorage && window.localStorage.getItem('language');
+      if (lastTheme) {document.documentElement.setAttribute("data-theme", lastTheme);}
+      if (lastLanguage) {document.documentElement.setAttribute("lang", lastLanguage);}
+    </script><link rel="stylesheet" href="/assets/_slug_.Brwjqqt2.css">
+<style>.blog-post[data-astro-cid-2q5oecfc]{max-width:800px;margin:0 auto;padding:2rem 1rem}.blog-post-header[data-astro-cid-2q5oecfc]{margin-bottom:2rem;padding-bottom:1rem;border-bottom:2px solid var(--color-border, #e5e7eb)}.blog-post-header[data-astro-cid-2q5oecfc] h1[data-astro-cid-2q5oecfc]{font-size:2.5rem;margin-bottom:1rem;color:var(--color-text-primary, #1f2937)}.blog-post-meta[data-astro-cid-2q5oecfc]{display:flex;flex-wrap:wrap;gap:1rem;color:var(--color-text-secondary, #6b7280);font-size:.9rem}.blog-post-meta[data-astro-cid-2q5oecfc] .updated[data-astro-cid-2q5oecfc]{font-style:italic}.blog-post-tags[data-astro-cid-2q5oecfc]{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.tag[data-astro-cid-2q5oecfc]{display:inline-block;padding:.25rem .75rem;background-color:var(--color-accent-light, #dbeafe);color:var(--color-accent-dark, #1e40af);border-radius:1rem;font-size:.875rem}.blog-post-content[data-astro-cid-2q5oecfc]{line-height:1.75;font-size:1.125rem}.blog-post-content[data-astro-cid-2q5oecfc] h2{font-size:2rem;margin-top:2rem;margin-bottom:1rem}.blog-post-content[data-astro-cid-2q5oecfc] h3{font-size:1.5rem;margin-top:1.5rem;margin-bottom:.75rem}.blog-post-content[data-astro-cid-2q5oecfc] p{margin-bottom:1.25rem}.blog-post-content[data-astro-cid-2q5oecfc] ul,.blog-post-content[data-astro-cid-2q5oecfc] ol{margin-bottom:1.25rem;padding-left:2rem}.blog-post-content[data-astro-cid-2q5oecfc] li{margin-bottom:.5rem}.blog-post-content[data-astro-cid-2q5oecfc] code{background-color:var(--color-code-bg, #f3f4f6);padding:.2rem .4rem;border-radius:.25rem;font-size:.9em}.blog-post-content[data-astro-cid-2q5oecfc] pre{background-color:var(--color-code-bg, #1f2937);color:var(--color-code-text, #f9fafb);padding:1rem;border-radius:.5rem;overflow-x:auto;margin-bottom:1.25rem}.blog-post-content[data-astro-cid-2q5oecfc] pre code{background-color:transparent;padding:0}@media (max-width: 768px){.blog-post-header[data-astro-cid-2q5oecfc] h1[data-astro-cid-2q5oecfc]{font-size:2rem}.blog-post-content[data-astro-cid-2q5oecfc]{font-size:1rem}}
+</style></head> <body> <!-- Header --> <header role="banner"> <div class="container"> <h1 class="site-title" data-i18n="header.site_title">Luis Bonilla</h1> <!-- Mobile Menu Toggle --> <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Toggle navigation menu" data-i18n-aria-label="header.aria_labels.mobile_menu" aria-expanded="false" aria-controls="main-navigation"> <span class="hamburger-icon" aria-hidden="true"> <span class="hamburger-line"></span> <span class="hamburger-line"></span> <span class="hamburger-line"></span> </span> </button> <!-- Navigation --> <nav id="main-navigation" role="navigation" aria-label="Main navigation" data-i18n-aria-label="header.aria_labels.main_navigation" class="main-navigation"> <ul class="nav-menu"> <li> <a href="#about" aria-label="Navigate to About section" data-i18n-aria-label="header.aria_labels.nav_about" data-i18n="header.nav.about">About</a> </li> <li> <a href="#skills" aria-label="Navigate to Skills section" data-i18n-aria-label="header.aria_labels.nav_skills" data-i18n="header.nav.skills">Skills</a> </li> <li> <a href="#experience" aria-label="Navigate to Experience section" data-i18n-aria-label="header.aria_labels.nav_experience" data-i18n="header.nav.experience">Experience</a> </li> <li> <a href="#portfolio" aria-label="Navigate to Portfolio section" data-i18n-aria-label="header.aria_labels.nav_portfolio" data-i18n="header.nav.portfolio">Portfolio</a> </li> <li> <a href="#blog" aria-label="Navigate to Blog section" data-i18n-aria-label="header.aria_labels.nav_blog" data-i18n="header.nav.blog">Blog</a> </li> <li> <a href="#contact" aria-label="Navigate to Contact section" data-i18n-aria-label="header.aria_labels.nav_contact" data-i18n="header.nav.contact">Contact</a> </li> </ul> </nav> <!-- Theme Toggle Island --> <div class="theme-controls"> <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle between light and dark theme" data-i18n-aria-label="header.aria_labels.theme_toggle" aria-pressed="false"> <span aria-hidden="true" data-theme-icon>🌙</span> <span class="theme-toggle-text" data-i18n="header.theme_toggle">Toggle Theme</span> </button> </div> <!-- Language Switcher Island --> <div class="language-switcher"> <label for="language-select" class="visually-hidden">Select language</label> <select id="language-select" aria-label="Select language" data-current-text="EN"> <option value="en" data-flag="🇺🇸" data-text="EN">🇺🇸</option> <option value="es" data-flag="🇨🇷" data-text="ES">🇨🇷</option> </select> </div> </div> </header> <!-- Main Content --> <main role="main" id="main-content">  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Building Accessible Web Applications: A Practical Guide","description":"Learn practical techniques for building web applications that are accessible to all users, including those with disabilities.","image":"https://luisbonilla90.github.io/assets/img/og-default.jpg","datePublished":"2024-10-10T00:00:00.000Z","dateModified":"2024-10-10T00:00:00.000Z","author":{"@type":"Person","name":"Luis Bonilla","url":"https://luisbonilla90.github.io/","jobTitle":"Software Engineer & Technical Lead","sameAs":["https://github.com/luisbonilla90","https://linkedin.com/in/luisbonilla90"]},"publisher":{"@type":"Person","name":"Luis Bonilla","url":"https://luisbonilla90.github.io/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://luisbonilla90.github.io/blog/building-accessible-web-applications/"},"keywords":"accessibility, a11y, web-development, wcag, inclusive-design"}</script> <article class="blog-post" data-astro-cid-2q5oecfc> <header class="blog-post-header" data-astro-cid-2q5oecfc> <h1 data-astro-cid-2q5oecfc>Building Accessible Web Applications: A Practical Guide</h1> <div class="blog-post-meta" data-astro-cid-2q5oecfc> <time datetime="2024-10-10T00:00:00.000Z" data-astro-cid-2q5oecfc> October 9, 2024 </time>  <span class="author" data-astro-cid-2q5oecfc>By Luis Bonilla</span> </div> <div class="blog-post-tags" data-astro-cid-2q5oecfc> <span class="tag" data-astro-cid-2q5oecfc>accessibility</span><span class="tag" data-astro-cid-2q5oecfc>a11y</span><span class="tag" data-astro-cid-2q5oecfc>web-development</span><span class="tag" data-astro-cid-2q5oecfc>wcag</span><span class="tag" data-astro-cid-2q5oecfc>inclusive-design</span> </div> </header> <div class="blog-post-content" data-astro-cid-2q5oecfc>  <h1 id="building-accessible-web-applications-a-practical-guide">Building Accessible Web Applications: A Practical Guide</h1>
+<p><strong>Web accessibility (a11y) means designing and developing websites that can be used by everyone, including the 15% of the world’s population with disabilities (WHO, 2023)</strong>. Accessible web applications follow WCAG (Web Content Accessibility Guidelines) standards to ensure content is perceivable, operable, understandable, and robust for all users, regardless of their abilities or assistive technologies used.</p>
+<p>Web accessibility isn’t just a nice-to-have—it’s a fundamental requirement for creating inclusive digital experiences. This guide covers practical techniques for building accessible web applications.</p>
+<h2 id="understanding-web-accessibility">Understanding Web Accessibility</h2>
+<p>Web accessibility (a11y) ensures that websites and applications can be used by everyone, including people with:</p>
+<ul>
+<li>Visual impairments</li>
+<li>Hearing impairments</li>
+<li>Motor disabilities</li>
+<li>Cognitive disabilities</li>
+</ul>
+<h2 id="wcag-guidelines">WCAG Guidelines</h2>
+<p>The Web Content Accessibility Guidelines (WCAG) provide a framework organized around four principles:</p>
+<h3 id="1-perceivable">1. Perceivable</h3>
+<p>Information must be presentable to users in ways they can perceive.</p>
+<p><strong>Example</strong>: Provide text alternatives for images</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">img</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">  src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"chart.png"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">  alt</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Sales growth chart showing 25% increase in Q3"</span></span>
+<span class="line"><span style="color:#E1E4E8">/></span></span></code></pre>
+<h3 id="2-operable">2. Operable</h3>
+<p>User interface components must be operable by all users.</p>
+<p><strong>Example</strong>: Ensure keyboard accessibility</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Good: Keyboard-accessible button</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">  onClick</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{handleClick}</span></span>
+<span class="line"><span style="color:#B392F0">  onKeyPress</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{(</span><span style="color:#FFAB70">e</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> e.key </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'Enter'</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#B392F0"> handleClick</span><span style="color:#E1E4E8">()}</span></span>
+<span class="line"><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  Submit</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span></code></pre>
+<h3 id="3-understandable">3. Understandable</h3>
+<p>Information and interface operation must be understandable.</p>
+<p><strong>Example</strong>: Provide clear error messages</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">input</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">  type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"email"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">  aria-describedby</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"email-error"</span></span>
+<span class="line"><span style="color:#B392F0">  required</span></span>
+<span class="line"><span style="color:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> id</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"email-error"</span><span style="color:#B392F0"> role</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"alert"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  Please enter a valid email address</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span></code></pre>
+<h3 id="4-robust">4. Robust</h3>
+<p>Content must be robust enough to work with various technologies.</p>
+<h2 id="practical-accessibility-techniques">Practical Accessibility Techniques</h2>
+<h3 id="semantic-html">Semantic HTML</h3>
+<p>Use appropriate HTML elements for their intended purpose:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#6A737D">&#x3C;!-- Good --></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">nav</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">ul</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">>&#x3C;</span><span style="color:#85E89D">a</span><span style="color:#B392F0"> href</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#home"</span><span style="color:#E1E4E8">>Home&#x3C;/</span><span style="color:#85E89D">a</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">>&#x3C;</span><span style="color:#85E89D">a</span><span style="color:#B392F0"> href</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#about"</span><span style="color:#E1E4E8">>About&#x3C;/</span><span style="color:#85E89D">a</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;/</span><span style="color:#85E89D">ul</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">nav</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">&#x3C;!-- Avoid --></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"nav"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> onclick</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"</span><span style="color:#B392F0">navigate</span><span style="color:#9ECBFF">()"</span><span style="color:#E1E4E8">>Home&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span></code></pre>
+<h3 id="aria-attributes">ARIA Attributes</h3>
+<p>Use ARIA attributes to enhance accessibility when semantic HTML isn’t sufficient:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">  aria-label</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Close dialog"</span></span>
+<span class="line"><span style="color:#B392F0">  aria-pressed</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"false"</span></span>
+<span class="line"><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> aria-hidden</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"true"</span><span style="color:#E1E4E8">>×&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span></code></pre>
+<h3 id="focus-management">Focus Management</h3>
+<p>Ensure visible focus indicators and logical focus order:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* Visible focus indicator */</span></span>
+<span class="line"><span style="color:#85E89D">button</span><span style="color:#B392F0">:focus-visible</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  outline</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> #007bff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  outline-offset</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="color-contrast">Color Contrast</h3>
+<p>Maintain sufficient color contrast (WCAG AA: 4.5:1 for normal text):</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* Good contrast */</span></span>
+<span class="line"><span style="color:#B392F0">.text</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#212529</span><span style="color:#E1E4E8">;  </span><span style="color:#6A737D">/* Dark gray */</span></span>
+<span class="line"><span style="color:#79B8FF">  background</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;  </span><span style="color:#6A737D">/* White */</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 16.1:1 */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="testing-accessibility">Testing Accessibility</h2>
+<h3 id="automated-testing">Automated Testing</h3>
+<p>Use tools like:</p>
+<ul>
+<li><strong>axe DevTools</strong>: Browser extension for automated testing</li>
+<li><strong>Lighthouse</strong>: Built into Chrome DevTools</li>
+<li><strong>WAVE</strong>: Web accessibility evaluation tool</li>
+</ul>
+<h3 id="manual-testing">Manual Testing</h3>
+<ol>
+<li><strong>Keyboard Navigation</strong>: Navigate using only keyboard (Tab, Enter, Escape)</li>
+<li><strong>Screen Reader Testing</strong>: Test with NVDA, JAWS, or VoiceOver</li>
+<li><strong>Zoom Testing</strong>: Test at 200% zoom level</li>
+<li><strong>Color Contrast</strong>: Use contrast checking tools</li>
+</ol>
+<h2 id="common-accessibility-pitfalls">Common Accessibility Pitfalls</h2>
+<ol>
+<li><strong>Missing alt text</strong> on images</li>
+<li><strong>Poor focus management</strong> in modals and dialogs</li>
+<li><strong>Insufficient color contrast</strong></li>
+<li><strong>Missing form labels</strong></li>
+<li><strong>Keyboard traps</strong> in interactive components</li>
+<li><strong>Unclear error messages</strong></li>
+</ol>
+<h2 id="best-practices-checklist">Best Practices Checklist</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> All images have descriptive alt text</li>
+<li class="task-list-item"><input type="checkbox" disabled> Forms have associated labels</li>
+<li class="task-list-item"><input type="checkbox" disabled> Interactive elements are keyboard accessible</li>
+<li class="task-list-item"><input type="checkbox" disabled> Color contrast meets WCAG AA standards</li>
+<li class="task-list-item"><input type="checkbox" disabled> ARIA attributes are used correctly</li>
+<li class="task-list-item"><input type="checkbox" disabled> Focus indicators are visible</li>
+<li class="task-list-item"><input type="checkbox" disabled> Error messages are clear and helpful</li>
+<li class="task-list-item"><input type="checkbox" disabled> Content structure is logical and semantic</li>
+<li class="task-list-item"><input type="checkbox" disabled> Page has a proper heading hierarchy</li>
+<li class="task-list-item"><input type="checkbox" disabled> Skip navigation links are provided</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Building accessible web applications requires intentionality and ongoing effort, but the result is a better experience for all users. Start with semantic HTML, test regularly, and iterate based on user feedback.</p>
+<p>Remember: Accessibility is not a feature—it’s a fundamental aspect of quality web development.</p>
+<hr>
+<p><strong>About the Author</strong>: Luis Bonilla is a Software Engineer and Technical Lead passionate about creating inclusive digital experiences that work for everyone.</p>  </div> </article>  </main> <!-- Footer --> <footer role="contentinfo"> <div class="container"> <div class="footer-content"> <div class="footer-section"> <h3 data-i18n="footer.title">Luis Bonilla Villalobos</h3> <p data-i18n="footer.subtitle">
+Software Engineer | Technical Lead | Innovation Consultant
+</p> <p data-i18n="footer.description">
+Passionate about creating meaningful, scalable, and maintainable solutions.
+</p> </div> <div class="footer-section"> <h4 data-i18n="footer.sections.contact">Contact</h4> <p> <span aria-hidden="true">📧</span> <a href="mailto:lbonillav7@gmail.com" aria-label="Email lbonillav7@gmail.com" data-i18n-aria-label="footer.aria_labels.email_lbonilla">lbonillav7@gmail.com</a> </p> <p> <span aria-hidden="true">📍</span> <span data-i18n="footer.location">San José, Costa Rica</span> </p> </div> <div class="footer-section"> <h4 data-i18n="footer.sections.quick_links">Quick Links</h4> <nav aria-label="Footer navigation" data-i18n-aria-label="footer.aria_labels.footer_nav"> <ul> <li> <a href="#about" aria-label="Navigate to About section" data-i18n-aria-label="footer.aria_labels.nav_about" data-i18n="footer.nav.about">About</a> </li> <li> <a href="#skills" aria-label="Navigate to Skills section" data-i18n-aria-label="footer.aria_labels.nav_skills" data-i18n="footer.nav.skills">Skills</a> </li> <li> <a href="#experience" aria-label="Navigate to Experience section" data-i18n-aria-label="footer.aria_labels.nav_experience" data-i18n="footer.nav.experience">Experience</a> </li> <li> <a href="#contact" aria-label="Navigate to Contact section" data-i18n-aria-label="footer.aria_labels.nav_contact" data-i18n="footer.nav.contact">Contact</a> </li> </ul> </nav> </div> </div> <div class="footer-bottom"> <p>
+&copy; <span id="year"></span> <span data-i18n="footer.copyright">Luis Bonilla Villalobos. All rights reserved.</span> </p> </div> </div> </footer> <!-- Client-side scripts for interactivity --> <script>
+      // Mobile menu toggle
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mainNavigation = document.getElementById('main-navigation');
+
+      if (mobileMenuToggle && mainNavigation) {
+        mobileMenuToggle.addEventListener('click', () => {
+          const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+          mobileMenuToggle.setAttribute('aria-expanded', String(!isExpanded));
+          mainNavigation.classList.toggle('nav-open');
+        });
+
+        // Close mobile menu when clicking navigation links
+        const navLinks = mainNavigation.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mainNavigation.classList.remove('nav-open');
+          });
+        });
+      }
+
+      // Set current year in footer
+      const yearElement = document.getElementById('year');
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear().toString();
+      }
+    </script> <!-- Load theme manager and i18n as modules --> <script type="module" src="assets/js/main.js"></script> <!-- Web Vitals monitoring --> client:only
+<script type="module">
+  import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'web-vitals';
+
+  function sendToAnalytics({ name, delta, value, id }) {
+    // Send to your analytics service (e.g., Google Analytics, etc.)
+    console.warn(`${name}: ${delta} (${value}) [${id}]`);
+
+    // Example: send to Google Analytics
+    // gtag('event', name, {
+    //   event_category: 'Web Vitals',
+    //   event_label: id,
+    //   value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+    //   custom_map: { metric_value: value }
+    // });
+  }
+
+  getCLS(sendToAnalytics);
+  getFID(sendToAnalytics);
+  getFCP(sendToAnalytics);
+  getLCP(sendToAnalytics);
+  getTTFB(sendToAnalytics);
+</script> </body></html> 

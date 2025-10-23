@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="en" data-theme="light"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Getting Started with Astro: A Modern Static Site Generator</title><!-- SEO Meta Tags --><!-- Primary Meta Tags --><meta name="title" content="Getting Started with Astro: A Modern Static Site Generator"><meta name="description" content="Explore Astro, a modern static site generator that delivers lightning-fast performance with zero JavaScript by default."><meta name="author" content="Luis Bonilla"><meta name="keywords" content="astro, web-development, static-site-generator, performance"><link rel="canonical" href="https://luisbonilla90.github.io/blog/getting-started-with-astro/"><!-- Open Graph / Facebook --><meta property="og:type" content="article"><meta property="og:url" content="https://luisbonilla90.github.io/blog/getting-started-with-astro/"><meta property="og:title" content="Getting Started with Astro: A Modern Static Site Generator"><meta property="og:description" content="Explore Astro, a modern static site generator that delivers lightning-fast performance with zero JavaScript by default."><meta property="og:image" content="https://luisbonilla90.github.io/assets/img/og-default.jpg"><meta property="og:image:alt" content="Profile photo of Luis Bonilla, Software Engineer"><meta property="og:site_name" content="Luis Bonilla - Software Engineer"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2024-10-14T00:00:00.000Z"><meta property="article:author" content="Luis Bonilla"><meta property="article:tag" content="astro"><meta property="article:tag" content="web-development"><meta property="article:tag" content="static-site-generator"><meta property="article:tag" content="performance"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://luisbonilla90.github.io/blog/getting-started-with-astro/"><meta name="twitter:title" content="Getting Started with Astro: A Modern Static Site Generator"><meta name="twitter:description" content="Explore Astro, a modern static site generator that delivers lightning-fast performance with zero JavaScript by default."><meta name="twitter:image" content="https://luisbonilla90.github.io/assets/img/og-default.jpg"><meta name="twitter:image:alt" content="Profile photo of Luis Bonilla, Software Engineer"><meta name="twitter:creator" content="@luisbonilla90"><!-- Additional SEO Meta Tags --><meta name="robots" content="index, follow"><meta name="language" content="English"><meta name="revisit-after" content="7 days"><!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="Luis Bonilla Blog RSS Feed" href="/rss.xml"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Luis Bonilla - Software Engineer","description":"Personal website and blog of Luis Bonilla, Software Engineer and Technical Lead","url":"https://luisbonilla90.github.io/","author":{"@type":"Person","name":"Luis Bonilla"},"inLanguage":["en","es"],"copyrightYear":2025,"copyrightHolder":{"@type":"Person","name":"Luis Bonilla"}}</script><!-- Favicon --><link id="favicon" rel="icon" type="image/jpeg" sizes="16x16" href="assets/img/favico/favico_16.jpg"><link rel="icon" type="image/jpeg" sizes="32x32" href="assets/img/favico/favico_32.jpg"><link rel="apple-touch-icon" href="assets/img/favico/favico_32.jpg"><meta name="theme-color" content="#ffffff"><!-- Pirsch Analytics --><script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="tF5j8R4NSp5lwzo3OlKyfK0yYtzARyLc"></script><!-- Initialize theme and language from localStorage --><script>
+      const lastTheme = window.localStorage && window.localStorage.getItem('site_theme_v1');
+      const lastLanguage = window.localStorage && window.localStorage.getItem('language');
+      if (lastTheme) {document.documentElement.setAttribute("data-theme", lastTheme);}
+      if (lastLanguage) {document.documentElement.setAttribute("lang", lastLanguage);}
+    </script><link rel="stylesheet" href="/assets/_slug_.Brwjqqt2.css">
+<style>.blog-post[data-astro-cid-2q5oecfc]{max-width:800px;margin:0 auto;padding:2rem 1rem}.blog-post-header[data-astro-cid-2q5oecfc]{margin-bottom:2rem;padding-bottom:1rem;border-bottom:2px solid var(--color-border, #e5e7eb)}.blog-post-header[data-astro-cid-2q5oecfc] h1[data-astro-cid-2q5oecfc]{font-size:2.5rem;margin-bottom:1rem;color:var(--color-text-primary, #1f2937)}.blog-post-meta[data-astro-cid-2q5oecfc]{display:flex;flex-wrap:wrap;gap:1rem;color:var(--color-text-secondary, #6b7280);font-size:.9rem}.blog-post-meta[data-astro-cid-2q5oecfc] .updated[data-astro-cid-2q5oecfc]{font-style:italic}.blog-post-tags[data-astro-cid-2q5oecfc]{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.tag[data-astro-cid-2q5oecfc]{display:inline-block;padding:.25rem .75rem;background-color:var(--color-accent-light, #dbeafe);color:var(--color-accent-dark, #1e40af);border-radius:1rem;font-size:.875rem}.blog-post-content[data-astro-cid-2q5oecfc]{line-height:1.75;font-size:1.125rem}.blog-post-content[data-astro-cid-2q5oecfc] h2{font-size:2rem;margin-top:2rem;margin-bottom:1rem}.blog-post-content[data-astro-cid-2q5oecfc] h3{font-size:1.5rem;margin-top:1.5rem;margin-bottom:.75rem}.blog-post-content[data-astro-cid-2q5oecfc] p{margin-bottom:1.25rem}.blog-post-content[data-astro-cid-2q5oecfc] ul,.blog-post-content[data-astro-cid-2q5oecfc] ol{margin-bottom:1.25rem;padding-left:2rem}.blog-post-content[data-astro-cid-2q5oecfc] li{margin-bottom:.5rem}.blog-post-content[data-astro-cid-2q5oecfc] code{background-color:var(--color-code-bg, #f3f4f6);padding:.2rem .4rem;border-radius:.25rem;font-size:.9em}.blog-post-content[data-astro-cid-2q5oecfc] pre{background-color:var(--color-code-bg, #1f2937);color:var(--color-code-text, #f9fafb);padding:1rem;border-radius:.5rem;overflow-x:auto;margin-bottom:1.25rem}.blog-post-content[data-astro-cid-2q5oecfc] pre code{background-color:transparent;padding:0}@media (max-width: 768px){.blog-post-header[data-astro-cid-2q5oecfc] h1[data-astro-cid-2q5oecfc]{font-size:2rem}.blog-post-content[data-astro-cid-2q5oecfc]{font-size:1rem}}
+</style></head> <body> <!-- Header --> <header role="banner"> <div class="container"> <h1 class="site-title" data-i18n="header.site_title">Luis Bonilla</h1> <!-- Mobile Menu Toggle --> <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Toggle navigation menu" data-i18n-aria-label="header.aria_labels.mobile_menu" aria-expanded="false" aria-controls="main-navigation"> <span class="hamburger-icon" aria-hidden="true"> <span class="hamburger-line"></span> <span class="hamburger-line"></span> <span class="hamburger-line"></span> </span> </button> <!-- Navigation --> <nav id="main-navigation" role="navigation" aria-label="Main navigation" data-i18n-aria-label="header.aria_labels.main_navigation" class="main-navigation"> <ul class="nav-menu"> <li> <a href="#about" aria-label="Navigate to About section" data-i18n-aria-label="header.aria_labels.nav_about" data-i18n="header.nav.about">About</a> </li> <li> <a href="#skills" aria-label="Navigate to Skills section" data-i18n-aria-label="header.aria_labels.nav_skills" data-i18n="header.nav.skills">Skills</a> </li> <li> <a href="#experience" aria-label="Navigate to Experience section" data-i18n-aria-label="header.aria_labels.nav_experience" data-i18n="header.nav.experience">Experience</a> </li> <li> <a href="#portfolio" aria-label="Navigate to Portfolio section" data-i18n-aria-label="header.aria_labels.nav_portfolio" data-i18n="header.nav.portfolio">Portfolio</a> </li> <li> <a href="#blog" aria-label="Navigate to Blog section" data-i18n-aria-label="header.aria_labels.nav_blog" data-i18n="header.nav.blog">Blog</a> </li> <li> <a href="#contact" aria-label="Navigate to Contact section" data-i18n-aria-label="header.aria_labels.nav_contact" data-i18n="header.nav.contact">Contact</a> </li> </ul> </nav> <!-- Theme Toggle Island --> <div class="theme-controls"> <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle between light and dark theme" data-i18n-aria-label="header.aria_labels.theme_toggle" aria-pressed="false"> <span aria-hidden="true" data-theme-icon>🌙</span> <span class="theme-toggle-text" data-i18n="header.theme_toggle">Toggle Theme</span> </button> </div> <!-- Language Switcher Island --> <div class="language-switcher"> <label for="language-select" class="visually-hidden">Select language</label> <select id="language-select" aria-label="Select language" data-current-text="EN"> <option value="en" data-flag="🇺🇸" data-text="EN">🇺🇸</option> <option value="es" data-flag="🇨🇷" data-text="ES">🇨🇷</option> </select> </div> </div> </header> <!-- Main Content --> <main role="main" id="main-content">  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Getting Started with Astro: A Modern Static Site Generator","description":"Explore Astro, a modern static site generator that delivers lightning-fast performance with zero JavaScript by default.","image":"https://luisbonilla90.github.io/assets/img/og-default.jpg","datePublished":"2024-10-14T00:00:00.000Z","dateModified":"2024-10-14T00:00:00.000Z","author":{"@type":"Person","name":"Luis Bonilla","url":"https://luisbonilla90.github.io/","jobTitle":"Software Engineer & Technical Lead","sameAs":["https://github.com/luisbonilla90","https://linkedin.com/in/luisbonilla90"]},"publisher":{"@type":"Person","name":"Luis Bonilla","url":"https://luisbonilla90.github.io/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://luisbonilla90.github.io/blog/getting-started-with-astro/"},"keywords":"astro, web-development, static-site-generator, performance"}</script> <article class="blog-post" data-astro-cid-2q5oecfc> <header class="blog-post-header" data-astro-cid-2q5oecfc> <h1 data-astro-cid-2q5oecfc>Getting Started with Astro: A Modern Static Site Generator</h1> <div class="blog-post-meta" data-astro-cid-2q5oecfc> <time datetime="2024-10-14T00:00:00.000Z" data-astro-cid-2q5oecfc> October 13, 2024 </time>  <span class="author" data-astro-cid-2q5oecfc>By Luis Bonilla</span> </div> <div class="blog-post-tags" data-astro-cid-2q5oecfc> <span class="tag" data-astro-cid-2q5oecfc>astro</span><span class="tag" data-astro-cid-2q5oecfc>web-development</span><span class="tag" data-astro-cid-2q5oecfc>static-site-generator</span><span class="tag" data-astro-cid-2q5oecfc>performance</span> </div> </header> <div class="blog-post-content" data-astro-cid-2q5oecfc>  <h1 id="getting-started-with-astro-a-modern-static-site-generator">Getting Started with Astro: A Modern Static Site Generator</h1>
+<p><strong>Astro is a modern static site generator that delivers lightning-fast performance by shipping zero JavaScript by default</strong>. Unlike traditional frameworks, Astro uses an “island architecture” that lets you build fast websites with minimal client-side JavaScript while still using your favorite UI frameworks (React, Vue, Svelte) where needed.</p>
+<p>Astro has emerged as a game-changer in the world of static site generators. With its unique approach to web development, it combines the best of modern frameworks while delivering exceptional performance.</p>
+<h2 id="why-astro">Why Astro?</h2>
+<p>Astro stands out for several compelling reasons:</p>
+<ol>
+<li><strong>Zero JavaScript by Default</strong>: Astro ships zero JavaScript to the browser by default, resulting in blazing-fast load times.</li>
+<li><strong>Component Islands</strong>: Use your favorite frameworks (React, Vue, Svelte) only where you need them.</li>
+<li><strong>Built-in Optimization</strong>: Automatic image optimization, CSS bundling, and more.</li>
+<li><strong>Developer Experience</strong>: Intuitive file-based routing and component architecture.</li>
+</ol>
+<h2 id="key-features">Key Features</h2>
+<h3 id="partial-hydration">Partial Hydration</h3>
+<p>Astro pioneered the concept of “partial hydration” or “island architecture.” This allows you to use interactive components only where needed:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="astro"><code><span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> InteractiveWidget </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> '../components/InteractiveWidget.jsx'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">>Welcome to my site&#x3C;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#6A737D">  &#x3C;!-- This component will be interactive on the client --></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#79B8FF">InteractiveWidget</span><span style="color:#B392F0"> client:load</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span></code></pre>
+<h3 id="content-collections">Content Collections</h3>
+<p>Astro’s content collections provide type-safe content management with built-in validation:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { defineCollection, z } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'astro:content'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> blog</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> defineCollection</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">  schema: z.</span><span style="color:#B392F0">object</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">    title: z.</span><span style="color:#B392F0">string</span><span style="color:#E1E4E8">(),</span></span>
+<span class="line"><span style="color:#E1E4E8">    pubDate: z.</span><span style="color:#B392F0">date</span><span style="color:#E1E4E8">(),</span></span>
+<span class="line"><span style="color:#E1E4E8">    description: z.</span><span style="color:#B392F0">string</span><span style="color:#E1E4E8">(),</span></span>
+<span class="line"><span style="color:#E1E4E8">  }),</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span></code></pre>
+<h2 id="performance-benefits">Performance Benefits</h2>
+<p>By shipping minimal JavaScript, Astro sites achieve:</p>
+<ul>
+<li><strong>Faster Page Loads</strong>: Less code to download and parse</li>
+<li><strong>Better SEO</strong>: Search engines love fast sites</li>
+<li><strong>Improved Core Web Vitals</strong>: Better scores on performance metrics</li>
+<li><strong>Enhanced User Experience</strong>: Instant page transitions</li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<p>To create a new Astro project:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> create</span><span style="color:#9ECBFF"> astro@latest</span></span>
+<span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> my-astro-project</span></span>
+<span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> run</span><span style="color:#9ECBFF"> dev</span></span></code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>Astro represents a paradigm shift in web development, prioritizing performance without sacrificing developer experience. Whether you’re building a blog, documentation site, or portfolio, Astro provides the tools to create fast, modern web experiences.</p>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<p><strong>Q: What is Astro’s main advantage over other static site generators?</strong><br>
+A: Astro’s main advantage is its zero-JavaScript-by-default approach combined with island architecture, resulting in significantly faster load times and better Core Web Vitals scores compared to traditional SPAs.</p>
+<p><strong>Q: Can I use React, Vue, or Svelte components with Astro?</strong><br>
+A: Yes, Astro supports multiple frameworks through its island architecture. You can use interactive components from React, Vue, Svelte, and other frameworks selectively where you need interactivity.</p>
+<p><strong>Q: Is Astro suitable for dynamic websites or only static sites?</strong><br>
+A: While Astro excels at static sites, it also supports Server-Side Rendering (SSR) and can handle dynamic content through API routes and server endpoints.</p>
+<p><strong>Q: How does Astro compare to Next.js or Gatsby?</strong><br>
+A: Astro focuses on shipping minimal JavaScript (0 KB by default), while Next.js and Gatsby ship full framework bundles. Astro is typically faster for content-heavy sites, while Next.js may be better for highly interactive applications.</p>
+<p><strong>Q: What kind of websites is Astro best for?</strong><br>
+A: Astro is ideal for content-focused sites like blogs, documentation, portfolios, marketing sites, and any project where performance and SEO are priorities.</p>
+<hr>
+<p><strong>About the Author</strong>: Luis Bonilla is a Software Engineer and Technical Lead with 15+ years of experience in web development and digital transformation.</p>  </div> </article>  </main> <!-- Footer --> <footer role="contentinfo"> <div class="container"> <div class="footer-content"> <div class="footer-section"> <h3 data-i18n="footer.title">Luis Bonilla Villalobos</h3> <p data-i18n="footer.subtitle">
+Software Engineer | Technical Lead | Innovation Consultant
+</p> <p data-i18n="footer.description">
+Passionate about creating meaningful, scalable, and maintainable solutions.
+</p> </div> <div class="footer-section"> <h4 data-i18n="footer.sections.contact">Contact</h4> <p> <span aria-hidden="true">📧</span> <a href="mailto:lbonillav7@gmail.com" aria-label="Email lbonillav7@gmail.com" data-i18n-aria-label="footer.aria_labels.email_lbonilla">lbonillav7@gmail.com</a> </p> <p> <span aria-hidden="true">📍</span> <span data-i18n="footer.location">San José, Costa Rica</span> </p> </div> <div class="footer-section"> <h4 data-i18n="footer.sections.quick_links">Quick Links</h4> <nav aria-label="Footer navigation" data-i18n-aria-label="footer.aria_labels.footer_nav"> <ul> <li> <a href="#about" aria-label="Navigate to About section" data-i18n-aria-label="footer.aria_labels.nav_about" data-i18n="footer.nav.about">About</a> </li> <li> <a href="#skills" aria-label="Navigate to Skills section" data-i18n-aria-label="footer.aria_labels.nav_skills" data-i18n="footer.nav.skills">Skills</a> </li> <li> <a href="#experience" aria-label="Navigate to Experience section" data-i18n-aria-label="footer.aria_labels.nav_experience" data-i18n="footer.nav.experience">Experience</a> </li> <li> <a href="#contact" aria-label="Navigate to Contact section" data-i18n-aria-label="footer.aria_labels.nav_contact" data-i18n="footer.nav.contact">Contact</a> </li> </ul> </nav> </div> </div> <div class="footer-bottom"> <p>
+&copy; <span id="year"></span> <span data-i18n="footer.copyright">Luis Bonilla Villalobos. All rights reserved.</span> </p> </div> </div> </footer> <!-- Client-side scripts for interactivity --> <script>
+      // Mobile menu toggle
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mainNavigation = document.getElementById('main-navigation');
+
+      if (mobileMenuToggle && mainNavigation) {
+        mobileMenuToggle.addEventListener('click', () => {
+          const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+          mobileMenuToggle.setAttribute('aria-expanded', String(!isExpanded));
+          mainNavigation.classList.toggle('nav-open');
+        });
+
+        // Close mobile menu when clicking navigation links
+        const navLinks = mainNavigation.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mainNavigation.classList.remove('nav-open');
+          });
+        });
+      }
+
+      // Set current year in footer
+      const yearElement = document.getElementById('year');
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear().toString();
+      }
+    </script> <!-- Load theme manager and i18n as modules --> <script type="module" src="assets/js/main.js"></script> <!-- Web Vitals monitoring --> client:only
+<script type="module">
+  import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'web-vitals';
+
+  function sendToAnalytics({ name, delta, value, id }) {
+    // Send to your analytics service (e.g., Google Analytics, etc.)
+    console.warn(`${name}: ${delta} (${value}) [${id}]`);
+
+    // Example: send to Google Analytics
+    // gtag('event', name, {
+    //   event_category: 'Web Vitals',
+    //   event_label: id,
+    //   value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+    //   custom_map: { metric_value: value }
+    // });
+  }
+
+  getCLS(sendToAnalytics);
+  getFID(sendToAnalytics);
+  getFCP(sendToAnalytics);
+  getLCP(sendToAnalytics);
+  getTTFB(sendToAnalytics);
+</script> </body></html> 
