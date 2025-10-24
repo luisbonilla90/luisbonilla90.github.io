@@ -17,6 +17,7 @@
     "lint": "eslint . --ext .js,.ts,.astro",
     "lint:fix": "eslint . --ext .js,.ts,.astro --fix",
     "type-check": "astro check",
+    "cleanup": "node scripts/cleanup.js",
     "prepare": "husky"
   },
   "keywords": [],
@@ -41,7 +42,8 @@
     "lint-staged": "^16.2.4",
     "ts-jest": "^29.2.5",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.18.2"
+    "typescript-eslint": "^8.18.2",
+    "web-vitals": "^3.5.0"
   },
   "lint-staged": {
     "*.{js,ts,astro}": [

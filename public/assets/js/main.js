@@ -149,8 +149,7 @@ function detectBrowserLanguage() {
       window.dispatchEvent(event);
     } else {
       // Older browsers: create generic Event and attach detail
-      const evt = document.createEvent('Event');
-      evt.initEvent('browserLanguageDetected', true, true);
+      const evt = new Event('browserLanguageDetected', { bubbles: true, cancelable: true });
       // Attach detail payload
       try {
         evt.detail = { language: normalized };

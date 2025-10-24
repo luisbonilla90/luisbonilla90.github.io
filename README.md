@@ -1,44 +1,36 @@
-# Personal Portfolio — Starter
+# Personal Portfolio — Astro Version
 
-This repository contains a minimal themeable personal website scaffold with bilingual support (English/Spanish).
+This repository contains a modern personal website built with Astro framework, featuring bilingual support (English/Spanish), theme switching, and optimized performance.
 
-> **🚀 Astro Migration in Progress**: This project is being migrated to Astro framework on the `astro-migration` branch. See [`docs/astro-migration-phase1.md`](docs/astro-migration-phase1.md) for details.
-
-Structure created:
-
-- `index.html` — site entry
-- `assets/css/main.css` — main styles
-- `assets/css/base/variables.css` — theme variables
-- `assets/js/main.js` — app entry (ES modules)
-- `assets/js/core/theme-manager.js` — theme switching utility
-- `assets/js/core/i18n.js` — internationalization module
-- `locales/en.json`, `locales/es.json` — translation files
-- `docs/project-architecture.md` — project architecture and plan (renamed from plan.md)
+> **✅ Astro Migration Complete**: The site has been fully migrated to Astro on the `astro-migration` branch. See [`docs/migracion-astro-story.md`](docs/migracion-astro-story.md) for the migration story.
 
 ## Features
 
+- ✅ **Astro Framework**: Modern static site generation with component-based architecture
 - ✅ **Bilingual Support**: Switch between English and Spanish dynamically
 - ✅ **Theme Switching**: Light, Dark, and Professional themes
 - ✅ **Responsive Design**: Mobile-friendly layout with hamburger menu
 - ✅ **Accessibility**: WCAG 2.1 AA compliant with proper ARIA labels
+- ✅ **SEO Optimized**: Structured data, meta tags, and performance monitoring
 - ✅ **Persistent Preferences**: Language and theme choices saved in localStorage
+- ✅ **Core Web Vitals**: Integrated performance monitoring
+
+## Project Structure
+
+```
+src/
+├── components/          # Reusable Astro components
+├── layouts/            # Page layouts
+├── pages/              # Route pages
+├── styles/             # CSS stylesheets
+├── content/            # Content collections
+└── core/               # Utility modules
+public/                 # Static assets
+docs/                   # Documentation
+```
 
 ## How to Run Locally
 
-### Original Static Site
-Serve the folder with a static server, for example:
-
-```bash
-# Python 3
-python3 -m http.server 8000
-
-# or using Node.js
-npx http-server -c-1
-```
-
-Open http://localhost:8000 in your browser.
-
-### Astro Version (astro-migration branch)
 ```bash
 # Install dependencies
 npm install
@@ -48,74 +40,90 @@ npm run dev
 
 # Build for production
 npm run build
+
+# Preview production build
+npm run preview
 ```
 
-See [`docs/astro-quickstart.md`](docs/astro-quickstart.md) for more details.
+Open http://localhost:4321 in your browser.
+
+## Development Workflow
+
+### Code Quality
+```bash
+# Run linting
+npm run lint
+
+# Fix linting issues
+npm run lint:fix
+
+# Type checking
+npm run type-check
+
+# Run tests
+npm run test
+
+# Run tests with coverage
+npm run test:coverage
+```
+
+### Cleanup and Maintenance
+```bash
+# Check for obsolete files
+npm run cleanup
+
+# Remove obsolete files automatically
+node scripts/cleanup.js --remove
+```
+
+## Onboarding for New Developers
+
+### 1. Environment Setup
+1. Clone the repository: `git clone https://github.com/luisbonilla90/luisbonilla90.github.io.git`
+2. Switch to astro-migration branch: `git checkout astro-migration`
+3. Install dependencies: `npm install`
+4. Start development: `npm run dev`
+
+### 2. Understanding the Architecture
+- **Components**: Located in `src/components/`, use `.astro` for static content, `.js/.ts` for client-side logic
+- **Pages**: Routes in `src/pages/`, support dynamic routing with `[slug].astro`
+- **Styles**: CSS in `src/styles/`, with theme variables in `base/variables.css`
+- **Internationalization**: Translation files in `public/locales/`, managed by `src/core/i18n.js`
+- **Themes**: Handled by `src/core/theme-manager.js`
+
+### 3. Adding New Content
+- **Pages**: Create new `.astro` files in `src/pages/`
+- **Components**: Add to `src/components/` and import in layouts/pages
+- **Translations**: Update `public/locales/en.json` and `es.json`
+- **Styles**: Modify `src/styles/` files
+
+### 4. Best Practices
+- Use TypeScript for type safety
+- Follow ESLint rules
+- Write tests for new features
+- Update documentation in `docs/`
+- Commit with descriptive messages
+
+### 5. Deployment
+The site is configured for static deployment. Build with `npm run build` and deploy the `dist/` folder.
 
 ## How to Add a New Language
 
-The internationalization system makes it easy to add new languages:
+1. Create a new JSON file in `public/locales/` (e.g., `fr.json`)
+2. Update `src/core/i18n.js` to include the new language
+3. Add option to language selector in `src/components/LanguageSelector.astro`
+4. Test translations across all components
 
-### 1. Create Translation File
+## Contributing
 
-Create a new JSON file in the `locales/` directory (e.g., `locales/fr.json` for French):
+1. Create a feature branch from `astro-migration`
+2. Make changes following the development workflow
+3. Run tests and linting
+4. Submit a pull request with detailed description
 
-```json
-{
-  "page_title": "Your Translated Title",
-  "meta_description": "Your translated description",
-  "header": {
-    "site_title": "Site Title",
-    "nav": {
-      "about": "About",
-      "skills": "Skills",
-      ...
-    }
-  }
-  ...
-}
-```
+## Documentation
 
-Use `locales/en.json` as a reference for the complete structure.
-
-### 2. Update Supported Languages
-
-Edit `assets/js/core/i18n.js` and add your language code to the `supportedLanguages` array:
-
-```javascript
-this.supportedLanguages = ['en', 'es', 'fr']; // Added French
-```
-
-### 3. Add Language Option
-
-Edit `index.html` and add a new option to the language selector:
-
-```html
-<select id="language-select" aria-label="Select language">
-  <option value="en">English</option>
-  <option value="es">Español</option>
-  <option value="fr">Français</option>
-</select>
-```
-
-### 4. Test
-
-1. Refresh the page
-2. Select your new language from the dropdown
-3. Verify all content is translated correctly
-
-## Translation Structure
-
-All text content uses the `data-i18n` attribute system:
-
-- **Text content**: `<element data-i18n="key.path">Default Text</element>`
-- **ARIA labels**: `<element data-i18n-aria-label="key.path" aria-label="Default">`
-- **Placeholders**: `<input data-i18n="key.path" placeholder="Default">`
-
-The translation keys use dot notation (e.g., `header.nav.about`) to access nested values in the JSON files.
-
-## Next Steps
-
-- Add actual content to `index.html`
-- Implement components and enhance styles
-- Add accessibility checks and SEO metadata per `docs/project-architecture.md`
+- [`docs/migracion-astro-story.md`](docs/migracion-astro-story.md) - Migration story
+- [`docs/project-architecture.md`](docs/project-architecture.md) - Architecture overview
+- [`docs/testing-guide.md`](docs/testing-guide.md) - Testing guidelines
+- [`docs/astro-quickstart.md`](docs/astro-quickstart.md) - Astro setup guide

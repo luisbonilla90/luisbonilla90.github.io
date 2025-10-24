@@ -11,7 +11,7 @@ export class ThemeStorageAdapter {
     throw new Error('getStoredTheme must be implemented');
   }
 
-  storeTheme(theme) {
+  storeTheme(_theme) {
     throw new Error('storeTheme must be implemented');
   }
 }
@@ -20,19 +20,19 @@ export class ThemeStorageAdapter {
  * DOM manipulation abstraction for theme UI
  */
 export class ThemeUIAdapter {
-  setDocumentTheme(theme) {
+  setDocumentTheme(_theme) {
     throw new Error('setDocumentTheme must be implemented');
   }
 
-  updateToggleButton(theme, config) {
+  updateToggleButton(_theme, _config) {
     throw new Error('updateToggleButton must be implemented');
   }
 
-  attachToggleListener(handler) {
+  attachToggleListener(_handler) {
     throw new Error('attachToggleListener must be implemented');
   }
 
-  detachToggleListener(handler) {
+  detachToggleListener(_handler) {
     throw new Error('detachToggleListener must be implemented');
   }
 }
@@ -41,7 +41,7 @@ export class ThemeUIAdapter {
  * Event dispatcher abstraction
  */
 export class EventDispatcher {
-  dispatch(eventName, payload) {
+  dispatch(_eventName, _payload) {
     throw new Error('dispatch must be implemented');
   }
 }
@@ -50,7 +50,7 @@ export class EventDispatcher {
  * Download service abstraction
  */
 export class DownloadService {
-  async download(filePath, fileName) {
+  async download(_filePath, _fileName) {
     throw new Error('download must be implemented');
   }
 }
@@ -59,15 +59,15 @@ export class DownloadService {
  * UI feedback service abstraction
  */
 export class UIFeedbackService {
-  showLoading(element, message) {
+  showLoading(_element, _message) {
     throw new Error('showLoading must be implemented');
   }
 
-  hideLoading(element) {
+  hideLoading(_element) {
     throw new Error('hideLoading must be implemented');
   }
 
-  showError(message) {
+  showError(_message) {
     throw new Error('showError must be implemented');
   }
 }

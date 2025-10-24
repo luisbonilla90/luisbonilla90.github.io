@@ -53,7 +53,7 @@ export class DOMThemeUIAdapter extends ThemeUIAdapter {
     document.documentElement.setAttribute('data-theme', theme);
   }
 
-  updateToggleButton(theme, config = {}) {
+  updateToggleButton(_theme, config = {}) {
     if (!this._toggleButton || !document.contains(this._toggleButton)) {
       this._resolveElements();
     }
