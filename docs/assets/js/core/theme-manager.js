@@ -52,7 +52,7 @@ export class ThemeManager {
    * Toggle to next theme in sequence
    */
   toggleTheme() {
-    if (!this._currentTheme) return;
+    if (!this._currentTheme) {return;}
     
     const nextTheme = Theme.getNextTheme(this._currentTheme);
     this.applyTheme(nextTheme.type);

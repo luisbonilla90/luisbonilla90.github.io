@@ -133,7 +133,7 @@ function detectBrowserLanguage() {
       lang = navigator.userLanguage;
     }
 
-    if (!lang) return null;
+    if (!lang) {return null;}
 
     // Normalize: lower-case or language-region in canonical form (e.g., en-US)
     // Some browsers return values like 'en-US' or 'es-419'. We'll normalize casing.
