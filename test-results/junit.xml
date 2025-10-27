@@ -1,0 +1,6 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="1.213479">
+<testsuite name="navigation.spec.js" timestamp="2025-10-27T19:45:54.866Z" hostname="chromium" tests="1" failures="0" skipped="0" time="0.75" errors="0">
+<testcase name="Navigation and Asset Loading › should have correct CSS file loaded" classname="navigation.spec.js" time="0.75">
+</testcase>
+</testsuite>
+</testsuites>

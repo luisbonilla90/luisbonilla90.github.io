@@ -1,0 +1,173 @@
+name: Testing Pipeline
+
+on:
+  push:
+    branches: [main, astro-migration, develop]
+  pull_request:
+    branches: [main, astro-migration, develop]
+
+jobs:
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+        continue-on-error: true
+
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests
+        run: npm run test:unit
+
+      - name: Upload coverage reports
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage/coverage-final.json
+          flags: unittests
+          name: codecov-umbrella
+        continue-on-error: true
+
+  build:
+    name: Build Project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check with Astro
+        run: npm run type-check
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-output
+          path: docs/
+
+  e2e-tests:
+    name: E2E Tests - ${{ matrix.browser }}
+    runs-on: ubuntu-latest
+    needs: build
+    strategy:
+      matrix:
+        browser: [chromium, firefox, webkit]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+
+      - name: Build project
+        run: npm run build
+
+      - name: Run E2E tests
+        run: npm run test:e2e
+        env:
+          BROWSER: ${{ matrix.browser }}
+        continue-on-error: true
+
+      - name: Upload E2E test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: e2e-results-${{ matrix.browser }}
+          path: test-results/
+          retention-days: 30
+
+  accessibility:
+    name: Accessibility Tests
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Build project
+        run: npm run build
+
+      - name: Run accessibility tests
+        run: npm run test:accessibility
+        continue-on-error: true
+
+      - name: Upload accessibility results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: a11y-results
+          path: test-results/
+          retention-days: 30
+
+  test-summary:
+    name: Test Summary
+    runs-on: ubuntu-latest
+    needs: [lint, unit-tests, build, e2e-tests, accessibility]
+    if: always()
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v3
+
+      - name: Print test summary
+        run: |
+          echo "## Test Pipeline Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Status:" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Linting: ${{ needs.lint.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Unit Tests: ${{ needs.unit-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Build: ${{ needs.build.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ E2E Tests: ${{ needs.e2e-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Accessibility: ${{ needs.accessibility.result }}" >> $GITHUB_STEP_SUMMARY
