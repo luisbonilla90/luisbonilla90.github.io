@@ -2,7 +2,7 @@
 export default {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  roots: ['<rootDir>/src'],
+  roots: ['<rootDir>/src', '<rootDir>/tests'],
   testMatch: [
     '**/__tests__/**/*.+(ts|tsx|js)',
     '**/?(*.)+(spec|test).+(ts|tsx|js)'
@@ -39,7 +39,7 @@ export default {
   },
   testPathIgnorePatterns: [
     '/node_modules/',
-    '/dist/',
+    '/docs/',
     '/.astro/'
   ],
   // Snapshot configuration

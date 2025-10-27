@@ -94,7 +94,7 @@ export class ResumeDownloader {
   }
 
   _formatWithLang(template, lang) {
-    if (!template) {return template;}
+    if (!template) return template;
     return String(template).replace(/\{lang\}/g, lang || 'en');
   }
 

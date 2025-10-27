@@ -58,7 +58,7 @@ export class DOMThemeUIAdapter extends ThemeUIAdapter {
       this._resolveElements();
     }
 
-    if (!this._toggleButton) {return false;}
+    if (!this._toggleButton) return false;
 
     // Update icon
     if (this._iconElement) {
@@ -160,7 +160,7 @@ export class DOMUIFeedbackService extends UIFeedbackService {
   }
 
   showLoading(element, message = 'Loading...') {
-    if (!element) {return false;}
+    if (!element) return false;
 
     // Store original state
     this._loadingStates.set(element, {
@@ -180,7 +180,7 @@ export class DOMUIFeedbackService extends UIFeedbackService {
   }
 
   hideLoading(element) {
-    if (!element || !this._loadingStates.has(element)) {return false;}
+    if (!element || !this._loadingStates.has(element)) return false;
 
     const originalState = this._loadingStates.get(element);
     
@@ -196,7 +196,7 @@ export class DOMUIFeedbackService extends UIFeedbackService {
   }
 
   showError(message) {
-    if (!message) {return false;}
+    if (!message) return false;
     
     // For now using alert, but this could be enhanced with better UI
     alert(`Error: ${message}`);

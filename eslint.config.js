@@ -87,6 +87,7 @@ export default [
   {
     ignores: [
       'dist/**',
+      'docs/**',
       '.astro/**',
       'node_modules/**',
       'coverage/**',

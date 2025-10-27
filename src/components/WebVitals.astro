@@ -1,28 +1,34 @@
 ---
 // Web Vitals monitoring component
-// This component runs only on the client side
+// This component only injects the script tag - no Server-side rendering
+// The actual web-vitals monitoring runs 100% on the client
 ---
-client:only
 
-<script type="module">
-  import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'web-vitals';
+<!-- Web Vitals monitoring - loads only on client -->
+<script is:inline type="module">
+  // Dynamically import web-vitals to avoid SSR issues
+  import('https://cdn.jsdelivr.net/npm/web-vitals@4/dist/web-vitals.js').then(module => {
+    const { getCLS, getFID, getFCP, getLCP, getTTFB } = module;
+    
+    function sendToAnalytics({ name, delta, value, id }) {
+      // Send to your analytics service (e.g., Google Analytics, etc.)
+      console.warn(`${name}: ${delta} (${value}) [${id}]`);
 
-  function sendToAnalytics({ name, delta, value, id }) {
-    // Send to your analytics service (e.g., Google Analytics, etc.)
-    console.warn(`${name}: ${delta} (${value}) [${id}]`);
+      // Example: send to Google Analytics
+      // gtag('event', name, {
+      //   event_category: 'Web Vitals',
+      //   event_label: id,
+      //   value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+      //   custom_map: { metric_value: value }
+      // });
+    }
 
-    // Example: send to Google Analytics
-    // gtag('event', name, {
-    //   event_category: 'Web Vitals',
-    //   event_label: id,
-    //   value: Math.round(name === 'CLS' ? delta * 1000 : delta),
-    //   custom_map: { metric_value: value }
-    // });
-  }
-
-  getCLS(sendToAnalytics);
-  getFID(sendToAnalytics);
-  getFCP(sendToAnalytics);
-  getLCP(sendToAnalytics);
-  getTTFB(sendToAnalytics);
+    getCLS(sendToAnalytics);
+    getFID(sendToAnalytics);
+    getFCP(sendToAnalytics);
+    getLCP(sendToAnalytics);
+    getTTFB(sendToAnalytics);
+  }).catch(error => {
+    console.error('Failed to load web-vitals:', error);
+  });
 </script>

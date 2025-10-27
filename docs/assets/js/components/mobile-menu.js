@@ -133,13 +133,13 @@ export class MobileMenu {
    * Improves keyboard navigation accessibility
    */
   trapFocus() {
-    if (!this.isMenuOpen) {return;}
+    if (!this.isMenuOpen) return;
     
     const focusableElements = this.navigation.querySelectorAll(
       'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
     );
     
-    if (focusableElements.length === 0) {return;}
+    if (focusableElements.length === 0) return;
     
     const firstElement = focusableElements[0];
     const lastElement = focusableElements[focusableElements.length - 1];
@@ -150,7 +150,7 @@ export class MobileMenu {
     }
     
     this.trapFocusListener = (e) => {
-      if (e.key !== 'Tab') {return;}
+      if (e.key !== 'Tab') return;
       
       if (e.shiftKey) {
         // Shift + Tab

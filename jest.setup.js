@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
 // Jest setup file
 import '@testing-library/jest-dom';
+
 
 // Mock window.matchMedia for theme tests
 Object.defineProperty(window, 'matchMedia', {
