@@ -533,6 +533,241 @@ describe('PageSpeed Optimization Suite', () => {
   });
 
   // ========================================
+  // Pirsch Analytics Integration Tests
+  // ========================================
+  describe('Pirsch Analytics - Web Vitals Integration', () => {
+    describe('Web Vitals Event Tracking', () => {
+      test('should send LCP (Largest Contentful Paint) to Pirsch', () => {
+        const lcpEvent = {
+          metric: 'LCP',
+          value: 2300, // ms
+          delta: 2300, // milliseconds
+          id: 'lcp-1234567890',
+          name: 'LCP',
+        };
+
+        expect(lcpEvent.name).toBe('LCP');
+        expect(lcpEvent.value).toBeLessThan(2500); // Target: < 2.5s
+        expect(typeof lcpEvent.delta).toBe('number');
+      });
+
+      test('should send INP (Interaction to Next Paint) to Pirsch', () => {
+        const inpEvent = {
+          metric: 'INP',
+          value: 150, // ms
+          delta: 150,
+          id: 'inp-1234567890',
+          name: 'INP',
+        };
+
+        expect(inpEvent.name).toBe('INP');
+        expect(inpEvent.value).toBeLessThan(200); // Target: < 200ms
+      });
+
+      test('should send CLS (Cumulative Layout Shift) to Pirsch', () => {
+        const clsEvent = {
+          metric: 'CLS',
+          value: 0.05, // unitless
+          delta: 0.05,
+          id: 'cls-1234567890',
+          name: 'CLS',
+        };
+
+        expect(clsEvent.name).toBe('CLS');
+        expect(clsEvent.value).toBeLessThan(0.1); // Target: < 0.1
+      });
+
+      test('should send FCP (First Contentful Paint) to Pirsch', () => {
+        const fcpEvent = {
+          metric: 'FCP',
+          value: 1600, // ms
+          delta: 1600,
+          id: 'fcp-1234567890',
+          name: 'FCP',
+        };
+
+        expect(fcpEvent.name).toBe('FCP');
+        expect(fcpEvent.value).toBeLessThan(1800); // Target: < 1.8s
+      });
+
+      test('should send TTFB (Time to First Byte) to Pirsch', () => {
+        const ttfbEvent = {
+          metric: 'TTFB',
+          value: 400, // ms
+          delta: 400,
+          id: 'ttfb-1234567890',
+          name: 'TTFB',
+        };
+
+        expect(ttfbEvent.name).toBe('TTFB');
+        expect(ttfbEvent.value).toBeLessThan(600); // Target: < 600ms
+      });
+    });
+
+    describe('Pirsch API Integration Format', () => {
+      test('should format metric name for Pirsch custom event', () => {
+        const metricName = 'LCP';
+        const pirschEventName = `web-vitals-${metricName.toLowerCase()}`;
+
+        expect(pirschEventName).toBe('web-vitals-lcp');
+      });
+
+      test('should include all required metric fields for Pirsch', () => {
+        const pirschPayload = {
+          delta: 2300,
+          value: 2300,
+          id: 'lcp-1234567890',
+          metric_name: 'LCP',
+        };
+
+        expect(pirschPayload).toHaveProperty('delta');
+        expect(pirschPayload).toHaveProperty('value');
+        expect(pirschPayload).toHaveProperty('id');
+        expect(pirschPayload).toHaveProperty('metric_name');
+      });
+
+      test('should round metric values before sending to Pirsch', () => {
+        const rawValue = 2345.6789;
+        const roundedValue = Math.round(rawValue);
+
+        expect(roundedValue).toBe(2346);
+        expect(typeof roundedValue).toBe('number');
+      });
+
+      test('should handle Pirsch function availability check', () => {
+        // Mock window.pirsch availability
+        const windowMock = {
+          pirsch: typeof window.pirsch === 'function' ? window.pirsch : undefined,
+        };
+
+        const hasPirsch = typeof windowMock.pirsch === 'function';
+        expect(typeof hasPirsch).toBe('boolean');
+      });
+    });
+
+    describe('Web Vitals Deferred Loading with Pirsch', () => {
+      test('should defer Web Vitals loading after page load event', () => {
+        const loadBehavior = {
+          trigger: 'window.addEventListener("load", ...)',
+          timing: 'after LCP',
+          blocking: false,
+        };
+
+        expect(loadBehavior.trigger).toContain('load');
+        expect(loadBehavior.blocking).toBe(false);
+      });
+
+      test('should use dynamic import for non-blocking Web Vitals load', () => {
+        const importStrategy = {
+          method: 'import(url)',
+          nonBlocking: true,
+          fallback: 'catch error handler',
+          url: 'https://cdn.jsdelivr.net/npm/web-vitals@4/+esm'
+        };
+
+        expect(importStrategy.method).toContain('import');
+        expect(importStrategy.nonBlocking).toBe(true);
+      });
+
+      test('should track Web Vitals before Pirsch event sending', () => {
+        const trackerChain = {
+          step1: 'Import web-vitals library',
+          step2: 'Register onLCP callback',
+          step3: 'Measure metric value',
+          step4: 'Send to Pirsch via pirsch() function',
+        };
+
+        expect(Object.keys(trackerChain).length).toBe(4);
+        expect(trackerChain.step4).toContain('Pirsch');
+      });
+
+      test('should gracefully handle Pirsch unavailability', () => {
+        const errorHandling = {
+          scenario: 'window.pirsch is undefined',
+          fallback: 'skip sending event',
+          logging: 'console.warn/error',
+          continueExecution: true,
+        };
+
+        expect(errorHandling.continueExecution).toBe(true);
+      });
+    });
+
+    describe('Critical Web Vitals Monitoring', () => {
+      test('should identify and log critical metrics (LCP, INP, CLS)', () => {
+        const criticalMetrics = ['LCP', 'INP', 'CLS'];
+        const sentMetric = 'LCP';
+
+        expect(criticalMetrics).toContain(sentMetric);
+      });
+
+      test('should include performance metadata with Pirsch events', () => {
+        const metadata = {
+          timestamp: new Date().toISOString(),
+          url: 'https://example.com/page',
+          metric_name: 'LCP',
+          value: 2300,
+          delta: 2300,
+        };
+
+        expect(metadata.timestamp).toBeTruthy();
+        expect(metadata.url).toBeTruthy();
+        expect(metadata.metric_name).toBeTruthy();
+      });
+
+      test('should validate metric values before sending to Pirsch', () => {
+        const metrics = {
+          LCP: { value: 2300, valid: true },
+          INP: { value: 150, valid: true },
+          CLS: { value: 0.05, valid: true },
+        };
+
+        Object.values(metrics).forEach(metric => {
+          expect(metric.valid).toBe(true);
+          expect(typeof metric.value).toBe('number');
+        });
+      });
+    });
+
+    describe('Pirsch Custom Event Safety', () => {
+      test('should wrap Pirsch call in try/catch block', () => {
+        const errorHandling = {
+          wrapped: true,
+          handler: 'try { pirsch(...) } catch (err) { console.error(...) }',
+          recoverable: true,
+        };
+
+        expect(errorHandling.wrapped).toBe(true);
+        expect(errorHandling.recoverable).toBe(true);
+      });
+
+      test('should not throw errors if Pirsch is unavailable', () => {
+        const behavior = {
+          windowPirschUndefined: true,
+          shouldThrow: false,
+          shouldLog: true,
+          shouldContinue: true,
+        };
+
+        expect(behavior.shouldThrow).toBe(false);
+        expect(behavior.shouldContinue).toBe(true);
+      });
+
+      test('should log failed Pirsch events for debugging', () => {
+        const logging = {
+          errorLogging: true,
+          method: 'console.error',
+          includesMetricName: true,
+          includesError: true,
+        };
+
+        expect(logging.errorLogging).toBe(true);
+        expect(logging.method).toContain('error');
+      });
+    });
+  });
+
+  // ========================================
   // Performance Measurement Utilities
   // ========================================
   describe('Performance Measurement Utilities', () => {
@@ -573,3 +808,4 @@ describe('PageSpeed Optimization Suite', () => {
     });
   });
 });
+

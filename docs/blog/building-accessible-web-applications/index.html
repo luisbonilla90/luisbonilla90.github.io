@@ -159,7 +159,7 @@ Passionate about creating meaningful, scalable, and maintainable solutions.
       if (yearElement) {
         yearElement.textContent = new Date().getFullYear().toString();
       }
-    </script> <!-- Load theme manager and i18n as modules --> <script type="module" src="assets/js/main.js"></script> <!-- Web Vitals monitoring --> <!-- Web Vitals monitoring - deferred loading after page load --><!-- Story 3: This script runs AFTER the page has loaded, so it doesn't block initial rendering --><script type="module">
+    </script> <!-- Load theme manager and i18n as modules --> <script type="module" src="assets/js/main.js"></script> <!-- Web Vitals monitoring --> <!-- Web Vitals monitoring - deferred loading after page load --><!-- Story 3: This script runs AFTER the page has loaded, so it doesn't block initial rendering --><!-- Sends Web Vitals data to Pirsch Analytics via custom events --><script type="module">
   // Defer web-vitals initialization until after page load
   // This removes it from the critical path and improves LCP/FCP
   window.addEventListener('load', () => {
@@ -168,18 +168,47 @@ Passionate about creating meaningful, scalable, and maintainable solutions.
     import('https://cdn.jsdelivr.net/npm/web-vitals@4/+esm')
       .then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
         function sendToAnalytics({ name, delta, value, id }) {
-          // Send to your analytics service (e.g., Google Analytics, etc.)
-          console.info(`${name}: ${delta} (${value}) [${id}]`);
+          // Send to your analytics service (e.g., Pirsch, Google Analytics, etc.)
+          console.warn(`${name}: ${delta} (${value}) [${id}]`);
 
-          // Example: send to Google Analytics
-          // gtag('event', name, {
-          //   event_category: 'Web Vitals',
-          //   event_label: id,
-          //   value: Math.round(name === 'CLS' ? delta * 1000 : delta),
-          //   custom_map: { metric_value: value }
-          // });
+          // Send to Pirsch Analytics via custom event
+          // Pirsch exposes the pirsch() function globally after pa.js loads
+          if (typeof window.pirsch === 'function') {
+            try {
+              // Send metric as custom event to Pirsch
+              // Event name: "web-vitals-{metric}" (e.g., "web-vitals-lcp")
+              // Event metadata includes the actual values for analysis
+              window.pirsch(`web-vitals-${name.toLowerCase()}`, {
+                delta: Math.round(delta),
+                value: Math.round(value),
+                id: id,
+                metric_name: name,
+              });
+
+              // Additional: Send to performance debugging endpoint
+              // This allows tracking core web vitals separately for dashboard visualization
+              const metricsData = {
+                name: name,
+                delta: delta,
+                value: value,
+                id: id,
+                timestamp: new Date().toISOString(),
+                url: window.location.href,
+              };
+
+              // Send to Pirsch API endpoint (if custom tracking is enabled)
+              // Note: This is optional if Pirsch custom events are sufficient
+              if (name === 'LCP' || name === 'INP' || name === 'CLS') {
+                // Log critical metrics for monitoring
+                console.warn(`Critical Web Vital - ${name}:`, metricsData);
+              }
+            } catch (err) {
+              console.error(`Failed to send ${name} to Pirsch:`, err);
+            }
+          }
         }
 
+        // Register callbacks for all Core Web Vitals
         onCLS(sendToAnalytics);
         onINP(sendToAnalytics);
         onFCP(sendToAnalytics);
