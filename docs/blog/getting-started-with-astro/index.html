@@ -105,7 +105,7 @@ Passionate about creating meaningful, scalable, and maintainable solutions.
     getFID,
     getFCP,
     getLCP,
-    getTTFB,
+    onTTFB,
   } from 'https://cdn.jsdelivr.net/npm/web-vitals@4/+esm';
 
   function sendToAnalytics({ name, delta, value, id }) {
@@ -125,5 +125,5 @@ Passionate about creating meaningful, scalable, and maintainable solutions.
   getFID(sendToAnalytics);
   getFCP(sendToAnalytics);
   getLCP(sendToAnalytics);
-  getTTFB(sendToAnalytics);
+  onTTFB(sendToAnalytics);
 </script> </body></html> 

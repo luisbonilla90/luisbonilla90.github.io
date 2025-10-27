@@ -12,7 +12,7 @@
     getFID,
     getFCP,
     getLCP,
-    getTTFB,
+    onTTFB,
   } from 'https://cdn.jsdelivr.net/npm/web-vitals@4/+esm';
 
   function sendToAnalytics({ name, delta, value, id }) {
@@ -32,5 +32,5 @@
   getFID(sendToAnalytics);
   getFCP(sendToAnalytics);
   getLCP(sendToAnalytics);
-  getTTFB(sendToAnalytics);
+  onTTFB(sendToAnalytics);
 </script>
