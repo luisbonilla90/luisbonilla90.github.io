@@ -162,10 +162,10 @@ Passionate about creating meaningful, scalable, and maintainable solutions.
     </script> <!-- Load theme manager and i18n as modules --> <script type="module" src="assets/js/main.js"></script> <!-- Web Vitals monitoring --> <!-- Web Vitals monitoring - loads only on client --><script type="module">
   // Dynamically import web-vitals to avoid SSR issues
   import {
-    getCLS,
-    getFID,
-    getFCP,
-    getLCP,
+    onCLS,
+    onINP,
+    onFCP,
+    onLCP,
     onTTFB,
   } from 'https://cdn.jsdelivr.net/npm/web-vitals@4/+esm';
 
@@ -182,9 +182,9 @@ Passionate about creating meaningful, scalable, and maintainable solutions.
     // });
   }
 
-  getCLS(sendToAnalytics);
-  getFID(sendToAnalytics);
-  getFCP(sendToAnalytics);
-  getLCP(sendToAnalytics);
+  onCLS(sendToAnalytics);
+  onINP(sendToAnalytics);
+  onFCP(sendToAnalytics);
+  onLCP(sendToAnalytics);
   onTTFB(sendToAnalytics);
 </script> </body></html> 

@@ -8,10 +8,10 @@
 <script is:inline type="module">
   // Dynamically import web-vitals to avoid SSR issues
   import {
-    getCLS,
-    getFID,
-    getFCP,
-    getLCP,
+    onCLS,
+    onINP,
+    onFCP,
+    onLCP,
     onTTFB,
   } from 'https://cdn.jsdelivr.net/npm/web-vitals@4/+esm';
 
@@ -28,9 +28,9 @@
     // });
   }
 
-  getCLS(sendToAnalytics);
-  getFID(sendToAnalytics);
-  getFCP(sendToAnalytics);
-  getLCP(sendToAnalytics);
+  onCLS(sendToAnalytics);
+  onINP(sendToAnalytics);
+  onFCP(sendToAnalytics);
+  onLCP(sendToAnalytics);
   onTTFB(sendToAnalytics);
 </script>
