@@ -7,28 +7,30 @@
 <!-- Web Vitals monitoring - loads only on client -->
 <script is:inline type="module">
   // Dynamically import web-vitals to avoid SSR issues
-  import('https://cdn.jsdelivr.net/npm/web-vitals@4/dist/web-vitals.js').then(module => {
-    const { getCLS, getFID, getFCP, getLCP, getTTFB } = module;
-    
-    function sendToAnalytics({ name, delta, value, id }) {
-      // Send to your analytics service (e.g., Google Analytics, etc.)
-      console.warn(`${name}: ${delta} (${value}) [${id}]`);
+  import {
+    getCLS,
+    getFID,
+    getFCP,
+    getLCP,
+    getTTFB,
+  } from 'https://cdn.jsdelivr.net/npm/web-vitals@4/+esm';
 
-      // Example: send to Google Analytics
-      // gtag('event', name, {
-      //   event_category: 'Web Vitals',
-      //   event_label: id,
-      //   value: Math.round(name === 'CLS' ? delta * 1000 : delta),
-      //   custom_map: { metric_value: value }
-      // });
-    }
+  function sendToAnalytics({ name, delta, value, id }) {
+    // Send to your analytics service (e.g., Google Analytics, etc.)
+    console.warn(`${name}: ${delta} (${value}) [${id}]`);
 
-    getCLS(sendToAnalytics);
-    getFID(sendToAnalytics);
-    getFCP(sendToAnalytics);
-    getLCP(sendToAnalytics);
-    getTTFB(sendToAnalytics);
-  }).catch(error => {
-    console.error('Failed to load web-vitals:', error);
-  });
+    // Example: send to Google Analytics
+    // gtag('event', name, {
+    //   event_category: 'Web Vitals',
+    //   event_label: id,
+    //   value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+    //   custom_map: { metric_value: value }
+    // });
+  }
+
+  getCLS(sendToAnalytics);
+  getFID(sendToAnalytics);
+  getFCP(sendToAnalytics);
+  getLCP(sendToAnalytics);
+  getTTFB(sendToAnalytics);
 </script>

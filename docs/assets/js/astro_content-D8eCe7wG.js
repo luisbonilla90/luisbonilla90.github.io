@@ -96,7 +96,7 @@ class ImmutableDataStore {
    */
   static async fromModule() {
     try {
-      const data = await import('./astro_data-layer-content-oBqG5_Dj.js');
+      const data = await import('./astro_data-layer-content-4Su6-R8C.js');
       if (data.default instanceof Map) {
         return ImmutableDataStore.fromMap(data.default);
       }
@@ -128,7 +128,7 @@ function dataStoreSingleton() {
 }
 const globalDataStore = dataStoreSingleton();
 
-const __vite_import_meta_env__ = {"ASSETS_PREFIX": ".", "BASE_URL": "/", "DEV": false, "MODE": "production", "PROD": true, "SITE": "https://luisbonilla90.github.io", "SSR": true};
+const __vite_import_meta_env__ = {"ASSETS_PREFIX": "", "BASE_URL": "/", "DEV": false, "MODE": "production", "PROD": true, "SITE": "https://luisbonilla90.github.io", "SSR": true};
 function createCollectionToGlobResultMap({
   globResult,
   contentDir
@@ -255,7 +255,7 @@ const CONTENT_LAYER_IMAGE_REGEX = /__ASTRO_IMAGE_="([^"]+)"/g;
 async function updateImageReferencesInBody(html, fileName) {
   const { default: imageAssetMap } = await import('./content-assets-DleWbedO.js');
   const imageObjects = /* @__PURE__ */ new Map();
-  const { getImage } = await import('./astro_assets-2w823y5-.js').then(n => n._);
+  const { getImage } = await import('./astro_assets-B3czFkFi.js').then(n => n._);
   for (const [_full, imagePath] of html.matchAll(CONTENT_LAYER_IMAGE_REGEX)) {
     try {
       const decodedImagePath = JSON.parse(imagePath.replaceAll("&#x22;", '"'));

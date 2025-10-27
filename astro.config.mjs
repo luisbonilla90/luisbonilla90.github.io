@@ -13,10 +13,11 @@ export default defineConfig({
   outDir: './docs',
   build: {
     assets: 'assets',
-    assetsPrefix: '.',
+    assetsPrefix: '',
   },
   
-  // i18n configuration for bilingual support
+  // Disable trailing slash to maintain clean URLs
+  trailingSlash: 'ignore',
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'es'],

@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build && npm run postbuild",
-    "postbuild": "node scripts/rename-assets.mjs",
+    "postbuild": "node scripts/rename-assets.mjs && node scripts/fix-asset-paths.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "test": "jest --passWithNoTests",
