@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-theme="light"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Getting Started with Astro: A Modern Static Site Generator</title><!-- SEO Meta Tags --><!-- Primary Meta Tags --><meta name="title" content="Getting Started with Astro: A Modern Static Site Generator"><meta name="description" content="Explore Astro, a modern static site generator that delivers lightning-fast performance with zero JavaScript by default."><meta name="author" content="Luis Bonilla"><meta name="keywords" content="astro, web-development, static-site-generator, performance"><link rel="canonical" href="https://luisbonilla90.github.io/blog/getting-started-with-astro/"><!-- Open Graph / Facebook --><meta property="og:type" content="article"><meta property="og:url" content="https://luisbonilla90.github.io/blog/getting-started-with-astro/"><meta property="og:title" content="Getting Started with Astro: A Modern Static Site Generator"><meta property="og:description" content="Explore Astro, a modern static site generator that delivers lightning-fast performance with zero JavaScript by default."><meta property="og:image" content="https://luisbonilla90.github.io/assets/img/og-default.jpg"><meta property="og:image:alt" content="Profile photo of Luis Bonilla, Software Engineer"><meta property="og:site_name" content="Luis Bonilla - Software Engineer"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2024-10-14T00:00:00.000Z"><meta property="article:author" content="Luis Bonilla"><meta property="article:tag" content="astro"><meta property="article:tag" content="web-development"><meta property="article:tag" content="static-site-generator"><meta property="article:tag" content="performance"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://luisbonilla90.github.io/blog/getting-started-with-astro/"><meta name="twitter:title" content="Getting Started with Astro: A Modern Static Site Generator"><meta name="twitter:description" content="Explore Astro, a modern static site generator that delivers lightning-fast performance with zero JavaScript by default."><meta name="twitter:image" content="https://luisbonilla90.github.io/assets/img/og-default.jpg"><meta name="twitter:image:alt" content="Profile photo of Luis Bonilla, Software Engineer"><meta name="twitter:creator" content="@luisbonilla90"><!-- Additional SEO Meta Tags --><meta name="robots" content="index, follow"><meta name="language" content="English"><meta name="revisit-after" content="7 days"><!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="Luis Bonilla Blog RSS Feed" href="/rss.xml"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Luis Bonilla - Software Engineer","description":"Personal website and blog of Luis Bonilla, Software Engineer and Technical Lead","url":"https://luisbonilla90.github.io/","author":{"@type":"Person","name":"Luis Bonilla"},"inLanguage":["en","es"],"copyrightYear":2025,"copyrightHolder":{"@type":"Person","name":"Luis Bonilla"}}</script><!-- Favicon --><link id="favicon" rel="icon" type="image/jpeg" sizes="16x16" href="assets/img/favico/favico_16.jpg"><link rel="icon" type="image/jpeg" sizes="32x32" href="assets/img/favico/favico_32.jpg"><link rel="apple-touch-icon" href="assets/img/favico/favico_32.jpg"><meta name="theme-color" content="#ffffff"><!-- Pirsch Analytics --><script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="tF5j8R4NSp5lwzo3OlKyfK0yYtzARyLc"></script><!-- Initialize theme and language from localStorage --><script>
+<!DOCTYPE html><html lang="en" data-theme="light"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Getting Started with Astro: A Modern Static Site Generator</title><!-- SEO Meta Tags --><!-- Primary Meta Tags --><meta name="title" content="Getting Started with Astro: A Modern Static Site Generator"><meta name="description" content="Explore Astro, a modern static site generator that delivers lightning-fast performance with zero JavaScript by default."><meta name="author" content="Luis Bonilla"><meta name="keywords" content="astro, web-development, static-site-generator, performance"><link rel="canonical" href="https://luisbonilla90.github.io/blog/getting-started-with-astro/"><!-- Open Graph / Facebook --><meta property="og:type" content="article"><meta property="og:url" content="https://luisbonilla90.github.io/blog/getting-started-with-astro/"><meta property="og:title" content="Getting Started with Astro: A Modern Static Site Generator"><meta property="og:description" content="Explore Astro, a modern static site generator that delivers lightning-fast performance with zero JavaScript by default."><meta property="og:image" content="https://luisbonilla90.github.io/assets/img/og-default.jpg"><meta property="og:image:alt" content="Profile photo of Luis Bonilla, Software Engineer"><meta property="og:site_name" content="Luis Bonilla - Software Engineer"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2024-10-14T00:00:00.000Z"><meta property="article:author" content="Luis Bonilla"><meta property="article:tag" content="astro"><meta property="article:tag" content="web-development"><meta property="article:tag" content="static-site-generator"><meta property="article:tag" content="performance"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://luisbonilla90.github.io/blog/getting-started-with-astro/"><meta name="twitter:title" content="Getting Started with Astro: A Modern Static Site Generator"><meta name="twitter:description" content="Explore Astro, a modern static site generator that delivers lightning-fast performance with zero JavaScript by default."><meta name="twitter:image" content="https://luisbonilla90.github.io/assets/img/og-default.jpg"><meta name="twitter:image:alt" content="Profile photo of Luis Bonilla, Software Engineer"><meta name="twitter:creator" content="@luisbonilla90"><!-- Additional SEO Meta Tags --><meta name="robots" content="index, follow"><meta name="language" content="English"><meta name="revisit-after" content="7 days"><!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="Luis Bonilla Blog RSS Feed" href="/rss.xml"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Luis Bonilla - Software Engineer","description":"Personal website and blog of Luis Bonilla, Software Engineer and Technical Lead","url":"https://luisbonilla90.github.io/","author":{"@type":"Person","name":"Luis Bonilla"},"inLanguage":["en","es"],"copyrightYear":2025,"copyrightHolder":{"@type":"Person","name":"Luis Bonilla"}}</script><!-- Performance Optimization: Resource Hints --><!-- Story 2: Reduce critical path dependency chain --><!-- DNS Prefetch for external CDNs --><link rel="dns-prefetch" href="//cdn.jsdelivr.net"><link rel="dns-prefetch" href="//api.pirsch.io"><!-- Preconnect to critical external origins --><!-- Establishes early connection to reduce DNS lookup, TCP handshake, and TLS negotiation time --><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://api.pirsch.io"><!-- Favicon --><link id="favicon" rel="icon" type="image/jpeg" sizes="16x16" href="assets/img/favico/favico_16.jpg"><link rel="icon" type="image/jpeg" sizes="32x32" href="assets/img/favico/favico_32.jpg"><link rel="apple-touch-icon" href="assets/img/favico/favico_32.jpg"><meta name="theme-color" content="#ffffff"><!-- Pirsch Analytics --><script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="tF5j8R4NSp5lwzo3OlKyfK0yYtzARyLc"></script><!-- Initialize theme and language from localStorage --><script>
       const lastTheme = window.localStorage && window.localStorage.getItem('site_theme_v1');
       const lastLanguage = window.localStorage && window.localStorage.getItem('language');
       if (lastTheme) {document.documentElement.setAttribute("data-theme", lastTheme);}
@@ -71,7 +71,7 @@ Software Engineer | Technical Lead | Innovation Consultant
 </p> <p data-i18n="footer.description">
 Passionate about creating meaningful, scalable, and maintainable solutions.
 </p> </div> <div class="footer-section"> <h4 data-i18n="footer.sections.contact">Contact</h4> <p> <span aria-hidden="true">📧</span> <a href="mailto:lbonillav7@gmail.com" aria-label="Email lbonillav7@gmail.com" data-i18n-aria-label="footer.aria_labels.email_lbonilla">lbonillav7@gmail.com</a> </p> <p> <span aria-hidden="true">📍</span> <span data-i18n="footer.location">San José, Costa Rica</span> </p> </div> <div class="footer-section"> <h4 data-i18n="footer.sections.quick_links">Quick Links</h4> <nav aria-label="Footer navigation" data-i18n-aria-label="footer.aria_labels.footer_nav"> <ul> <li> <a href="#about" aria-label="Navigate to About section" data-i18n-aria-label="footer.aria_labels.nav_about" data-i18n="footer.nav.about">About</a> </li> <li> <a href="#skills" aria-label="Navigate to Skills section" data-i18n-aria-label="footer.aria_labels.nav_skills" data-i18n="footer.nav.skills">Skills</a> </li> <li> <a href="#experience" aria-label="Navigate to Experience section" data-i18n-aria-label="footer.aria_labels.nav_experience" data-i18n="footer.nav.experience">Experience</a> </li> <li> <a href="#contact" aria-label="Navigate to Contact section" data-i18n-aria-label="footer.aria_labels.nav_contact" data-i18n="footer.nav.contact">Contact</a> </li> </ul> </nav> </div> </div> <div class="footer-bottom"> <p>
-&copy; <span id="year"></span> <span data-i18n="footer.copyright">Luis Bonilla Villalobos. All rights reserved.</span> </p> </div> </div> </footer> <!-- Client-side scripts for interactivity --> <script>
+&copy; <span id="year"></span> <span data-i18n="footer.copyright">Luis Bonilla Villalobos. All rights reserved.</span> </p> </div> </div> </footer> <!-- Client-side scripts for interactivity --> <!-- Module Preloading: Story 2 - Preload critical JavaScript modules --> <!-- This tells the browser to start downloading these modules early, before they're needed --> <link rel="modulepreload" href="assets/js/main.js"> <link rel="modulepreload" href="assets/js/core/i18n.js"> <link rel="modulepreload" href="assets/js/core/theme-manager.js"> <script>
       // Mobile menu toggle
       const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
       const mainNavigation = document.getElementById('main-navigation');
@@ -98,32 +98,36 @@ Passionate about creating meaningful, scalable, and maintainable solutions.
       if (yearElement) {
         yearElement.textContent = new Date().getFullYear().toString();
       }
-    </script> <!-- Load theme manager and i18n as modules --> <script type="module" src="assets/js/main.js"></script> <!-- Web Vitals monitoring --> <!-- Web Vitals monitoring - loads only on client --><script type="module">
-  // Dynamically import web-vitals to avoid SSR issues
-  import {
-    onCLS,
-    onINP,
-    onFCP,
-    onLCP,
-    onTTFB,
-  } from 'https://cdn.jsdelivr.net/npm/web-vitals@4/+esm';
+    </script> <!-- Load theme manager and i18n as modules --> <script type="module" src="assets/js/main.js"></script> <!-- Web Vitals monitoring --> <!-- Web Vitals monitoring - deferred loading after page load --><!-- Story 3: This script runs AFTER the page has loaded, so it doesn't block initial rendering --><script type="module">
+  // Defer web-vitals initialization until after page load
+  // This removes it from the critical path and improves LCP/FCP
+  window.addEventListener('load', () => {
+    // Use dynamic import to load web-vitals after LCP
+    // This avoids blocking the critical rendering path
+    import('https://cdn.jsdelivr.net/npm/web-vitals@4/+esm')
+      .then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
+        function sendToAnalytics({ name, delta, value, id }) {
+          // Send to your analytics service (e.g., Google Analytics, etc.)
+          console.info(`${name}: ${delta} (${value}) [${id}]`);
 
-  function sendToAnalytics({ name, delta, value, id }) {
-    // Send to your analytics service (e.g., Google Analytics, etc.)
-    console.warn(`${name}: ${delta} (${value}) [${id}]`);
+          // Example: send to Google Analytics
+          // gtag('event', name, {
+          //   event_category: 'Web Vitals',
+          //   event_label: id,
+          //   value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+          //   custom_map: { metric_value: value }
+          // });
+        }
 
-    // Example: send to Google Analytics
-    // gtag('event', name, {
-    //   event_category: 'Web Vitals',
-    //   event_label: id,
-    //   value: Math.round(name === 'CLS' ? delta * 1000 : delta),
-    //   custom_map: { metric_value: value }
-    // });
-  }
-
-  onCLS(sendToAnalytics);
-  onINP(sendToAnalytics);
-  onFCP(sendToAnalytics);
-  onLCP(sendToAnalytics);
-  onTTFB(sendToAnalytics);
+        onCLS(sendToAnalytics);
+        onINP(sendToAnalytics);
+        onFCP(sendToAnalytics);
+        onLCP(sendToAnalytics);
+        onTTFB(sendToAnalytics);
+      })
+      .catch((error) => {
+        // Silently fail if web-vitals can't load
+        console.error('Web Vitals failed to load:', error);
+      });
+  });
 </script> </body></html> 

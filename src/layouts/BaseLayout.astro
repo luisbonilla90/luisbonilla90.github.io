@@ -64,6 +64,18 @@ const {
       />
     )}
     
+    <!-- Performance Optimization: Resource Hints -->
+    <!-- Story 2: Reduce critical path dependency chain -->
+    
+    <!-- DNS Prefetch for external CDNs -->
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="//api.pirsch.io" />
+    
+    <!-- Preconnect to critical external origins -->
+    <!-- Establishes early connection to reduce DNS lookup, TCP handshake, and TLS negotiation time -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://api.pirsch.io" />
+    
     <!-- Favicon -->
     <link
       id="favicon"
@@ -310,6 +322,12 @@ const {
     </footer>
 
     <!-- Client-side scripts for interactivity -->
+    <!-- Module Preloading: Story 2 - Preload critical JavaScript modules -->
+    <!-- This tells the browser to start downloading these modules early, before they're needed -->
+    <link rel="modulepreload" href="/assets/js/main.js" />
+    <link rel="modulepreload" href="/assets/js/core/i18n.js" />
+    <link rel="modulepreload" href="/assets/js/core/theme-manager.js" />
+
     <script is:inline>
       // Mobile menu toggle
       const mobileMenuToggle = document.getElementById('mobile-menu-toggle');

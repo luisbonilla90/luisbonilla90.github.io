@@ -1,36 +1,42 @@
 ---
 // Web Vitals monitoring component
+// Story 3: Defer Web Vitals loading after LCP to avoid blocking critical path
 // This component only injects the script tag - no Server-side rendering
-// The actual web-vitals monitoring runs 100% on the client
+// The actual web-vitals monitoring runs 100% on the client, deferred until after load event
 ---
 
-<!-- Web Vitals monitoring - loads only on client -->
+<!-- Web Vitals monitoring - deferred loading after page load -->
+<!-- Story 3: This script runs AFTER the page has loaded, so it doesn't block initial rendering -->
 <script is:inline type="module">
-  // Dynamically import web-vitals to avoid SSR issues
-  import {
-    onCLS,
-    onINP,
-    onFCP,
-    onLCP,
-    onTTFB,
-  } from 'https://cdn.jsdelivr.net/npm/web-vitals@4/+esm';
+  // Defer web-vitals initialization until after page load
+  // This removes it from the critical path and improves LCP/FCP
+  window.addEventListener('load', () => {
+    // Use dynamic import to load web-vitals after LCP
+    // This avoids blocking the critical rendering path
+    import('https://cdn.jsdelivr.net/npm/web-vitals@4/+esm')
+      .then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
+        function sendToAnalytics({ name, delta, value, id }) {
+          // Send to your analytics service (e.g., Google Analytics, etc.)
+          console.info(`${name}: ${delta} (${value}) [${id}]`);
 
-  function sendToAnalytics({ name, delta, value, id }) {
-    // Send to your analytics service (e.g., Google Analytics, etc.)
-    console.warn(`${name}: ${delta} (${value}) [${id}]`);
+          // Example: send to Google Analytics
+          // gtag('event', name, {
+          //   event_category: 'Web Vitals',
+          //   event_label: id,
+          //   value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+          //   custom_map: { metric_value: value }
+          // });
+        }
 
-    // Example: send to Google Analytics
-    // gtag('event', name, {
-    //   event_category: 'Web Vitals',
-    //   event_label: id,
-    //   value: Math.round(name === 'CLS' ? delta * 1000 : delta),
-    //   custom_map: { metric_value: value }
-    // });
-  }
-
-  onCLS(sendToAnalytics);
-  onINP(sendToAnalytics);
-  onFCP(sendToAnalytics);
-  onLCP(sendToAnalytics);
-  onTTFB(sendToAnalytics);
+        onCLS(sendToAnalytics);
+        onINP(sendToAnalytics);
+        onFCP(sendToAnalytics);
+        onLCP(sendToAnalytics);
+        onTTFB(sendToAnalytics);
+      })
+      .catch((error) => {
+        // Silently fail if web-vitals can't load
+        console.error('Web Vitals failed to load:', error);
+      });
+  });
 </script>
