@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PortfolioSection from '../components/Portfolio.astro';
+
+const title = "Portfolio - Luis Bonilla";
+const description = "Explore Luis Bonilla's portfolio of innovative software projects, web applications, and digital transformation initiatives.";
+---
+
+<BaseLayout 
+  title={title} 
+  description={description}
+  alternateURLs={{
+    en: 'https://luisbonilla90.github.io/portfolio/',
+    es: 'https://luisbonilla90.github.io/es/portfolio/'
+  }}
+>
+  <PortfolioSection />
+</BaseLayout>

@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AboutSection from '../../components/About.astro';
+import SkillsSection from '../../components/Skills.astro';
+import EducationSection from '../../components/Education.astro';
+
+const title = "Acerca de Luis Bonilla - Ingeniero de Software";
+const description = "Conoce a Luis Bonilla, Ingeniero de Software y Líder Técnico con más de 15 años de experiencia internacional en desarrollo de software y transformación digital.";
+---
+
+<BaseLayout 
+  title={title} 
+  description={description}
+  lang="es"
+  includePersonSchema={true}
+  alternateURLs={{
+    en: 'https://luisbonilla90.github.io/about/',
+    es: 'https://luisbonilla90.github.io/es/about/'
+  }}
+>
+  <AboutSection />
+  <SkillsSection />
+  <EducationSection />
+</BaseLayout>

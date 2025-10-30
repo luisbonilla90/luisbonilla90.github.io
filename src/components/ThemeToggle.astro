@@ -15,6 +15,24 @@
 
 <script is:inline>
   // This script runs on the client side with partial hydration
-  // The theme manager is initialized by main.js, this component just provides the UI
-  // Theme toggle is handled by the global theme manager
+  import { ThemeManager } from '/assets/js/core/theme-manager.js';  
+  
+  // Initialize theme manager
+  let themeManager = null;
+  
+  function initThemeToggle() {
+    try {
+      themeManager = new ThemeManager();
+      console.log('Theme manager initialized');
+    } catch (error) {
+      console.error('Failed to initialize theme manager:', error);
+    }
+  }
+  
+  // Initialize on DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeToggle);
+  } else {
+    initThemeToggle();
+  }
 </script>

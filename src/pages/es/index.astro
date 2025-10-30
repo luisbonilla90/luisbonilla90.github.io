@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteWarning from '../../components/SiteWarning.astro';
+import Hero from '../../components/Hero.astro';
+import About from '../../components/About.astro';
+import Skills from '../../components/Skills.astro';
+import Experience from '../../components/Experience.astro';
+import Portfolio from '../../components/Portfolio.astro';
+import Education from '../../components/Education.astro';
+import Blog from '../../components/Blog.astro';
+import Contact from '../../components/Contact.astro';
+import BackToTop from '../../components/BackToTop.astro';
+
+const title = "Luis Bonilla - Ingeniero de Software | Líder Técnico";
+const description = "Luis Bonilla - Ingeniero de Software y Líder Técnico con más de 15 años de experiencia. Experto en React, Node.js, Python, AWS y transformación digital.";
+---
+
+<BaseLayout 
+  title={title} 
+  description={description}
+  lang="es"
+  includePersonSchema={true}
+>
+  <SiteWarning />
+  <Hero />
+  <About />
+  <Skills />
+  <Experience />
+  <Portfolio />
+  <Education />
+  <Blog />
+  <Contact />
+  <BackToTop />
+</BaseLayout>

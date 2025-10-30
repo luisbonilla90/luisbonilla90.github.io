@@ -17,6 +17,10 @@ interface Props {
   author?: string;
   tags?: string[];
   includePersonSchema?: boolean;
+  alternateURLs?: {
+    en?: string;
+    es?: string;
+  };
 }
 
 const { 
@@ -31,6 +35,7 @@ const {
   author,
   tags,
   includePersonSchema = false,
+  alternateURLs,
 } = Astro.props;
 ---
 
@@ -53,6 +58,7 @@ const {
       modifiedTime={modifiedTime}
       author={author}
       tags={tags}
+      alternateURLs={alternateURLs}
     />
     
     <!-- Structured Data -->
