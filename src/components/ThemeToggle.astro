@@ -13,13 +13,12 @@
   </button>
 </div>
 
-<script>
+<script is:inline>
   // This script runs on the client side with partial hydration
-  // @ts-ignore - module loaded at runtime from public directory
   import { ThemeManager } from '/assets/js/core/theme-manager.js';  
   
   // Initialize theme manager
-  let themeManager: any = null;
+  let themeManager: ThemeManager | null  = null;
   
   function initThemeToggle() {
     try {

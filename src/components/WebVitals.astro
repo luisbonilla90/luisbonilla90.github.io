@@ -1,0 +1,72 @@
+---
+// Web Vitals monitoring component
+// Story 3: Defer Web Vitals loading after LCP to avoid blocking critical path
+// This component only injects the script tag - no Server-side rendering
+// The actual web-vitals monitoring runs 100% on the client, deferred until after load event
+---
+
+<!-- Web Vitals monitoring - deferred loading after page load -->
+<!-- Story 3: This script runs AFTER the page has loaded, so it doesn't block initial rendering -->
+<!-- Sends Web Vitals data to Pirsch Analytics via custom events -->
+<script is:inline type="module">
+  // Defer web-vitals initialization until after page load
+  // This removes it from the critical path and improves LCP/FCP
+  window.addEventListener('load', () => {
+    // Use dynamic import to load web-vitals after LCP
+    // This avoids blocking the critical rendering path
+    import('https://cdn.jsdelivr.net/npm/web-vitals@4/+esm')
+      .then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
+        function sendToAnalytics({ name, delta, value, id }) {
+          // Send to your analytics service (e.g., Pirsch, Google Analytics, etc.)
+          console.warn(`${name}: ${delta} (${value}) [${id}]`);
+
+          // Send to Pirsch Analytics via custom event
+          // Pirsch exposes the pirsch() function globally after pa.js loads
+          if (typeof window.pirsch === 'function') {
+            try {
+              // Send metric as custom event to Pirsch
+              // Event name: "web-vitals-{metric}" (e.g., "web-vitals-lcp")
+              // Event metadata includes the actual values for analysis
+              window.pirsch(`web-vitals-${name.toLowerCase()}`, {
+                delta: Math.round(delta),
+                value: Math.round(value),
+                id: id,
+                metric_name: name,
+              });
+
+              // Additional: Send to performance debugging endpoint
+              // This allows tracking core web vitals separately for dashboard visualization
+              const metricsData = {
+                name: name,
+                delta: delta,
+                value: value,
+                id: id,
+                timestamp: new Date().toISOString(),
+                url: window.location.href,
+              };
+
+              // Send to Pirsch API endpoint (if custom tracking is enabled)
+              // Note: This is optional if Pirsch custom events are sufficient
+              if (name === 'LCP' || name === 'INP' || name === 'CLS') {
+                // Log critical metrics for monitoring
+                console.warn(`Critical Web Vital - ${name}:`, metricsData);
+              }
+            } catch (err) {
+              console.error(`Failed to send ${name} to Pirsch:`, err);
+            }
+          }
+        }
+
+        // Register callbacks for all Core Web Vitals
+        onCLS(sendToAnalytics);
+        onINP(sendToAnalytics);
+        onFCP(sendToAnalytics);
+        onLCP(sendToAnalytics);
+        onTTFB(sendToAnalytics);
+      })
+      .catch((error) => {
+        // Silently fail if web-vitals can't load
+        console.error('Web Vitals failed to load:', error);
+      });
+  });
+</script>

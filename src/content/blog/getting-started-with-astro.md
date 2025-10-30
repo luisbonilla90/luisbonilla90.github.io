@@ -18,6 +18,8 @@ jsonLd:
 
 # Getting Started with Astro: A Modern Static Site Generator
 
+**Astro is a modern static site generator that delivers lightning-fast performance by shipping zero JavaScript by default**. Unlike traditional frameworks, Astro uses an "island architecture" that lets you build fast websites with minimal client-side JavaScript while still using your favorite UI frameworks (React, Vue, Svelte) where needed.
+
 Astro has emerged as a game-changer in the world of static site generators. With its unique approach to web development, it combines the best of modern frameworks while delivering exceptional performance.
 
 ## Why Astro?
@@ -85,6 +87,23 @@ npm run dev
 ## Conclusion
 
 Astro represents a paradigm shift in web development, prioritizing performance without sacrificing developer experience. Whether you're building a blog, documentation site, or portfolio, Astro provides the tools to create fast, modern web experiences.
+
+## Frequently Asked Questions
+
+**Q: What is Astro's main advantage over other static site generators?**  
+A: Astro's main advantage is its zero-JavaScript-by-default approach combined with island architecture, resulting in significantly faster load times and better Core Web Vitals scores compared to traditional SPAs.
+
+**Q: Can I use React, Vue, or Svelte components with Astro?**  
+A: Yes, Astro supports multiple frameworks through its island architecture. You can use interactive components from React, Vue, Svelte, and other frameworks selectively where you need interactivity.
+
+**Q: Is Astro suitable for dynamic websites or only static sites?**  
+A: While Astro excels at static sites, it also supports Server-Side Rendering (SSR) and can handle dynamic content through API routes and server endpoints.
+
+**Q: How does Astro compare to Next.js or Gatsby?**  
+A: Astro focuses on shipping minimal JavaScript (0 KB by default), while Next.js and Gatsby ship full framework bundles. Astro is typically faster for content-heavy sites, while Next.js may be better for highly interactive applications.
+
+**Q: What kind of websites is Astro best for?**  
+A: Astro is ideal for content-focused sites like blogs, documentation, portfolios, marketing sites, and any project where performance and SEO are priorities.
 
 ---
 

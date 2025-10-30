@@ -1,0 +1,332 @@
+<!DOCTYPE html><html lang="en" data-theme="light"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Modern JavaScript: Clean Code Principles and Best Practices</title><!-- SEO Meta Tags --><!-- Primary Meta Tags --><meta name="title" content="Modern JavaScript: Clean Code Principles and Best Practices"><meta name="description" content="Discover essential clean code principles and best practices for writing maintainable, scalable JavaScript applications."><meta name="author" content="Luis Bonilla"><meta name="keywords" content="javascript, clean-code, best-practices, software-engineering, code-quality"><link rel="canonical" href="https://luisbonilla90.github.io/blog/modern-javascript-clean-code/"><!-- Open Graph / Facebook --><meta property="og:type" content="article"><meta property="og:url" content="https://luisbonilla90.github.io/blog/modern-javascript-clean-code/"><meta property="og:title" content="Modern JavaScript: Clean Code Principles and Best Practices"><meta property="og:description" content="Discover essential clean code principles and best practices for writing maintainable, scalable JavaScript applications."><meta property="og:image" content="https://luisbonilla90.github.io/assets/img/og-default.jpg"><meta property="og:image:alt" content="Profile photo of Luis Bonilla, Software Engineer"><meta property="og:site_name" content="Luis Bonilla - Software Engineer"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2024-10-05T00:00:00.000Z"><meta property="article:author" content="Luis Bonilla"><meta property="article:tag" content="javascript"><meta property="article:tag" content="clean-code"><meta property="article:tag" content="best-practices"><meta property="article:tag" content="software-engineering"><meta property="article:tag" content="code-quality"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://luisbonilla90.github.io/blog/modern-javascript-clean-code/"><meta name="twitter:title" content="Modern JavaScript: Clean Code Principles and Best Practices"><meta name="twitter:description" content="Discover essential clean code principles and best practices for writing maintainable, scalable JavaScript applications."><meta name="twitter:image" content="https://luisbonilla90.github.io/assets/img/og-default.jpg"><meta name="twitter:image:alt" content="Profile photo of Luis Bonilla, Software Engineer"><meta name="twitter:creator" content="@luisbonilla90"><!-- Additional SEO Meta Tags --><meta name="robots" content="index, follow"><meta name="language" content="English"><meta name="revisit-after" content="7 days"><!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="Luis Bonilla Blog RSS Feed" href="/rss.xml"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Luis Bonilla - Software Engineer","description":"Personal website and blog of Luis Bonilla, Software Engineer and Technical Lead","url":"https://luisbonilla90.github.io/","author":{"@type":"Person","name":"Luis Bonilla"},"inLanguage":["en","es"],"copyrightYear":2025,"copyrightHolder":{"@type":"Person","name":"Luis Bonilla"}}</script><!-- Performance Optimization: Resource Hints --><!-- Story 2: Reduce critical path dependency chain --><!-- DNS Prefetch for external CDNs --><link rel="dns-prefetch" href="//cdn.jsdelivr.net"><link rel="dns-prefetch" href="//api.pirsch.io"><!-- Preconnect to critical external origins --><!-- Establishes early connection to reduce DNS lookup, TCP handshake, and TLS negotiation time --><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://api.pirsch.io"><!-- Favicon --><link id="favicon" rel="icon" type="image/jpeg" sizes="16x16" href="assets/img/favico/favico_16.jpg"><link rel="icon" type="image/jpeg" sizes="32x32" href="assets/img/favico/favico_32.jpg"><link rel="apple-touch-icon" href="assets/img/favico/favico_32.jpg"><meta name="theme-color" content="#ffffff"><!-- Pirsch Analytics --><script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="tF5j8R4NSp5lwzo3OlKyfK0yYtzARyLc"></script><!-- Initialize theme and language from localStorage --><script>
+      const lastTheme = window.localStorage && window.localStorage.getItem('site_theme_v1');
+      const lastLanguage = window.localStorage && window.localStorage.getItem('language');
+      if (lastTheme) {document.documentElement.setAttribute("data-theme", lastTheme);}
+      if (lastLanguage) {document.documentElement.setAttribute("lang", lastLanguage);}
+    </script><link rel="stylesheet" href="assets/css/slug_-Brwjqqt2.css">
+<style>.blog-post[data-astro-cid-2q5oecfc]{max-width:800px;margin:0 auto;padding:2rem 1rem}.blog-post-header[data-astro-cid-2q5oecfc]{margin-bottom:2rem;padding-bottom:1rem;border-bottom:2px solid var(--color-border, #e5e7eb)}.blog-post-header[data-astro-cid-2q5oecfc] h1[data-astro-cid-2q5oecfc]{font-size:2.5rem;margin-bottom:1rem;color:var(--color-text-primary, #1f2937)}.blog-post-meta[data-astro-cid-2q5oecfc]{display:flex;flex-wrap:wrap;gap:1rem;color:var(--color-text-secondary, #6b7280);font-size:.9rem}.blog-post-meta[data-astro-cid-2q5oecfc] .updated[data-astro-cid-2q5oecfc]{font-style:italic}.blog-post-tags[data-astro-cid-2q5oecfc]{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.tag[data-astro-cid-2q5oecfc]{display:inline-block;padding:.25rem .75rem;background-color:var(--color-accent-light, #dbeafe);color:var(--color-accent-dark, #1e40af);border-radius:1rem;font-size:.875rem}.blog-post-content[data-astro-cid-2q5oecfc]{line-height:1.75;font-size:1.125rem}.blog-post-content[data-astro-cid-2q5oecfc] h2{font-size:2rem;margin-top:2rem;margin-bottom:1rem}.blog-post-content[data-astro-cid-2q5oecfc] h3{font-size:1.5rem;margin-top:1.5rem;margin-bottom:.75rem}.blog-post-content[data-astro-cid-2q5oecfc] p{margin-bottom:1.25rem}.blog-post-content[data-astro-cid-2q5oecfc] ul,.blog-post-content[data-astro-cid-2q5oecfc] ol{margin-bottom:1.25rem;padding-left:2rem}.blog-post-content[data-astro-cid-2q5oecfc] li{margin-bottom:.5rem}.blog-post-content[data-astro-cid-2q5oecfc] code{background-color:var(--color-code-bg, #f3f4f6);padding:.2rem .4rem;border-radius:.25rem;font-size:.9em}.blog-post-content[data-astro-cid-2q5oecfc] pre{background-color:var(--color-code-bg, #1f2937);color:var(--color-code-text, #f9fafb);padding:1rem;border-radius:.5rem;overflow-x:auto;margin-bottom:1.25rem}.blog-post-content[data-astro-cid-2q5oecfc] pre code{background-color:transparent;padding:0}@media (max-width: 768px){.blog-post-header[data-astro-cid-2q5oecfc] h1[data-astro-cid-2q5oecfc]{font-size:2rem}.blog-post-content[data-astro-cid-2q5oecfc]{font-size:1rem}}
+</style></head> <body> <!-- Header --> <header role="banner"> <div class="container"> <h1 class="site-title" data-i18n="header.site_title">Luis Bonilla</h1> <!-- Mobile Menu Toggle --> <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Toggle navigation menu" data-i18n-aria-label="header.aria_labels.mobile_menu" aria-expanded="false" aria-controls="main-navigation"> <span class="hamburger-icon" aria-hidden="true"> <span class="hamburger-line"></span> <span class="hamburger-line"></span> <span class="hamburger-line"></span> </span> </button> <!-- Navigation --> <nav id="main-navigation" role="navigation" aria-label="Main navigation" data-i18n-aria-label="header.aria_labels.main_navigation" class="main-navigation"> <ul class="nav-menu"> <li> <a href="#about" aria-label="Navigate to About section" data-i18n-aria-label="header.aria_labels.nav_about" data-i18n="header.nav.about">About</a> </li> <li> <a href="#skills" aria-label="Navigate to Skills section" data-i18n-aria-label="header.aria_labels.nav_skills" data-i18n="header.nav.skills">Skills</a> </li> <li> <a href="#experience" aria-label="Navigate to Experience section" data-i18n-aria-label="header.aria_labels.nav_experience" data-i18n="header.nav.experience">Experience</a> </li> <li> <a href="#portfolio" aria-label="Navigate to Portfolio section" data-i18n-aria-label="header.aria_labels.nav_portfolio" data-i18n="header.nav.portfolio">Portfolio</a> </li> <li> <a href="#blog" aria-label="Navigate to Blog section" data-i18n-aria-label="header.aria_labels.nav_blog" data-i18n="header.nav.blog">Blog</a> </li> <li> <a href="#contact" aria-label="Navigate to Contact section" data-i18n-aria-label="header.aria_labels.nav_contact" data-i18n="header.nav.contact">Contact</a> </li> </ul> </nav> <!-- Theme Toggle Island --> <div class="theme-controls"> <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle between light and dark theme" data-i18n-aria-label="header.aria_labels.theme_toggle" aria-pressed="false"> <span aria-hidden="true" data-theme-icon>🌙</span> <span class="theme-toggle-text" data-i18n="header.theme_toggle">Toggle Theme</span> </button> </div> <!-- Language Switcher Island --> <div class="language-switcher"> <label for="language-select" class="visually-hidden">Select language</label> <select id="language-select" aria-label="Select language" data-current-text="EN"> <option value="en" data-flag="🇺🇸" data-text="EN">🇺🇸</option> <option value="es" data-flag="🇨🇷" data-text="ES">🇨🇷</option> </select> </div> </div> </header> <!-- Main Content --> <main role="main" id="main-content">  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Modern JavaScript: Clean Code Principles and Best Practices","description":"Discover essential clean code principles and best practices for writing maintainable, scalable JavaScript applications.","image":"https://luisbonilla90.github.io/assets/img/og-default.jpg","datePublished":"2024-10-05T00:00:00.000Z","dateModified":"2024-10-05T00:00:00.000Z","author":{"@type":"Person","name":"Luis Bonilla","url":"https://luisbonilla90.github.io/","jobTitle":"Software Engineer & Technical Lead","sameAs":["https://github.com/luisbonilla90","https://linkedin.com/in/luisbonilla90"]},"publisher":{"@type":"Person","name":"Luis Bonilla","url":"https://luisbonilla90.github.io/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://luisbonilla90.github.io/blog/modern-javascript-clean-code/"},"keywords":"javascript, clean-code, best-practices, software-engineering, code-quality"}</script> <article class="blog-post" data-astro-cid-2q5oecfc> <header class="blog-post-header" data-astro-cid-2q5oecfc> <h1 data-astro-cid-2q5oecfc>Modern JavaScript: Clean Code Principles and Best Practices</h1> <div class="blog-post-meta" data-astro-cid-2q5oecfc> <time datetime="2024-10-05T00:00:00.000Z" data-astro-cid-2q5oecfc> October 4, 2024 </time>  <span class="author" data-astro-cid-2q5oecfc>By Luis Bonilla</span> </div> <div class="blog-post-tags" data-astro-cid-2q5oecfc> <span class="tag" data-astro-cid-2q5oecfc>javascript</span><span class="tag" data-astro-cid-2q5oecfc>clean-code</span><span class="tag" data-astro-cid-2q5oecfc>best-practices</span><span class="tag" data-astro-cid-2q5oecfc>software-engineering</span><span class="tag" data-astro-cid-2q5oecfc>code-quality</span> </div> </header> <div class="blog-post-content" data-astro-cid-2q5oecfc>  <h1 id="modern-javascript-clean-code-principles-and-best-practices">Modern JavaScript: Clean Code Principles and Best Practices</h1>
+<p><strong>Clean code in JavaScript means writing code that is easy to read, understand, and maintain through consistent naming conventions, single-purpose functions, and clear structure</strong>. Following clean code principles reduces bugs by up to 40% and improves team productivity by making code more maintainable and testable (Source: Code Complete, Steve McConnell).</p>
+<p>Writing clean, maintainable JavaScript code is essential for building scalable applications. This guide explores fundamental principles and practical techniques for improving code quality.</p>
+<h2 id="clean-code-principles">Clean Code Principles</h2>
+<h3 id="1-single-responsibility-principle-srp">1. Single Responsibility Principle (SRP)</h3>
+<p>Each function or class should have one clear purpose:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Bad: Multiple responsibilities</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> processUserData</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">user</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#B392F0">  validateUser</span><span style="color:#E1E4E8">(user);</span></span>
+<span class="line"><span style="color:#B392F0">  saveToDatabase</span><span style="color:#E1E4E8">(user);</span></span>
+<span class="line"><span style="color:#B392F0">  sendEmail</span><span style="color:#E1E4E8">(user);</span></span>
+<span class="line"><span style="color:#B392F0">  generateReport</span><span style="color:#E1E4E8">(user);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Good: Single responsibility</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> validateUser</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">user</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D">  // Only validation logic</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">user.email) </span><span style="color:#F97583">throw</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Email required'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">user.name) </span><span style="color:#F97583">throw</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Name required'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> saveUser</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">user</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D">  // Only database logic</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> database.users.</span><span style="color:#B392F0">create</span><span style="color:#E1E4E8">(user);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> notifyUser</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">user</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D">  // Only notification logic</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> emailService.</span><span style="color:#B392F0">send</span><span style="color:#E1E4E8">(user.email, </span><span style="color:#9ECBFF">'Welcome!'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="2-descriptive-naming">2. Descriptive Naming</h3>
+<p>Use clear, intention-revealing names:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Bad</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> d</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Date</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> x</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> users.</span><span style="color:#B392F0">filter</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">u</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> u.a);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Good</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> currentDate</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Date</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> activeUsers</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> users.</span><span style="color:#B392F0">filter</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">user</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> user.isActive);</span></span></code></pre>
+<h3 id="3-pure-functions">3. Pure Functions</h3>
+<p>Write functions without side effects:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Impure: Modifies external state</span></span>
+<span class="line"><span style="color:#F97583">let</span><span style="color:#E1E4E8"> total </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> addToTotal</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">value</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#E1E4E8">  total </span><span style="color:#F97583">+=</span><span style="color:#E1E4E8"> value;</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> total;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Pure: No side effects</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> calculateTotal</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">currentTotal</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">value</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> currentTotal </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> value;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="modern-javascript-features">Modern JavaScript Features</h2>
+<h3 id="optional-chaining">Optional Chaining</h3>
+<p>Safely access nested properties:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Before</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> street</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> user </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> user.address </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> user.address.street;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// After</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> street</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> user?.address?.street;</span></span></code></pre>
+<h3 id="nullish-coalescing">Nullish Coalescing</h3>
+<p>Provide default values only for null/undefined:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Before (falsy values like 0 or '' would trigger default)</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> count</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> value </span><span style="color:#F97583">||</span><span style="color:#79B8FF"> 10</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// After (only null/undefined trigger default)</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> count</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> value </span><span style="color:#F97583">??</span><span style="color:#79B8FF"> 10</span><span style="color:#E1E4E8">;</span></span></code></pre>
+<h3 id="destructuring-with-defaults">Destructuring with Defaults</h3>
+<p>Extract values with fallback defaults:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#E1E4E8"> { </span></span>
+<span class="line"><span style="color:#79B8FF">  name</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> 'Anonymous'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  age</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  city</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> 'Unknown'</span></span>
+<span class="line"><span style="color:#E1E4E8">} </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> user;</span></span></code></pre>
+<h3 id="array-methods">Array Methods</h3>
+<p>Use functional array methods for cleaner code:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Map: Transform each element</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> userNames</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> users.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">user</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> user.name);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Filter: Select elements based on condition</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> adults</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> users.</span><span style="color:#B392F0">filter</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">user</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> user.age </span><span style="color:#F97583">>=</span><span style="color:#79B8FF"> 18</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Reduce: Aggregate values</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> totalAge</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> users.</span><span style="color:#B392F0">reduce</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">sum</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">user</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> sum </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> user.age, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Find: Get first matching element</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> admin</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> users.</span><span style="color:#B392F0">find</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">user</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> user.role </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'admin'</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<h2 id="error-handling">Error Handling</h2>
+<h3 id="try-catch-with-asyncawait">Try-Catch with Async/Await</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> fetchUserData</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">userId</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  try</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> response</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> fetch</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`/api/users/${</span><span style="color:#E1E4E8">userId</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">response.ok) {</span></span>
+<span class="line"><span style="color:#F97583">      throw</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`HTTP error! status: ${</span><span style="color:#E1E4E8">response</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">status</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> data</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> response.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> data;</span></span>
+<span class="line"><span style="color:#E1E4E8">  } </span><span style="color:#F97583">catch</span><span style="color:#E1E4E8"> (error) {</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Failed to fetch user:'</span><span style="color:#E1E4E8">, error);</span></span>
+<span class="line"><span style="color:#F97583">    throw</span><span style="color:#E1E4E8"> error;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="custom-error-classes">Custom Error Classes</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> ValidationError</span><span style="color:#F97583"> extends</span><span style="color:#B392F0"> Error</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">message</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">field</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">    super</span><span style="color:#E1E4E8">(message);</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.name </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'ValidationError'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.field </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> field;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> validateEmail</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">email</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">email.</span><span style="color:#B392F0">includes</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'@'</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line"><span style="color:#F97583">    throw</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> ValidationError</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Invalid email format'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'email'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="code-organization">Code Organization</h2>
+<h3 id="module-pattern">Module Pattern</h3>
+<p>Organize code into reusable modules:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// userService.js</span></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> class</span><span style="color:#B392F0"> UserService</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">apiClient</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.apiClient </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> apiClient;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  async</span><span style="color:#B392F0"> getUser</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">id</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.apiClient.</span><span style="color:#B392F0">get</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`/users/${</span><span style="color:#E1E4E8">id</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  async</span><span style="color:#B392F0"> updateUser</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">id</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">data</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.apiClient.</span><span style="color:#B392F0">put</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`/users/${</span><span style="color:#E1E4E8">id</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">, data);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// main.js</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { UserService } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> './userService.js'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> userService</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> UserService</span><span style="color:#E1E4E8">(apiClient);</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> user</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> userService.</span><span style="color:#B392F0">getUser</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">123</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<h3 id="dependency-injection">Dependency Injection</h3>
+<p>Inject dependencies for better testability:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Good: Dependencies injected</span></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> ThemeManager</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">storage</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">uiAdapter</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.storage </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> storage;</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.uiAdapter </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> uiAdapter;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  applyTheme</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">theme</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.storage.</span><span style="color:#B392F0">save</span><span style="color:#E1E4E8">(theme);</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.uiAdapter.</span><span style="color:#B392F0">update</span><span style="color:#E1E4E8">(theme);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Easy to test with mocks</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> mockStorage</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> { save: jest.</span><span style="color:#B392F0">fn</span><span style="color:#E1E4E8">() };</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> mockUI</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> { update: jest.</span><span style="color:#B392F0">fn</span><span style="color:#E1E4E8">() };</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> manager</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> ThemeManager</span><span style="color:#E1E4E8">(mockStorage, mockUI);</span></span></code></pre>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<h3 id="debouncing">Debouncing</h3>
+<p>Limit function execution frequency:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> debounce</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">func</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">delay</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> timeoutId;</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#F97583"> function</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">...</span><span style="color:#FFAB70">args</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#B392F0">    clearTimeout</span><span style="color:#E1E4E8">(timeoutId);</span></span>
+<span class="line"><span style="color:#E1E4E8">    timeoutId </span><span style="color:#F97583">=</span><span style="color:#B392F0"> setTimeout</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> func.</span><span style="color:#B392F0">apply</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">, args), delay);</span></span>
+<span class="line"><span style="color:#E1E4E8">  };</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Usage</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> searchHandler</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> debounce</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">query</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#B392F0">  fetchSearchResults</span><span style="color:#E1E4E8">(query);</span></span>
+<span class="line"><span style="color:#E1E4E8">}, </span><span style="color:#79B8FF">300</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">input.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'input'</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">e</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#B392F0"> searchHandler</span><span style="color:#E1E4E8">(e.target.value));</span></span></code></pre>
+<h3 id="memoization">Memoization</h3>
+<p>Cache expensive computations:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> memoize</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">fn</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> cache</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Map</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#F97583"> function</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">...</span><span style="color:#FFAB70">args</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> key</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">stringify</span><span style="color:#E1E4E8">(args);</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (cache.</span><span style="color:#B392F0">has</span><span style="color:#E1E4E8">(key)) {</span></span>
+<span class="line"><span style="color:#F97583">      return</span><span style="color:#E1E4E8"> cache.</span><span style="color:#B392F0">get</span><span style="color:#E1E4E8">(key);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> result</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> fn.</span><span style="color:#B392F0">apply</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">, args);</span></span>
+<span class="line"><span style="color:#E1E4E8">    cache.</span><span style="color:#B392F0">set</span><span style="color:#E1E4E8">(key, result);</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> result;</span></span>
+<span class="line"><span style="color:#E1E4E8">  };</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> expensiveCalculation</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> memoize</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">n</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#6A737D">  // Complex computation</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> n </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> n;</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span></code></pre>
+<h2 id="testing-best-practices">Testing Best Practices</h2>
+<h3 id="write-testable-code">Write Testable Code</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Testable function</span></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> calculateDiscount</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">price</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">discountPercent</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (price </span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF"> 0</span><span style="color:#F97583"> ||</span><span style="color:#E1E4E8"> discountPercent </span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF"> 0</span><span style="color:#F97583"> ||</span><span style="color:#E1E4E8"> discountPercent </span><span style="color:#F97583">></span><span style="color:#79B8FF"> 100</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">    throw</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Invalid input'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> price </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">1</span><span style="color:#F97583"> -</span><span style="color:#E1E4E8"> discountPercent </span><span style="color:#F97583">/</span><span style="color:#79B8FF"> 100</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Test</span></span>
+<span class="line"><span style="color:#B392F0">test</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'calculates 20% discount correctly'</span><span style="color:#E1E4E8">, () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#B392F0">  expect</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">calculateDiscount</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">100</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">20</span><span style="color:#E1E4E8">)).</span><span style="color:#B392F0">toBe</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">80</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span></code></pre>
+<h2 id="best-practices-checklist">Best Practices Checklist</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Functions follow Single Responsibility Principle</li>
+<li class="task-list-item"><input type="checkbox" disabled> Variable and function names are descriptive</li>
+<li class="task-list-item"><input type="checkbox" disabled> Code is DRY (Don’t Repeat Yourself)</li>
+<li class="task-list-item"><input type="checkbox" disabled> Functions are pure when possible</li>
+<li class="task-list-item"><input type="checkbox" disabled> Error handling is comprehensive</li>
+<li class="task-list-item"><input type="checkbox" disabled> Code is properly documented</li>
+<li class="task-list-item"><input type="checkbox" disabled> Dependencies are injected</li>
+<li class="task-list-item"><input type="checkbox" disabled> Tests cover critical functionality</li>
+<li class="task-list-item"><input type="checkbox" disabled> Performance is optimized where needed</li>
+<li class="task-list-item"><input type="checkbox" disabled> Code follows consistent style guide</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Clean code is not just about making code work—it’s about making code that’s easy to read, maintain, and extend. By following these principles and practices, you’ll write JavaScript that stands the test of time.</p>
+<p>Remember: Code is read far more often than it’s written. Invest time in making it clean.</p>
+<hr>
+<p><strong>About the Author</strong>: Luis Bonilla is a Software Engineer and Technical Lead with 15+ years of experience building scalable applications and mentoring development teams.</p>  </div> </article>  </main> <!-- Footer --> <footer role="contentinfo"> <div class="container"> <div class="footer-content"> <div class="footer-section"> <h3 data-i18n="footer.title">Luis Bonilla Villalobos</h3> <p data-i18n="footer.subtitle">
+Software Engineer | Technical Lead | Innovation Consultant
+</p> <p data-i18n="footer.description">
+Passionate about creating meaningful, scalable, and maintainable solutions.
+</p> </div> <div class="footer-section"> <h4 data-i18n="footer.sections.contact">Contact</h4> <p> <span aria-hidden="true">📧</span> <a href="mailto:lbonillav7@gmail.com" aria-label="Email lbonillav7@gmail.com" data-i18n-aria-label="footer.aria_labels.email_lbonilla">lbonillav7@gmail.com</a> </p> <p> <span aria-hidden="true">📍</span> <span data-i18n="footer.location">San José, Costa Rica</span> </p> </div> <div class="footer-section"> <h4 data-i18n="footer.sections.quick_links">Quick Links</h4> <nav aria-label="Footer navigation" data-i18n-aria-label="footer.aria_labels.footer_nav"> <ul> <li> <a href="#about" aria-label="Navigate to About section" data-i18n-aria-label="footer.aria_labels.nav_about" data-i18n="footer.nav.about">About</a> </li> <li> <a href="#skills" aria-label="Navigate to Skills section" data-i18n-aria-label="footer.aria_labels.nav_skills" data-i18n="footer.nav.skills">Skills</a> </li> <li> <a href="#experience" aria-label="Navigate to Experience section" data-i18n-aria-label="footer.aria_labels.nav_experience" data-i18n="footer.nav.experience">Experience</a> </li> <li> <a href="#contact" aria-label="Navigate to Contact section" data-i18n-aria-label="footer.aria_labels.nav_contact" data-i18n="footer.nav.contact">Contact</a> </li> </ul> </nav> </div> </div> <div class="footer-bottom"> <p>
+&copy; <span id="year"></span> <span data-i18n="footer.copyright">Luis Bonilla Villalobos. All rights reserved.</span> </p> </div> </div> </footer> <!-- Client-side scripts for interactivity --> <!-- Module Preloading: Story 2 - Preload critical JavaScript modules --> <!-- This tells the browser to start downloading these modules early, before they're needed --> <link rel="modulepreload" href="assets/js/main.js"> <link rel="modulepreload" href="assets/js/core/i18n.js"> <link rel="modulepreload" href="assets/js/core/theme-manager.js"> <script>
+      // Mobile menu toggle
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mainNavigation = document.getElementById('main-navigation');
+
+      if (mobileMenuToggle && mainNavigation) {
+        mobileMenuToggle.addEventListener('click', () => {
+          const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+          mobileMenuToggle.setAttribute('aria-expanded', String(!isExpanded));
+          mainNavigation.classList.toggle('nav-open');
+        });
+
+        // Close mobile menu when clicking navigation links
+        const navLinks = mainNavigation.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mainNavigation.classList.remove('nav-open');
+          });
+        });
+      }
+
+      // Set current year in footer
+      const yearElement = document.getElementById('year');
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear().toString();
+      }
+    </script> <!-- Load theme manager and i18n as modules --> <script type="module" src="assets/js/main.js"></script> <!-- Web Vitals monitoring --> <!-- Web Vitals monitoring - deferred loading after page load --><!-- Story 3: This script runs AFTER the page has loaded, so it doesn't block initial rendering --><!-- Sends Web Vitals data to Pirsch Analytics via custom events --><script type="module">
+  // Defer web-vitals initialization until after page load
+  // This removes it from the critical path and improves LCP/FCP
+  window.addEventListener('load', () => {
+    // Use dynamic import to load web-vitals after LCP
+    // This avoids blocking the critical rendering path
+    import('https://cdn.jsdelivr.net/npm/web-vitals@4/+esm')
+      .then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
+        function sendToAnalytics({ name, delta, value, id }) {
+          // Send to your analytics service (e.g., Pirsch, Google Analytics, etc.)
+          console.warn(`${name}: ${delta} (${value}) [${id}]`);
+
+          // Send to Pirsch Analytics via custom event
+          // Pirsch exposes the pirsch() function globally after pa.js loads
+          if (typeof window.pirsch === 'function') {
+            try {
+              // Send metric as custom event to Pirsch
+              // Event name: "web-vitals-{metric}" (e.g., "web-vitals-lcp")
+              // Event metadata includes the actual values for analysis
+              window.pirsch(`web-vitals-${name.toLowerCase()}`, {
+                delta: Math.round(delta),
+                value: Math.round(value),
+                id: id,
+                metric_name: name,
+              });
+
+              // Additional: Send to performance debugging endpoint
+              // This allows tracking core web vitals separately for dashboard visualization
+              const metricsData = {
+                name: name,
+                delta: delta,
+                value: value,
+                id: id,
+                timestamp: new Date().toISOString(),
+                url: window.location.href,
+              };
+
+              // Send to Pirsch API endpoint (if custom tracking is enabled)
+              // Note: This is optional if Pirsch custom events are sufficient
+              if (name === 'LCP' || name === 'INP' || name === 'CLS') {
+                // Log critical metrics for monitoring
+                console.warn(`Critical Web Vital - ${name}:`, metricsData);
+              }
+            } catch (err) {
+              console.error(`Failed to send ${name} to Pirsch:`, err);
+            }
+          }
+        }
+
+        // Register callbacks for all Core Web Vitals
+        onCLS(sendToAnalytics);
+        onINP(sendToAnalytics);
+        onFCP(sendToAnalytics);
+        onLCP(sendToAnalytics);
+        onTTFB(sendToAnalytics);
+      })
+      .catch((error) => {
+        // Silently fail if web-vitals can't load
+        console.error('Web Vitals failed to load:', error);
+      });
+  });
+</script> </body></html> 

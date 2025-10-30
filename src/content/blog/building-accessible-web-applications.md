@@ -18,6 +18,8 @@ jsonLd:
 
 # Building Accessible Web Applications: A Practical Guide
 
+**Web accessibility (a11y) means designing and developing websites that can be used by everyone, including the 15% of the world's population with disabilities (WHO, 2023)**. Accessible web applications follow WCAG (Web Content Accessibility Guidelines) standards to ensure content is perceivable, operable, understandable, and robust for all users, regardless of their abilities or assistive technologies used.
+
 Web accessibility isn't just a nice-to-have—it's a fundamental requirement for creating inclusive digital experiences. This guide covers practical techniques for building accessible web applications.
 
 ## Understanding Web Accessibility

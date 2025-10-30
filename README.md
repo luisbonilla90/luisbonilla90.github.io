@@ -1,49 +1,35 @@
 # Personal Portfolio — Luis Bonilla
 
-This repository contains a personal portfolio website built with Astro, featuring bilingual support (English/Spanish), multiple themes, and modern SEO optimization.
+This repository contains a modern personal website built with Astro framework, featuring bilingual support (English/Spanish), theme switching, and optimized performance.
 
-## ✨ Features
+> **✅ Astro Migration Complete**: The site has been fully migrated to Astro on the `astro-migration` branch. See [`docs/migracion-astro-story.md`](docs/migracion-astro-story.md) for the migration story.
 
-- ✅ **Astro Framework**: Fast, modern static site generation
-- ✅ **Bilingual Support (i18n)**: Full English and Spanish translations with proper routing
-- ✅ **Multi-Language SEO**: Hreflang tags, localized meta tags, and dual sitemaps
-- ✅ **Theme Switching**: Light, Dark, Professional, and Cyberpunk themes
-- ✅ **Responsive Design**: Mobile-first with hamburger menu
+## Features
+
+- ✅ **Astro Framework**: Modern static site generation with component-based architecture
+- ✅ **Bilingual Support**: Switch between English and Spanish dynamically
+- ✅ **Theme Switching**: Light, Dark, and Professional themes
+- ✅ **Responsive Design**: Mobile-friendly layout with hamburger menu
 - ✅ **Accessibility**: WCAG 2.1 AA compliant with proper ARIA labels
-- ✅ **SEO Optimized**: Structured data (JSON-LD), Open Graph, Twitter Cards
-- ✅ **Blog System**: Content collections with RSS feed
-- ✅ **Component Architecture**: Modular, reusable Astro components
+- ✅ **SEO Optimized**: Structured data, meta tags, and performance monitoring
+- ✅ **Persistent Preferences**: Language and theme choices saved in localStorage
+- ✅ **Core Web Vitals**: Integrated performance monitoring
+
+## Project Structure
+
+```
+src/
+├── components/          # Reusable Astro components
+├── layouts/            # Page layouts
+├── pages/              # Route pages
+├── styles/             # CSS stylesheets
+├── content/            # Content collections
+└── core/               # Utility modules
+public/                 # Static assets
+docs/                   # Documentation
+```
 
 ## 🌐 Multi-Language Routing
-
-The site supports English and Spanish with the following URL structure:
-
-### English (Default - no prefix)
-- `/` - Homepage
-- `/about/` - About page
-- `/portfolio/` - Portfolio page
-- `/contact/` - Contact page
-- `/blog/` - Blog index
-- `/blog/[slug]/` - Individual blog posts
-
-### Spanish (with /es/ prefix)
-- `/es/` - Página principal
-- `/es/about/` - Acerca de
-- `/es/portfolio/` - Portafolio
-- `/es/contact/` - Contacto
-
-**SEO Features:**
-- Automatic hreflang tags on all pages
-- Localized meta tags and Open Graph data
-- Language-specific sitemaps
-- Proper canonical URLs for each language
-
-## 🚀 How to Run Locally
-
-### Prerequisites
-- Node.js 18+ and npm
-
-### Development
 
 ```bash
 # Install dependencies
@@ -60,7 +46,74 @@ npm run build
 npm run preview
 ```
 
-## 🧪 Testing & Quality
+Open http://localhost:4321 in your browser.
+
+## Development Workflow
+
+### Code Quality
+
+```bash
+# Run linting
+npm run lint
+
+# Fix linting issues
+npm run lint:fix
+
+# Type checking
+npm run type-check
+
+# Run tests
+npm run test
+
+# Run tests with coverage
+npm run test:coverage
+```
+
+### Cleanup and Maintenance
+
+```bash
+# Check for obsolete files
+npm run cleanup
+
+# Remove obsolete files automatically
+node scripts/cleanup.js --remove
+```
+
+## Onboarding for New Developers
+
+### 1. Environment Setup
+
+1. Clone the repository: `git clone https://github.com/luisbonilla90/luisbonilla90.github.io.git`
+2. Switch to astro-migration branch: `git checkout astro-migration`
+3. Install dependencies: `npm install`
+4. Start development: `npm run dev`
+
+### 2. Understanding the Architecture
+
+- **Components**: Located in `src/components/`, use `.astro` for static content, `.js/.ts` for client-side logic
+- **Pages**: Routes in `src/pages/`, support dynamic routing with `[slug].astro`
+- **Styles**: CSS in `src/styles/`, with theme variables in `base/variables.css`
+- **Internationalization**: Translation files in `public/locales/`, managed by `src/core/i18n.js`
+- **Themes**: Handled by `src/core/theme-manager.js`
+
+### 3. Adding New Content
+
+- **Pages**: Create new `.astro` files in `src/pages/`
+- **Components**: Add to `src/components/` and import in layouts/pages
+- **Translations**: Update `public/locales/en.json` and `es.json`
+- **Styles**: Modify `src/styles/` files
+
+### 4. Best Practices
+
+- Use TypeScript for type safety
+- Follow ESLint rules
+- Write tests for new features
+- Update documentation in `docs/`
+- Commit with descriptive messages
+
+### 5. Deployment
+
+The site is configured for static deployment. Build with `npm run build` and deploy the `dist/` folder.
 
 ```bash
 # Run linter
@@ -136,7 +189,7 @@ Theme preference is saved in `localStorage` and persists across sessions.
 
 To add support for additional languages (e.g., French):
 
-### 1. Create Translation File
+## Contributing
 
 Create `locales/fr.json`:
 
@@ -171,6 +224,7 @@ i18n: {
 ### 3. Create Language Pages
 
 Create `src/pages/fr/` directory and add translated pages:
+
 - `src/pages/fr/index.astro`
 - `src/pages/fr/about.astro`
 - etc.
@@ -196,6 +250,7 @@ Comprehensive documentation is available in the `docs/` directory:
 ### Astro Configuration (`astro.config.mjs`)
 
 Key features configured:
+
 - Static site generation (SSG)
 - i18n routing (en/es)
 - Sitemap generation with i18n support
@@ -243,18 +298,19 @@ npm run build
 ```
 
 ### Configuration
+
 - Site URL: `https://luisbonilla90.github.io`
 - Base path: `/` (root)
 - Build output: `dist/`
 
 ## 📈 Migration Status
 
-| Phase | Status | Description |
-|-------|--------|-------------|
-| Phase 1 | ✅ Complete | Project setup and base Astro structure |
-| Phase 2 | ✅ Complete | Component migration from HTML |
+| Phase   | Status      | Description                              |
+| ------- | ----------- | ---------------------------------------- |
+| Phase 1 | ✅ Complete | Project setup and base Astro structure   |
+| Phase 2 | ✅ Complete | Component migration from HTML            |
 | Phase 3 | ✅ Complete | SEO optimization and blog implementation |
-| Phase 4 | ✅ Complete | i18n routing and accessibility |
+| Phase 4 | ✅ Complete | i18n routing and accessibility           |
 
 ## 🤝 Contributing
 
@@ -267,6 +323,7 @@ ISC License - See LICENSE file for details.
 ## 👤 Author
 
 **Luis Bonilla Villalobos**
+
 - Software Engineer & Technical Lead
 - Location: San José, Costa Rica
 - Email: lbonillav7@gmail.com
@@ -278,4 +335,3 @@ ISC License - See LICENSE file for details.
 **Built with:** Astro, TypeScript, JavaScript (ES6+)  
 **Last Updated:** October 2025  
 **Version:** 1.0.0
-

@@ -3,6 +3,7 @@ import '../styles/main.css';
 import SEO from '../components/seo/SEO.astro';
 import WebSiteSchema from '../components/seo/WebSiteSchema.astro';
 import PersonSchema from '../components/seo/PersonSchema.astro';
+import WebVitals from '../components/WebVitals.astro';
 
 interface Props {
   title?: string;
@@ -23,8 +24,8 @@ interface Props {
 }
 
 const { 
-  title = 'Luis Bonilla - Software Engineer | Technical Lead',
-  description = 'Luis Bonilla - Software Engineer & Technical Lead with 15+ years experience. Expert in React, Node.js, Python, AWS, and digital transformation.',
+  title = 'Luis Bonilla - Software Engineer & Technical Lead | 15+ Years Experience',
+  description = 'Luis Bonilla is a Software Engineer & Technical Lead specializing in React, Node.js, Python, AWS, and digital transformation. 15+ years building scalable web applications and leading technical teams.',
   lang = 'en',
   image,
   imageAlt,
@@ -69,21 +70,33 @@ const {
       />
     )}
     
+    <!-- Performance Optimization: Resource Hints -->
+    <!-- Story 2: Reduce critical path dependency chain -->
+    
+    <!-- DNS Prefetch for external CDNs -->
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="//api.pirsch.io" />
+    
+    <!-- Preconnect to critical external origins -->
+    <!-- Establishes early connection to reduce DNS lookup, TCP handshake, and TLS negotiation time -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://api.pirsch.io" />
+    
     <!-- Favicon -->
     <link
       id="favicon"
       rel="icon"
       type="image/jpeg"
       sizes="16x16"
-      href="/assets/img/favico/favico_16.jpg"
+      href="assets/img/favico/favico_16.jpg"
     />
     <link
       rel="icon"
       type="image/jpeg"
       sizes="32x32"
-      href="/assets/img/favico/favico_32.jpg"
+      href="assets/img/favico/favico_32.jpg"
     />
-    <link rel="apple-touch-icon" href="/assets/img/favico/favico_32.jpg" />
+    <link rel="apple-touch-icon" href="assets/img/favico/favico_32.jpg" />
     <meta name="theme-color" content="#ffffff" />
 
     <!-- Pirsch Analytics -->
@@ -99,8 +112,8 @@ const {
     <script is:inline>
       const lastTheme = window.localStorage && window.localStorage.getItem('site_theme_v1');
       const lastLanguage = window.localStorage && window.localStorage.getItem('language');
-      if (lastTheme) document.documentElement.setAttribute("data-theme", lastTheme);
-      if (lastLanguage) document.documentElement.setAttribute("lang", lastLanguage);
+      if (lastTheme) {document.documentElement.setAttribute("data-theme", lastTheme);}
+      if (lastLanguage) {document.documentElement.setAttribute("lang", lastLanguage);}
     </script>
   </head>
   <body>
@@ -137,7 +150,7 @@ const {
           <ul class="nav-menu">
             <li>
               <a
-                href="/#about"
+                href="#about"
                 aria-label="Navigate to About section"
                 data-i18n-aria-label="header.aria_labels.nav_about"
                 data-i18n="header.nav.about"
@@ -146,7 +159,7 @@ const {
             </li>
             <li>
               <a
-                href="/#skills"
+                href="#skills"
                 aria-label="Navigate to Skills section"
                 data-i18n-aria-label="header.aria_labels.nav_skills"
                 data-i18n="header.nav.skills"
@@ -155,7 +168,7 @@ const {
             </li>
             <li>
               <a
-                href="/#experience"
+                href="#experience"
                 aria-label="Navigate to Experience section"
                 data-i18n-aria-label="header.aria_labels.nav_experience"
                 data-i18n="header.nav.experience"
@@ -164,7 +177,7 @@ const {
             </li>
             <li>
               <a
-                href="/#portfolio"
+                href="#portfolio"
                 aria-label="Navigate to Portfolio section"
                 data-i18n-aria-label="header.aria_labels.nav_portfolio"
                 data-i18n="header.nav.portfolio"
@@ -173,7 +186,7 @@ const {
             </li>
             <li>
               <a
-                href="/#blog"
+                href="#blog"
                 aria-label="Navigate to Blog section"
                 data-i18n-aria-label="header.aria_labels.nav_blog"
                 data-i18n="header.nav.blog"
@@ -182,7 +195,7 @@ const {
             </li>
             <li>
               <a
-                href="/#contact"
+                href="#contact"
                 aria-label="Navigate to Contact section"
                 data-i18n-aria-label="header.aria_labels.nav_contact"
                 data-i18n="header.nav.contact"
@@ -265,7 +278,7 @@ const {
               <ul>
                 <li>
                   <a
-                    href="/#about"
+                    href="#about"
                     aria-label="Navigate to About section"
                     data-i18n-aria-label="footer.aria_labels.nav_about"
                     data-i18n="footer.nav.about"
@@ -274,7 +287,7 @@ const {
                 </li>
                 <li>
                   <a
-                    href="/#skills"
+                    href="#skills"
                     aria-label="Navigate to Skills section"
                     data-i18n-aria-label="footer.aria_labels.nav_skills"
                     data-i18n="footer.nav.skills"
@@ -283,7 +296,7 @@ const {
                 </li>
                 <li>
                   <a
-                    href="/#experience"
+                    href="#experience"
                     aria-label="Navigate to Experience section"
                     data-i18n-aria-label="footer.aria_labels.nav_experience"
                     data-i18n="footer.nav.experience"
@@ -292,7 +305,7 @@ const {
                 </li>
                 <li>
                   <a
-                    href="/#contact"
+                    href="#contact"
                     aria-label="Navigate to Contact section"
                     data-i18n-aria-label="footer.aria_labels.nav_contact"
                     data-i18n="footer.nav.contact"
@@ -315,6 +328,12 @@ const {
     </footer>
 
     <!-- Client-side scripts for interactivity -->
+    <!-- Module Preloading: Story 2 - Preload critical JavaScript modules -->
+    <!-- This tells the browser to start downloading these modules early, before they're needed -->
+    <link rel="modulepreload" href="/assets/js/main.js" />
+    <link rel="modulepreload" href="/assets/js/core/i18n.js" />
+    <link rel="modulepreload" href="/assets/js/core/theme-manager.js" />
+
     <script is:inline>
       // Mobile menu toggle
       const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
@@ -345,6 +364,9 @@ const {
     </script>
     
     <!-- Load theme manager and i18n as modules -->
-    <script is:inline type="module" src="/assets/js/main.js"></script>
+    <script is:inline type="module" src="assets/js/main.js"></script>
+    
+    <!-- Web Vitals monitoring -->
+    <WebVitals />
   </body>
 </html>
