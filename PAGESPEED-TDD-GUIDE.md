@@ -7,8 +7,9 @@ This project has implemented **Test-Driven Development (TDD)** for PageSpeed opt
 ### Current Status
 
 - **Stories Completed**: 2/4 (Story 2 & 3) ✅
-- **Tests Passing**: 108/108 ✅
+- **Tests Passing**: 127/127 ✅ (includes +19 Pirsch integration tests)
 - **Status**: Ready for production deployment
+- **Analytics**: Web Vitals now tracked in Pirsch ⭐
 
 ---
 
@@ -40,9 +41,16 @@ This project has implemented **Test-Driven Development (TDD)** for PageSpeed opt
    - Timeline comparisons
    - Implementation roadmap
 
+4. **NEW**: Analytics Integration: **`PIRSCH-WEBVITALS-INTEGRATION.md`** ⭐
+   - Web Vitals + Pirsch setup
+   - Custom event tracking
+   - Dashboard usage guide
+   - Monitoring best practices
+
 ### For Code Reviewers
 
 - **`PR-DESCRIPTION.md`** - Full PR template with changes
+- **`PIRSCH-UPDATE.md`** - Summary of Web Vitals integration
 
 ### For Product / Story Planning
 
@@ -155,7 +163,40 @@ documents/
 
 ---
 
-## 💡 Key Implementation Details
+## � Pirsch Analytics - Web Vitals Tracking
+
+**NEW**: Web Vitals metrics are now automatically sent to Pirsch Analytics!
+
+### What's Being Tracked
+
+All 5 Core Web Vitals are monitored and sent as custom events:
+
+- **LCP** (Largest Contentful Paint) - `web-vitals-lcp`
+- **INP** (Interaction to Next Paint) - `web-vitals-inp`  
+- **CLS** (Cumulative Layout Shift) - `web-vitals-cls`
+- **FCP** (First Contentful Paint) - `web-vitals-fcp`
+- **TTFB** (Time to First Byte) - `web-vitals-ttfb`
+
+### How to View in Pirsch
+
+1. Login to Pirsch Analytics dashboard
+2. Go to **Events** section
+3. Filter for events starting with **`web-vitals-`**
+4. Analyze trends, geographic distribution, device performance
+
+### Key Features
+
+- ✅ Automatic metric collection (no manual setup)
+- ✅ Deferred loading (zero LCP/FCP impact)
+- ✅ Graceful error handling
+- ✅ Real-time data to Pirsch
+- ✅ 19 tests covering integration
+
+**For details**: See `PIRSCH-WEBVITALS-INTEGRATION.md`
+
+---
+
+## �💡 Key Implementation Details
 
 ### Resource Hints Pattern
 
