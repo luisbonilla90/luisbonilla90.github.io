@@ -42,8 +42,8 @@ const pageURL = canonicalURL || new URL(Astro.url.pathname, siteURL).toString();
 const imageURL = new URL(image, siteURL).toString();
 
 // Default alternate URLs if not provided
-const enURL = alternateURLs.en || new URL(Astro.url.pathname.replace(/^\/es/, ''), siteURL).toString();
-const esURL = alternateURLs.es || new URL('/es' + Astro.url.pathname.replace(/^\/es/, ''), siteURL).toString();
+const enURL = alternateURLs.en || new URL(Astro.url.pathname.replace(/^\/es(\/|$)/, ''), siteURL).toString();
+const esURL = alternateURLs.es || new URL('/es' + Astro.url.pathname.replace(/^\/es(\/|$)/, ''), siteURL).toString();
 
 // Ensure title is not too long for meta tags
 const truncatedTitle = title.length > 60 ? title.substring(0, 57) + '...' : title;

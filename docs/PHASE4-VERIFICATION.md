@@ -21,14 +21,16 @@ npm run build
 
 ### Pages Generated
 
-#### English Pages (7 total)
+#### English Pages (9 total)
 1. `/index.html` - Homepage
 2. `/about/index.html` - About page
 3. `/portfolio/index.html` - Portfolio page
 4. `/contact/index.html` - Contact page
 5. `/blog/index.html` - Blog listing
-6. `/blog/[slug]/index.html` - Blog posts (×3)
-7. `/test/index.html` - Test page
+6. `/blog/modern-javascript-clean-code/index.html` - Blog post 1
+7. `/blog/building-accessible-web-applications/index.html` - Blog post 2
+8. `/blog/getting-started-with-astro/index.html` - Blog post 3
+9. `/test/index.html` - Test page
 
 #### Spanish Pages (4 total)
 1. `/es/index.html` - Página principal
@@ -254,7 +256,7 @@ All pages successfully use shared components:
 ## Issue Requirements Met ✅
 
 ### Original Requirements
-From issue #[number] - "Astro Migration Fase 4: Finalización y Ajustes"
+From issue #32 - "Astro Migration Fase 4: Finalización y Ajustes"
 
 #### ✅ Tareas Completadas
 
